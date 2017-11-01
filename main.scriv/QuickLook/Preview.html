@@ -1,0 +1,539 @@
+<html>
+
+<head>
+<title>main</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+	body {background-color: #bac0c7}
+    p.binderItem {margin: 10.0px 0.0px 0.0px 05.0px; font-family:DejaVu Sans Mono, Cochin, Times, Courier, Arial, serif; font-size:14.0px;}
+    .page {border: 1px solid #727272; background: #fff}
+    hr {
+      border-top: 1px dashed #000;
+      border-bottom: 0px solid #fff;
+      color: #fff;
+      background-color: #fff;
+      height: 0px;
+  </style>
+</head>
+
+<body>
+
+<table border="0" width="100%" cellspacing="3">
+<tr>
+<td>
+
+<table class="page" width="100%" cellspacing="10" cellpadding="2">
+<tr>
+<td valign="top">
+
+<ul>
+<li>
+<p class="binderItem"><strong>Readme</strong></p>
+</li>
+<hr/>
+<ul>
+<li>
+<p class="binderItem"><strong>Recommended preference about Scrivener</strong><br/>Formatting<br/>
+<br/>
+Corrections<br/>
+<br/>
+Backup<br/>
+</p>
+</li>
+<li>
+<p class="binderItem"><strong>How to compile</strong><br/>Compile format:<br/>
+<br/>
+Formatting:<br/>
+<br/>
+Replacements: (now you can use latex command in <<>> pair)<br/>
+<br/>
+Latex Options:<br/>
+<br/>
+<br/>
+Open the inspector(), there are several important configurations.<br/>
+1. : This text will be include in the final .tex only if this is checked<br/>
+2. : if checked, the text will NOT generate a '/section{}', '/subsection{}' or '/subsubsection{}' according to its level.<br/>
+<br/>
+1. text inside <!-- --> comment pair will be directly inserted into the output .tex file<br/>
+2. because we have set the "Replacements" ...</p>
+</li>
+</ul>
+<hr/>
+<li>
+<p class="binderItem"><strong>SimpleOneColumn</strong></p>
+</li>
+<hr/>
+<ul>
+<li>
+<p class="binderItem"><strong>Meta-Data</strong><br/>latex input: ../_demoResources/configs/<$Compilegroup>/config-header<br/>
+latex input: ../_demoResources/configs/<$Compilegroup>/config-newCommands<br/>
+latex input: ../_demoResources/configs/<$Compilegroup>/cover<br/>
+Base Header Level: 1<br/>
+latex footer: ../_demoResources/configs/<$Compilegroup>/footer<br/>
+<br/>
+<<<br/>
+%  Comments:<br/>
+%  * Choose which bibliography file to include in the  ../configs/SimpleOneColumn/footer.tex<br/>
+%  Mind the path in all the included .tex file<br/>
+>></p>
+</li>
+<li>
+<p class="binderItem"><strong>Article(Readme inside)</strong><br/><<%Make sure that <br/>
+ %* You select the parent folder (“SimpleOneColumn” in this example) as the Compile Group<br/>
+ %* The “Treat compile group as entire draft” options is checked<br/>
+ %* the “Article” is included<br/>
+%<br/>
+% Make a folder that have the same name as your .tex file (if the folder does not exists, you need do this only once)<br/>
+% Because we want to make the root folder clean (as latex will generate lots of temp file when compile)<br/>
+%<br/>
+% Click Replace here, and finish export<br/>
+%<br/>
+>></p>
+</li>
+<hr/>
+<ul>
+<li>
+<p class="binderItem"><strong>Introduction [sec:intro]</strong></p>
+</li>
+<hr/>
+<ul>
+<li>
+<p class="binderItem"><strong>Test for cite and enumerate and term [sec:cite]</strong><br/>Test for cite and enumerate <<%some comments>><br/>
+<br/>
+<<% Some comments>><br/>
+<<<br/>
+% Without ";", citep<br/>
+% With ";", citet<br/>
+>><br/>
+Example:<br/>
+<br/>
+ [#Kormendy&Ho2013ARA&A, Koss2012ApJ]<br/>
+ [#Kormendy&Ho2013ARA&A, Koss2012ApJ][]<br/>
+ [foo][#Kormendy&Ho2013ARA&A, Koss2012ApJ]<br/>
+ [foo\]\[bar][#Kormendy&Ho2013ARA&A, Koss2012ApJ]<br/>
+<br/>
+ [#Kormendy&Ho2013ARA&A, Koss2012ApJ;]<br/>
+ [#Kormendy&Ho2013ARA&A, Koss2012ApJ;][]<br/>
+ [foo][#Kormendy&Ho2013ARA&A, Koss2012ApJ;]<br/>
+ [foo\]\[bar][#Kormendy&Ho2013ARA&A, Koss2012ApJ;]<br/>
+  <br/>
+Term:<br/>
+<br/>
+* [#Kormendy&Ho2013A...</p>
+</li>
+<li>
+<p class="binderItem"><strong>Test for quote [sec:quote]</strong><br/>Test for quote:<br/>
+<br/>
+> Level 1<br/>
+Lazy type in for level 1<br/>
+<br/>
+> Level 1, must have a empty line for new line, <br/>
+> Level 1 (failed new line)<br/>
+> > Level 2<br/>
+Lazy type in for level 2, must have a empty type for lazy type<br/>
+<br/>
+> > Level 2<br/>
+<br/>
+> > Level 2 (successful new line)<br/>
+> > > Level 3<br/>
+Lazy type in for level 3,<br/>
+  Not lazy type in for level 3</p>
+</li>
+</ul>
+<hr/>
+<li>
+<p class="binderItem"><strong>Other test [set:other]</strong></p>
+</li>
+<hr/>
+<ul>
+<li>
+<p class="binderItem"><strong>test for rules</strong><br/>Test for rules:<br/>
+<br/>
+Some<br/>
+<br/>
+* * *<br/>
+Thing<br/>
+<br/>
+***<br/>
+Between<br/>
+<br/>
+*****<br/>
+different <br/>
+<br/>
+- - - <br/>
+rules<br/>
+<br/>
+----------------------<br/>
+En...</p>
+</li>
+<li>
+<p class="binderItem"><strong>test for Links</strong><br/>This is [an example](http://example.com/ "Title") inline link.<br/>
+<br/>
+[This link](http://example.net/) has no title attribute.<br/>
+<br/>
+Also we can add a foot note[^footnote]<br/>
+<br/>
+Or like [this][id]<br/>
+<br/>
+Or like [id][]<br/>
+<br/>
+I get 10 times more traffic from [Google][] than from<br/>
+[Yahoo][] or [MSN][].<br/>
+<br/>
+<br/>
+[^footnote]: http://example.net/<br/>
+<br/>
+[id]: http://example.com "Optional Title Here"<br/>
+<br/>
+[google]: http://google.com/        "Google"<br/>
+<br/>
+[yahoo]:  http://search.yahoo.com/  "Yahoo Search"<br/>
+<br/>
+[msn]:    http://search.msn.com/    "MSN Sea...</p>
+</li>
+<li>
+<p class="binderItem"><strong>test for emphasis</strong><br/>*single asterisks*<br/>
+<br/>
+_single underscores_<br/>
+<br/>
+**double asterisks**<br/>
+<br/>
+__double underscores__<br/>
+<br/>
+\*this text is surrounded by literal asterisks\*</p>
+</li>
+<li>
+<p class="binderItem"><strong>test for code</strong><br/>Use the `printf()` function.<br/>
+<br/>
+``There is a literal backtick (`) here.``<br/>
+<br/>
+A single backtick in a code span: `` ` ``<br/>
+<br/>
+A backtick-delimited string in a code span: `` `foo` ``<br/>
+<br/>
+Please don't use any `<blink>` tags.<br/>
+<br/>
+`&#8212;` is the decimal-encoded equivalent of `&mdash;`.</p>
+</li>
+<li>
+<p class="binderItem"><strong>test for equation</strong><br/>Some equations: [eq:0](#eq:0)<br/>
+<br/>
+$${x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a} \label{eq:0}$$ <<%equation with no equation number>><br/>
+<br/>
+\\[{x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a} \label{eq:5} \\] <<%equation with equation number>><br/>
+<br/>
+Inline: \\({x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a}\\)  , blabla<br/>
+<br/>
+Inline: ${x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a}\label{eq:3}$  , blabla<br/>
+<br/>
+[eq:1](#eq:5) [eq3 inline](#eq:3)<br/>
+<<>> <<% This figure will not include in the final test>><br/>
+<<% Any thing in the co...</p>
+</li>
+<li>
+<p class="binderItem"><strong>test for table</strong><br/>MultiMarkdown table [here](#table:multimarkdown): <br/>
+<br/>
+|             |  Grouping     |              |<br/>
+First Header  | Second Header | Third Header |<br/>
+ ------------ | :-----------: | -----------: |<br/>
+Content       |  *Long Cell*  |              |<br/>
+Content       |   **Cell**    |         Cell |<br/>
+<br/>
+New section   |     More      |         Data |<br/>
+And more      |    And more   |              |<br/>
+[Very very very very very very very very very long caption][table:multimarkdown]</p>
+</li>
+<hr/>
+<ul>
+<li>
+<p class="binderItem"><strong>Large table</strong><br/>Large Table:[large](#table:large)<br/>
+<br/>
+<!--<br/>
+\begin{table*}<br/>
+\caption{Photometric Parameters}<br/>
+\begin{center}<br/>
+\begin{tabular}{c c c c c c c c c}<br/>
+  \hline<br/>
+  \hline<br/>
+  Target name     & Aperture & $m_Y$           & $m_U$           & $M_z$  & $M_u$  & $u-z$          & $M_*$ & B/T  \\ <br/>
+      (1)         &    (2)   &  (3)            &  (4)            &   (5)  &   (6)  &  (7)           &  (8)  & (9)  \\ \hline<br/>
+SDSS J1108+0659   & $18''$   & 16.24$\pm 0.05$ & 18.48$\pm 0.26$ & -23.12 & -21.37 & 1.76$\pm 0.26$ ...</p>
+</li>
+</ul>
+</ul>
+<hr/>
+<li>
+<p class="binderItem"><strong>Test for figs</strong><br/><!--<br/>
+%Use <br/>
+% ![caption][label]<br/>
+% And later<br/>
+% [label]: $PATH width="0.30\textwidth" height="0.25\textheight"<br/>
+<br/>
+--><br/>
+<br/>
+Include some figure:<br/>
+<br/>
+Image one (image with given size, 200x400): [image fixed](#image:small)<br/>
+<br/>
+![Fig with give size, 200x400][image:fixed]<br/>
+<br/>
+Image two (image direct): [image direct, no way to ref it](#image:direct)<br/>
+<br/>
+![Direct figure title](../_demoResources/figs/<$Compilegroup>/comp_dr7.pdf "Optional title attribute")<br/>
+<br/>
+Image three (image: normal): [](#image:normal)<br/>
+<br/>
+![Here we have our ...</p>
+</li>
+<hr/>
+<ul>
+<li>
+<p class="binderItem"><strong>Long fig</strong><br/><!--<br/>
+\begin{figure*}[!htpb]<br/>
+\begin{center}<br/>
+\includegraphics[width=0.95\textwidth]{../_demoResources/figs/<$Compilegroup>/IR_galfit.pdf}<br/>
+\caption{<br/>
+Model fits of the \hst\ $Y$-band images of the four sources. <br/>
+{\it Left column} is the $Y$-band image of each target. <br/>
+The white dashed circles demonstrate the coverage of SDSS fibers ($3''$ in diameter). <br/>
+The compass of each image is shown in the lower right corner. <br/>
+{\it Middle column} is \galfit\ best fit of each target. <br/>
+The scale bar is shown in t...</p>
+</li>
+</ul>
+</ul>
+</ul>
+<hr/>
+<li>
+<p class="binderItem"><strong>AASTeX6.1</strong></p>
+</li>
+<hr/>
+<ul>
+<li>
+<p class="binderItem"><strong>Meta-Data</strong><br/>latex input: ../_demoResources/configs/<$Compilegroup>/config-newCommands<br/>
+latex input: ../_demoResources/configs/<$Compilegroup>/config-header<br/>
+Base Header Level: 1<br/>
+latex footer: ../_demoResources/configs/<$Compilegroup>/footer<br/>
+<br/>
+<<<br/>
+%  Comments:<br/>
+%  * Choose which bibliography file to include in the  ../configs/SimpleOneColumn/footer.tex<br/>
+%  Mind the path in all the included .tex file<br/>
+>></p>
+</li>
+<li>
+<p class="binderItem"><strong>Article(Readme inside)</strong><br/><<%Make sure that <br/>
+ %* You select the parent folder (“AASTeX6.1” in this example) as the Compile Group<br/>
+ %* The “Treat compile group as entire draft” options is checked<br/>
+ %* the “Article” is included<br/>
+  %* the “Abstract and keywords” has "As-is" checked<br/>
+%<br/>
+% Make a folder that have the same name as your .tex file (if the folder does not exists, you need do this only once)<br/>
+% Because we want to make the root folder clean (as latex will generate lots of temp file when compile)<br/>
+% <br/>
+% Click Replace here, ...</p>
+</li>
+<hr/>
+<ul>
+<li>
+<p class="binderItem"><strong>Abstract and keywords</strong><br/><!--<br/>
+<br/>
+\begin{abstract} <br/>
+<br/>
+This example manuscript is intended to serve as a tutorial and template for authors to use when writing their own AAS Journal articles. The manuscript includes a history of \aastex\  and documents the new features in the previous version, 6.0, as well as the new features in version 6.1. This manuscript includes many figure and table examples to illustrate these new features.  Information on features not explicitly mentioned in the article can be viewed in the manuscript ...</p>
+</li>
+<li>
+<p class="binderItem"><strong>Introduction [sec:intro]</strong><br/><<\latex\ >>[^latex] is a document markup language that is particularly well suited for the publication of mathematical and scientific articles [#lamport94].<br/>
+<<\latex\ >> was written in 1985 by Leslie Lamport who based it on the <<\TeX\ >> typesetting language which itself was created by Donald E. Knuth in 1978.<br/>
+In 1988 a suite of <<\latex\ >> macros were developed to investigate electronic submission and publication of AAS Journal articles [#1989BAAS...21..780H].<br/>
+Shortly afterwards, Chris Bieme...</p>
+</li>
+<li>
+<p class="binderItem"><strong>Manuscript styles [sec:style]</strong><br/>The default style in <<\aastex\ >> v6.1 is a tight single column style, e.g. 10 point font, single spaced.  <br/>
+The single column style is very useful for article with wide equations. It is also the easiest to style to work with since figures and tables, see Section [](#sec:floats), will span the entire page, reducing the need for address float sizing.<br/>
+<br/>
+To invoke a two column style similar to the what is produced in<br/>
+the published PDF copy use <<\\>><br/>
+<br/>
+<<\noindent {\tt\string\documentclass[twocolumn]...</p>
+</li>
+<li>
+<p class="binderItem"><strong>Floats [sec:floats]</strong><br/>Floats are non-text items that generally can not be split over a page.<br/>
+They also have captions and can be numbered for reference.<br/>
+Primarily these are figures and tables but authors can define their own.<br/>
+<<\latex\ >> tries to place a float where indicated in the manuscript but will move it later if there is not enough room at that location, hence the term ``float''.<br/>
+<br/>
+Authors are encouraged to embed their tables and figures within the text as they are mentioned.<br/>
+Please do not place the figures and...</p>
+</li>
+<hr/>
+<ul>
+<li>
+<p class="binderItem"><strong>Tables [subsec:tables]</strong><br/>Tables can be constructed with <<\latex>>'s standard table environment or the <<\aastex>>'s deluxetable environment.<br/>
+The deluxetable construct handles long tables better but has a larger overhead due to the greater amount of defined mark up used set up and manipulate the table structure.<br/>
+The choice of which to use is up to the author.  Examples of both environments are used in this manuscript. [](#tab:table) is a simple deluxetable example that gives the approximate changes in the subscription c...</p>
+</li>
+<hr/>
+<ul>
+<li>
+<p class="binderItem"><strong>Column math mode</strong><br/>Both the <<\latex\ >> tabular and <<\aastex\ >> deluxetable require an argument to define the alignment and number of columns.  The most common values are <<``c'', ``l'' and ``r'' for \underline{c}enter, \underline{l}eft, and \underline{r}ight justification.>> <br/>
+If these values are capitalized, e.g.<br/>
+<<``C'', ``L'', or ``R''>>, then that specific column will automatically be in math mode meaning that \$s are not required.<br/>
+Note that having embedded dollar signs in the table does not affect the outp...</p>
+</li>
+<li>
+<p class="binderItem"><strong>Decimal alignment</strong><br/>Aligning a column by the decimal point can be difficult with only center, left, and right justification options.<br/>
+It is possible to use phantom calls in the data, e.g. <<{\tt\string\phn}>>, to align columns by hand but this can be tedious in long or complex tables.<br/>
+To address this <<\aastex\ >> introduces the <<{\tt\string\decimals}>> command and a new column justification option, <<``D''>>, to align data in that column on the decimal.<br/>
+In deluxetable the <<{\tt\string\decimals}>> command is invok...</p>
+</li>
+<li>
+<p class="binderItem"><strong>Automatic column header numbering [subsubsec:autonumber]</strong><br/>The command <<{\tt\string\colnumbers}>> can be included to automatically number each column as the last row in the header. Per the AAS Journal table format standards, each column index numbers will be surrounded by parentheses.<br/>
+In a <<\latex\>> tabular environment the <<{\tt\string\colnumbers}>> should be invoked at the location where the author wants the numbers to appear, e.g. after the last line of specified table header rows.<br/>
+In deluxetable this command has to come before <<{\tt\string\start...</p>
+</li>
+<li>
+<p class="binderItem"><strong>Hiding columns [subsubsec:hide]</strong><br/>Entire columns can be <<\underline{h}idden>> from display simply by changing the specified column identifier to <<``h''>>.<br/>
+In the <<\latex\ >> tabular environment this column identifier conceals the entire column including the header columns.<br/>
+In <<\aastex's>> deluxetables the header row is specifically declared with the <<{\tt\string\tablehead} call and each header column is marked with {\tt\string\colhead} call.>><br/>
+In order to make a specific header disappear with the ``h'' column identifier in ...</p>
+</li>
+<li>
+<p class="binderItem"><strong>Splitting a table into multiple horizontal components</strong><br/>Since the AAS Journals are now all electronic with no print version there is no reason why tables can not be as wide as authors need them to be. <br/>
+However, there are some artificial limitations based on the width of a print page.<br/>
+The old way around this limitation was to rotate into landscape mode and use the smallest available table font sizes, e.g. <<{\tt\string\tablewidth}>>, to get the table to fit.<br/>
+Unfortunately, this was not alway enough but now along with the hide column option outlined in...</p>
+</li>
+</ul>
+<hr/>
+<li>
+<p class="binderItem"><strong>Figures [subsec:figures]</strong><br/><!--<br/>
+%% The "ht!" tells LaTeX to put the figure "here" first, at the "top" next<br/>
+%% and to override the normal way of calculating a float position<br/>
+\begin{figure}[ht!]<br/>
+\plotone{../_demoResources/figs/<$Compilegroup>/cost.eps}<br/>
+\caption{The subscription and author publication costs from 1991 to 2013.<br/>
+The data comes from Table \ref{tab:table}.\label{fig:general}}<br/>
+\end{figure}<br/>
+--><br/>
+<br/>
+Authors can include a wide number of different graphics with their articles in  encapsulated postscript (EPS) or portable...</p>
+</li>
+<li>
+<p class="binderItem"><strong>General figures [subsec:general]</strong><br/><<\aastex\ has a {\tt\string\plotone}>> command to display a figure consisting of one EPS/PDF file.<br/>
+[](#fig:general) is an example which uses the data from [](#tab:table).<br/>
+For a general figure consisting of two EPS/PDF files the <<{\tt\string\plottwo}>> command can be used to position the two image files side by side.<br/>
+[](#fig:f2) shows the Swift/XRT X-ray light curves of two recurrent novae.<br/>
+The data from [](#fig:f2) through [](#fig:fig4) are taken from Table 2 of [#2011ApJS..197...31S;]. <br/>
+<br/>
+<!--...</p>
+</li>
+<li>
+<p class="binderItem"><strong>Grid figures</strong><br/>Including more than two EPS/PDF files in a single figure call can be tricky easily format.<br/>
+To make the process easier for authors <<\aastex\ v6 offers {\tt\string\gridline}>> which allows any number of individual EPS/PDF file calls within a single figure.<br/>
+Each file cited in a <<{\tt\string\gridline}>> will be displayed in a row.<br/>
+By adding more <<{\tt\string\gridline}>> calls an author can easily construct a matrix X by Y individual files as a single general figure.<br/>
+<br/>
+For each <<{\tt\string\gridli...</p>
+</li>
+<li>
+<p class="binderItem"><strong>Figure sets</strong><br/>A large collection of similar style figures should be grouped together as a figure set.  The derived PDF article will only shows an example figure while the enhanced content is available in the figure set in the electronic edition.  The advantage of a figure set gives the reader the ability to easily sort through the figure collection to find individual component figures.  All of the figure set components, along with their html framework, are also available for download in a .tar.gz package.<br/>
+<br/>
+Sp...</p>
+</li>
+<li>
+<p class="binderItem"><strong>Animations</strong><br/>Authors may include animations in their articles.<br/>
+A single still frame from  the animation should be included as a regular figure to serve as an example. <br/>
+The associated figure caption should indicate to the reader exactly what the animation shows and that the animation is available online.<br/>
+<br/>
+<!--<br/>
+\begin{figure}<br/>
+\plotone{../_demoResources/figs/<$Compilegroup>/video3.eps}<br/>
+\caption{Example image from the animation which is available in the electronic edition.}<br/>
+\end{figure}<br/>
+--></p>
+</li>
+<li>
+<p class="binderItem"><strong>Interactive figures</strong><br/>Interactive figures give the reader the ability to manipulate the information contained in an image which can add clarity or help further the author's narrative.  These figures consist of two parts, the figure file in a specific format and a javascript and html frame work that provides the interactive control.  An example of an interactive figure is a 3D model.<br/>
+The underlying figure is a X3D file while x3dom.js is the javascript driver that displays it. An author created interface is added via a...</p>
+</li>
+</ul>
+<hr/>
+<li>
+<p class="binderItem"><strong>Displaying mathematics [sec:displaymath]</strong><br/>The most common mathematical symbols and formulas are in the amsmath package.<br/>
+<<\aastex\ >> requires this package so there is no need to specifically call for it in the document preamble.<br/>
+Most modern <<\latex\ >> distributions already contain this package.  If you do not have this package or the other required packages, revtex4-1, latexsym, graphicx, amssymb, longtable, and epsf, they can be obtained from [http://www.ctan.org](http://www.ctan.org)<br/>
+<br/>
+Mathematics can be displayed either within the ...</p>
+</li>
+<li>
+<p class="binderItem"><strong>Revision tracking and color highlighting [sec:highlight]</strong><br/>Authors sometimes use color to highlight changes to their manuscript in response to editor and referee comments.<br/>
+In <<\aastex\ >> new commands have been introduced to make this easier and formalize the process. <br/>
+<br/>
+The first method is through a new set of editing mark up commands that specifically identify what has been changed.<br/>
+<!--These commands are {\tt\string\added\{<text>\}}, {\tt\string\deleted\{<text>\}}, and {\tt\string\replaced\{<old text>\}\{<replaced text>\}}.<br/>
+To activate these commands...</p>
+</li>
+<li>
+<p class="binderItem"><strong>Software and third party data repository citations [sec:cite]</strong><br/>The AAS Journals would like to encourage authors to change software and third party data repository references from the current standard of a footnote to a first class citation in the bibliography.  As a bibliographic citation these important references will be more easily captured and credit will be given to the appropriate people.<br/>
+<br/>
+The first step to making this happen is to have the data or software in a long term repository that has made these items available via a persistent identifier like ...</p>
+</li>
+<li>
+<p class="binderItem"><strong>acknowledgments [AsIs]</strong><br/><!--<br/>
+%% If you wish to include an acknowledgments section in your paper,<br/>
+%% separate it off from the body of the text using the \acknowledgments<br/>
+%% command.<br/>
+\acknowledgments<br/>
+--><br/>
+<br/>
+We thank all the people that have made this AASTeX what it is today.<br/>
+This includes but not limited to Bob Hanisch, Chris Biemesderfer, Lee Brotzman, Pierre Landau, Arthur Ogawa, Maxim Markevitch, Alexey Vikhlinin and Amy Hendrickson.<br/>
+Also special thanks to David Hogg and Daniel Foreman-Mackey for the new "modern" style ...</p>
+</li>
+<li>
+<p class="binderItem"><strong>Appendix</strong><br/><<\appendix>></p>
+</li>
+<li>
+<p class="binderItem"><strong>Appendix information</strong><br/>Appendices can be broken into separate sections just like in the main text.<br/>
+The only difference is that each appendix section is indexed by a letter (A, B, C, etc.) instead of a number.<br/>
+Likewise numbered equations have the section letter appended.  Here is an equation as an example.<br/>
+<br/>
+<!--<br/>
+\begin{equation}<br/>
+I = \frac{1}{1 + d_{1}^{P (1 + d_{2} )}}<br/>
+\end{equation}<br/>
+--><br/>
+<br/>
+Appendix tables and figures should not be numbered like equations. Instead they should continue the sequence from the main article b...</p>
+</li>
+<li>
+<p class="binderItem"><strong>Author publication charges [sec:pubcharge]</strong><br/>Finally some information about the AAS Journal's publication charges.<br/>
+In April 2011 the traditional way of calculating author charges based on the number of printed pages was changed.<br/>
+The reason for the change was due to a recognition of the growing number of article items that could not  be represented in print.<br/>
+Now author charges are determined by a number of digital ``quanta''.<br/>
+A single quantum is 350 words, one figure, one table, and one enhanced digital item.<br/>
+For the latter this includes ma...</p>
+</li>
+<li>
+<p class="binderItem"><strong>Rotating tables [sec:rotate]</strong><br/>The process of rotating tables into landscape mode is slightly different in <<\aastex\ >> v6.1.<br/>
+Instead of the <<{\tt\string\rotate}>> command, a new environment has been created to handle this task. To place a single page table in a landscape mode start the table portion with <<{\tt\string\begin\{rotatetable\}} and end with {\tt\string\end\{rotatetable\}}>>.<br/>
+<br/>
+Tables that exceed a print page take a slightly different environment since both rotation and long table printing are required. In these ...</p>
+</li>
+</ul>
+</ul>
+</ul>
+
+</td>
+<td width="8">
+</td>
+</tr>
+</table>
+
+</td>
+</tr>
+</table>
+
+</body>
+</html>

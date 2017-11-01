@@ -1,0 +1,159 @@
+%% Reintroduced the \received and \accepted commands from AASTeX v5.2
+
+%% \documentclass{aastex61}
+%% \documentclass[twocolumn,linenumbers,trackchanges]{aastex61}
+
+\documentclass[twocolumn, trackchanges]{../_demoResources/configs/AASTex6.1/aastex61}
+\renewcommand\equationautorefname{Eq. }
+\renewcommand\subsubsectionautorefname{Section}
+\renewcommand\subsectionautorefname{Section}
+\renewcommand\sectionautorefname{Section}
+
+\received{July 1, 2016}
+\revised{September 27, 2016}
+\accepted{\today}
+%% Command to document which AAS Journal the manuscript was submitted to.
+%% Adds "Submitted to " the arguement.
+\submitjournal{ApJ}
+
+%% Mark up commands to limit the number of authors on the front page.
+%% Note that in AASTeX v6.1 a \collaboration call (see below) counts as
+%% an author in this case.
+%
+%\AuthorCollaborationLimit=3
+%
+%% Will only show Schwarz, Muench and "the AAS Journals Data Scientist 
+%% collaboration" on the front page of this example manuscript.
+%%
+%% Note that all of the author will be shown in the published article.
+%% This feature is meant to be used prior to acceptance to make the
+%% front end of a long author article more manageable. Please do not use
+%% this functionality for manuscripts with less than 20 authors. Conversely,
+%% please do use this when the number of authors exceeds 40.
+%%
+%% Use \allauthors at the manuscript end to show the full author list.
+%% This command should only be used with \AuthorCollaborationLimit is used.
+
+%% The following command can be used to set the latex table counters.  It
+%% is needed in this document because it uses a mix of latex tabular and
+%% AASTeX deluxetables.  In general it should not be needed.
+%\setcounter{table}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% The following section outlines numerous optional output that
+%% can be displayed in the front matter or as running meta-data.
+%%
+%% If you wish, you may supply running head information, although
+%% this information may be modified by the editorial offices.
+\shorttitle{\aastex\ sample article}
+\shortauthors{Schwarz et al.}
+%%
+%% You can add a light gray and diagonal water-mark to the first page 
+%% with this command:
+% \watermark{text}
+%% where "text", e.g. DRAFT, is the text to appear.  If the text is 
+%% long you can control the water-mark size with:
+%  \setwatermarkfontsize{dimension}
+%% where dimension is any recognized LaTeX dimension, e.g. pt, in, etc.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This is the end of the preamble.  Indicate the beginning of the
+%% manuscript itself with \begin{document}.
+
+\begin{document}
+	
+	\title{An Example Article using \aastex v6.1\footnote{This version fixes many bugs from v6.0 and introduces some new features, primarily in the way the author and affiliations are now marked up.}}
+	
+	%% LaTeX will automatically break titles if they run longer than
+	%% one line. However, you may use \\ to force a line break if
+	%% you desire. In v6.1 you can include a footnote in the title.
+	
+	%% A significant change from earlier AASTEX versions is in the structure for 
+	%% calling author and affilations. The change was necessary to implement 
+	%% autoindexing of affilations which prior was a manual process that could 
+	%% easily be tedious in large author manuscripts.
+	%%
+	%% The \author command is the same as before except it now takes an optional
+	%% arguement which is the 16 digit ORCID. The syntax is:
+	%% \author[xxxx-xxxx-xxxx-xxxx]{Author Name}
+	%%
+	%% This will hyperlink the author name to the author's ORCID page. Note that
+	%% during compilation, LaTeX will do some limited checking of the format of
+	%% the ID to make sure it is valid.
+	%%
+	%% Use \affiliation for affiliation information. The old \affil is now aliased
+	%% to \affiliation. AASTeX v6.1 will automatically index these in the header.
+	%% When a duplicate is found its index will be the same as its previous entry.
+	%%
+	%% Note that \altaffilmark and \altaffiltext have been removed and thus 
+	%% can not be used to document secondary affiliations. If they are used latex
+	%% will issue a specific error message and quit. Please use multiple 
+	%% \affiliation calls for to document more than one affiliation.
+	%%
+	%% The new \altaffiliation can be used to indicate some secondary information
+	%% such as fellowships. This command produces a non-numeric footnote that is
+	%% set away from the numeric \affiliation footnotes.  NOTE that if an
+	%% \altaffiliation command is used it must come BEFORE the \affiliation call,
+	%% right after the \author command, in order to place the footnotes in
+	%% the proper location.
+	%%
+	%% Use \email to set provide email addresses. Each \email will appear on its
+	%% own line so you can put multiple email address in one \email call. A new
+	%% \correspondingauthor command is available in V6.1 to identify the
+	%% corresponding author of the manuscript. It is the author's responsibility
+	%% to make sure this name is also in the author list.
+	%%
+	%% While authors can be grouped inside the same \author and \affiliation
+	%% commands it is better to have a single author for each. This allows for
+	%% one to exploit all the new benefits and should make book-keeping easier.
+	%%
+	%% If done correctly the peer review system will be able to
+	%% automatically put the author and affiliation information from the manuscript
+	%% and save the corresponding author the trouble of entering it by hand.
+	
+	\correspondingauthor{August Muench}
+	\email{greg.schwarz@aas.org, gus.muench@aas.org}
+	
+	\author[0000-0002-0786-7307]{Greg J. Schwarz}
+	\affil{American Astronomical Society \\
+		2000 Florida Ave., NW, Suite 300 \\
+		Washington, DC 20009-1231, USA}
+	
+	\author{August Muench}
+	\affiliation{American Astronomical Society \\
+		2000 Florida Ave., NW, Suite 300 \\
+		Washington, DC 20009-1231, USA}
+	\collaboration{(AAS Journals Data Scientists collaboration)}
+	
+	\author{Butler Burton}
+	\affiliation{National Radio Astronomy Observatory}
+	\affiliation{AAS Journals Associate Editor-in-Chief}
+	\nocollaboration
+	
+	\author{Amy Hendrickson}
+	\altaffiliation{Creator of AASTeX v6.1}
+	\affiliation{TeXnology Inc.}
+	\collaboration{(LaTeX collaboration)}
+	
+	\author{Julie Steffen}
+	\affiliation{AAS Director of Publishing}
+	\affiliation{American Astronomical Society \\
+		2000 Florida Ave., NW, Suite 300 \\
+		Washington, DC 20009-1231, USA}
+	
+	\author{Jeff Lewandowski}
+	\affiliation{IOP Senior Publisher for the AAS Journals}
+	\affiliation{IOP Publishing, Washington, DC 20005}
+	
+	%% Note that the \and command from previous versions of AASTeX is now
+	%% depreciated in this version as it is no longer necessary. AASTeX 
+	%% automatically takes care of all commas and "and"s between authors names.
+	
+	%% AASTeX 6.1 has the new \collaboration and \nocollaboration commands to
+	%% provide the collaboration status of a group of authors. These commands 
+	%% can be used either before or after the list of corresponding authors. The
+	%% argument for \collaboration is the collaboration identifier. Authors are
+	%% encouraged to surround collaboration identifiers with ()s. The 
+	%% \nocollaboration command takes no argument and exists to indicate that
+	%% the nearby authors are not part of surrounding collaborations.

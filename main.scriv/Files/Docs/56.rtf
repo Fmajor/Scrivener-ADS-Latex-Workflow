@@ -1,0 +1,53 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fnil\fcharset0 DejaVuSansMono;\f1\fmodern\fcharset0 Courier;\f2\fnil\fcharset0 DejaVuSansMonoForPowerline;
+}
+{\colortbl;\red255\green255\blue255;\red230\green255\blue79;}
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\sl288\slmult1\pardirnatural
+
+\f0\fs28 \cf0 Including more than two EPS/PDF files in a single figure call can be tricky easily format.\
+To make the process easier for authors <<\\aastex\\ v6 offers \{\\tt\\string\\gridline\}>> which allows any number of individual EPS/PDF file calls within a single figure.\
+Each file cited in a <<\{\\tt\\string\\gridline\}>> will be displayed in a row.\
+By adding more <<\{\\tt\\string\\gridline\}>> calls an author can easily construct a matrix X by Y individual files as a single general figure.\
+\
+For each <<\{\\tt\\string\\gridline\}>> command a EPS/PDF file is called by one of four different commands.\
+These are <<\{\\tt\\string\\fig\}, \{\\tt\\string\\rightfig\}, \{\\tt\\string\\leftfig\}, and \{\\tt\\string\\boxedfig\}>>.\
+The first file call specifies no image position justification while the next two will right and left justify the image, respectively.\
+The <<\{\\tt\\string\\boxedfig\} is similar to \{\\tt\\string\\fig\}>> except that a box is drawn around the figure file when displayed.\
+Each of these commands takes three arguments.\
+The first is the file name.  The second is the width that file should be displayed at.\
+While any natural <<\\latex\\ >> unit is allowed, it is recommended that author use fractional units with the <<\{\\tt\\string\\textwidth\}>>.\
+The last argument is text for a subcaption.\
+\
+[](#fig:pyramid) shows an inverted pyramid of individual figure constructed with six individual EPS files using the <<\{\\tt\\string\\gridline\}>> option.\
+\
+<!--\
+\\begin\{figure*\}\
+\\gridline\{\\fig\{
+\f1 ../_demoResources/figs/
+\f2 <$Compilegroup>/
+\f0 V2491_Cyg.eps\}\{0.3\\textwidth\}\{(a)\}\
+          \\fig\{
+\f1 ../_demoResources/figs/
+\f2 <$Compilegroup>/
+\f0 CSS081007.eps\}\{0.3\\textwidth\}\{(b)\}\
+          \\fig\{
+\f1 ../_demoResources/figs/
+\f2 <$Compilegroup>/
+\f0 LMC_2009.eps\}\{0.3\\textwidth\}\{(c)\}\
+          \}\
+\\gridline\{\\fig\{
+\f1 ../_demoResources/figs/
+\f2 <$Compilegroup>/
+\f0 RS_Oph.eps\}\{0.3\\textwidth\}\{(d)\}\
+          \\fig\{
+\f1 ../_demoResources/figs/
+\f2 <$Compilegroup>/
+\f0 U_Sco.eps\}\{0.3\\textwidth\}\{(e)\}\
+          \}\
+\\gridline\{\\fig\{
+\f1 ../_demoResources/figs/
+\f2 <$Compilegroup>/
+\f0 KT_Eri.eps\}\{0.3\\textwidth\}\{(f)\}\}\
+\\\cb2 caption\cb1 \{Inverted pyramid figure of six individual files. The nova are (a) V2491 Cyg, (b) HV Cet, (c) LMC 2009, (d) RS Oph, (e) U Sco, and (f) KT Eri.\\label\{fig:pyramid\}\}\
+\\end\{figure*\}\
+-->}

@@ -1,0 +1,20 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fnil\fcharset0 DejaVuSansMono;}
+{\colortbl;\red255\green255\blue255;}
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\sl288\slmult1\pardirnatural
+
+\f0\fs28 \cf0 The AAS Journals would like to encourage authors to change software and third party data repository references from the current standard of a footnote to a first class citation in the bibliography.  As a bibliographic citation these important references will be more easily captured and credit will be given to the appropriate people.\
+\
+The first step to making this happen is to have the data or software in a long term repository that has made these items available via a persistent identifier like a Digital Object Identifier (DOI).  A list of repositories that satisfy this criteria plus each one's pros and cons are given at <<\\break>>\
+[https://github.com/AASJournals/Tutorials/tree/master/Repositories](https://github.com/AASJournals/Tutorials/tree/master/Repositories).\
+\
+<!--\
+In the bibliography the format for data or code follows this format: \\\\\
+\
+\\noindent author year, title, version, publisher, prefix:identifier\\\\\
+-->\
+\
+[#2015ApJ...805...23C;] provides a example of how the citation in the article references the external code at [http://dx.doi.org/10.5281/zenodo.15991](http://dx.doi.org/10.5281/zenodo.15991).  \
+Unfortunately, bibtex does not have specific bibtex entries for these types of references so the <<``@misc''>> type should be used.\
+The Repository tutorial explains how to code the <<``@misc''>> type correctly.\
+The most recent aasjournal.bst file, available with <<\\aastex\\ >> v6, will output bibtex <<``@misc''>> type properly.}

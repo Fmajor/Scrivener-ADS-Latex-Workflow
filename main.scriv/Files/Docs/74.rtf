@@ -1,0 +1,34 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fnil\fcharset0 DejaVuSansMono;}
+{\colortbl;\red255\green255\blue255;}
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\sl288\slmult1\pardirnatural
+
+\f0\fs28 \cf0 Authors sometimes use color to highlight changes to their manuscript in response to editor and referee comments.\
+In <<\\aastex\\ >> new commands have been introduced to make this easier and formalize the process. \
+\
+The first method is through a new set of editing mark up commands that specifically identify what has been changed.\
+<!--These commands are \{\\tt\\string\\added\\\{<text>\\\}\}, \{\\tt\\string\\deleted\\\{<text>\\\}\}, and \{\\tt\\string\\replaced\\\{<old text>\\\}\\\{<replaced text>\\\}\}.\
+To activate these commands the \{\\tt\\string trackchanges\} option must be used in the \{\\tt\\string\\documentclass\} call.\
+When compiled this will produce the marked text in red.\
+The \{\\tt\\string\\explain\\\{<text>\\\}\} can be used to add text to provide information to the reader describing the change.\
+Its output is purple italic font.\
+To see how \{\\tt\\string\\added\\\{<important added info>\\\}\}, \{\\tt\\string\\deleted\\\{<this can be deleted text>\\\}\}, \{\\tt\\string\\replaced\\\{<old data>\\\}\\\{<replaced data>\\\}\}, and \\break \{\\tt\\string\\explain\\\{<text explaining the change>\\\}\} commands will produce \\added\{important added information\}\\deleted\{, deleted text, and \} \\replaced\{old data\}\{and replaced data,\} toggle between versions compiled with and without the \{\\tt\\string trackchanges\} option.\\explain\{text explaining the change\}-->\
+\
+A summary list of all these tracking commands can be produced at the end of the article by adding the <<\{\\tt\\string\\listofchanges\} just before the \{\\tt\\string\\end\\\{document\\\}\} call>>.\
+The page number for each change will be provided.\
+If the <<\{\\tt\\string linenumbers\}>> option is also included in the documentcall call then not only will all the lines in the article be numbered for handy reference but the summary list will also include the line number for each change.\
+\
+The second method does not have the ability to highlight the specific nature of the changes but does allow the author to document changes over multiple revisions.\
+<!--The commands are \{\\tt\\string\\edit1\\\{<text>\\\}\}, \{\\tt\\string\\edit2\\\{<text>\\\}\} and \{\\tt\\string\\edit3\\\{<text>\\\}\} and they produce \{\\tt\\string<text>\} that is highlighted in bold red, italic blue and underlined purple, respectively.-->\
+Authors should use the first command to <<\\edit1\{indicated which text has been changed from the first revision.\}>>\
+The second command is to highlight <<\\edit2\{new or modified text from a second revision\}>>.\
+If a third revision is needed then the last command should be used <<\{\{\\edit3\{to show this changed text\}>>.  \
+Since over 90% of all manuscripts are accepted after the 3rd revision these commands make it easy to identify what text has been added and when.\
+Once the article is accepted all the highlight color can be turned off simply by adding the <<\{\\tt\\string\\turnoffediting\}>> command in the preamble.\
+<!--Likewise, the new commands \{\\tt\\string\\turnoffeditone\}, \{\\tt\\string\\turnoffedittwo\}, and \{\\tt\\string\\turnoffeditthree\} can be used to only turn off the \{\\tt\\string\\edit1\\\{<text>\\\}\}, \{\\tt\\string\\edit2\\\{<text>\\\}\} and \{\\tt\\string\\edit3\\\{<text>\\\}\}, respectively-->.\
+\
+<!--\
+Similar to marking editing changes with the \{\\tt\\string\\edit\} options there are also the \{\\tt\\string\\authorcomments1\\\{<text>\\\}\}, \{\\tt\\string\\authorcomments2\\\{<text>\\\}\} and \{\\tt\\string\\authorcomments3\\\{<text>\\\}\} commands.\
+These produce the same bold red, italic blue and underlined purple text but when the \{\\tt\\string\\turnoffediting\} command is present the \{\\tt\\string<text>\} material does not appear in the manuscript.\
+Authors can use these commands to mark up text that they are not sure should appear in the final manuscript or as a way to communicate comments between co-authors when writing the article.\
+-->}

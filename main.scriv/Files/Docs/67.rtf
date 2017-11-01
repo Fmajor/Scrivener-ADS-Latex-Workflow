@@ -1,0 +1,74 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fnil\fcharset0 DejaVuSansMono;}
+{\colortbl;\red255\green255\blue255;}
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\sl288\slmult1\pardirnatural
+
+\f0\fs28 \cf0 The most common mathematical symbols and formulas are in the amsmath package.\
+<<\\aastex\\ >> requires this package so there is no need to specifically call for it in the document preamble.\
+Most modern <<\\latex\\ >> distributions already contain this package.  If you do not have this package or the other required packages, revtex4-1, latexsym, graphicx, amssymb, longtable, and epsf, they can be obtained from [http://www.ctan.org](http://www.ctan.org)\
+\
+Mathematics can be displayed either within the text, e.g. $E = mc^2$, or separate from in an equation.  In order to be properly rendered, all inline math text has to be declared by surrounding the math by dollar signs (\\$).\
+\
+A complex equation example with inline math as part of the explanation follows.\
+\
+<!--\
+\\begin\{equation\}\
+\\bar v(p_2,\\sigma_2)P_\{-\\tau\}\\hat a_1\\hat a_2\\cdots\
+\\hat a_nu(p_1,\\sigma_1) ,\
+\\end\{equation\}\
+-->\
+where $p$ and $\\sigma$ label the initial $e^\{\\pm\}$ four-momenta and helicities $(\\sigma = \\pm 1)$, $\\hat a_i=a^\\mu_i\\gamma_\\nu$ and $P_\\tau=\\frac\{1\}\{2\}(1+\\tau\\gamma_5)$ is a chirality projection operator $(\\tau = \\pm1)$.\
+This produces a single line formula.\
+<<\\latex\\ >> will auto-number this and any subsequent equations.\
+If no number is desired then the <<\{\\tt\\string equation\} call should be replaced with \{\\tt\\string displaymath\}>>.\
+\
+<<\\latex\\ >> can also handle a a multi-line equation.\
+Use <<\{\\tt\\string eqnarray\} for more than one line and end each line with a \\textbackslash\\textbackslash>>.\
+Each line will be numbered unless the <<\\textbackslash\\textbackslash\\ is preceded by a \{\\tt\\string\\nonumber\}>> command.\
+Alignment points can be added with ampersands (&).\
+There should be two ampersands per line.\
+In the examples they are centered on the equal symbol.\
+\
+<!--\
+\\begin\{eqnarray\}\
+\\gamma^\\mu  & = &\
+ \\left(\
+\\begin\{array\}\{cc\}\
+0 & \\sigma^\\mu_+ \\\\\
+\\sigma^\\mu_- & 0\
+\\end\{array\}     \\right) ,\
+ \\gamma^5= \\left(\
+\\begin\{array\}\{cc\}\
+-1 &   0\\\\\
+0 &   1\
+\\end\{array\}     \\right)  , \\\\\
+\\sigma^\\mu_\{\\pm\}  & = &   (\{\\bf 1\} ,\\pm \\sigma) , \
+\\end\{eqnarray\}\
+\
+\\begin\{eqnarray\}\
+\\hat a & = & \\left(\
+\\begin\{array\}\{cc\}\
+0 & (\\hat a)_+\\\\\
+(\\hat a)_- & 0\
+\\end\{array\}\\right), \\nonumber \\\\\
+(\\hat a)_\\pm & = & a_\\mu\\sigma^\\mu_\\pm \
+\\end\{eqnarray\}\
+\
+%% Putting eqnarrays or equations inside the mathletters environment groups\
+%% the enclosed equations by letter. For instance, the eqnarray below, instead\
+%% of being numbered, say, (4) and (5), would be numbered (4a) and (4b).\
+%% LaTeX the paper and look at the output to see the results.\
+-->\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+}

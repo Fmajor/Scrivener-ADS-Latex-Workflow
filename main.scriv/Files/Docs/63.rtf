@@ -1,0 +1,50 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fnil\fcharset0 DejaVuSansMono;}
+{\colortbl;\red255\green255\blue255;}
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\sl288\slmult1\pardirnatural
+
+\f0\fs28 \cf0 Entire columns can be <<\\underline\{h\}idden>> from display simply by changing the specified column identifier to <<``h''>>.\
+In the <<\\latex\\ >> tabular environment this column identifier conceals the entire column including the header columns.\
+In <<\\aastex's>> deluxetables the header row is specifically declared with the <<\{\\tt\\string\\tablehead\} call and each header column is marked with \{\\tt\\string\\colhead\} call.>>\
+In order to make a specific header disappear with the ``h'' column identifier in deluxetable use <<\{\\tt\\string\\nocolhead\}>> instead to suppress that particular column header.\
+\
+Authors can use this option in many different ways. Since column data can be easily suppressed authors can include extra information and hid it based on the comments of co-authors or referees.\
+For wide tables that will have a machine readable version, authors could put all the information in the <<\\latex\\ >> table but use this option to hid as many columns as needed until it fits on a page.\
+This concealed column table would serve as the example table for the full machine readable version.  \
+Regardless of how columns are obscured, authors are responsible for removing any unneeded column data or alerting the editorial office about how to treat these columns during production for the final typeset article.\
+\
+Table [](#tab:messier) provides some basic information about the first ten Messier Objects and illustrates how many of these new features can be used together.\
+It has automatic column numbering, decimal alignment of the distances, and one concealed column.  The Common name column is the third in the <<\\latex\\ >> deluxetable but does not appear when the article is compiled.\
+This hidden column can be shown simply by changing the ``h'' in the column identifier preamble to another valid value.  This table also uses <<\{\\tt\\string\\tablenum\}>> to renumber the table because a <<\\latex\\ >> tabular table was inserted before it.\
+\
+<!--\
+\\begin\{deluxetable*\}\{cchlDlc\}\
+\\tablenum\{4\}\
+\\tablecaption\{Fun facts about the first 10 messier objects\\label\{tab:messier\}\}\
+\\tablewidth\{0pt\}\
+\\tablehead\{\
+\\colhead\{Messier\} & \\colhead\{NGC/IC\} & \\nocolhead\{Common\} & \\colhead\{Object\} &\
+\\multicolumn2c\{Distance\} & \\colhead\{\} & \\colhead\{V\} \\\\\
+\\colhead\{Number\} & \\colhead\{Number\} & \\nocolhead\{Name\} & \\colhead\{Type\} &\
+\\multicolumn2c\{(kpc)\} & \\colhead\{Constellation\} & \\colhead\{(mag)\}\
+\}\
+\\decimalcolnumbers\
+\\startdata\
+M1 & NGC 1952 & Crab Nebula & Supernova remnant & 2 & Taurus & 8.4 \\\\\
+M2 & NGC 7089 & Messier 2 & Cluster, globular & 11.5 & Aquarius & 6.3 \\\\\
+M3 & NGC 5272 & Messier 3 & Cluster, globular & 10.4 & Canes Venatici &  6.2 \\\\\
+M4 & NGC 6121 & Messier 4 & Cluster, globular & 2.2 & Scorpius & 5.9 \\\\\
+M5 & NGC 5904 & Messier 5 & Cluster, globular & 24.5 & Serpens & 5.9 \\\\\
+M6 & NGC 6405 & Butterfly Cluster & Cluster, open & 0.31 & Scorpius & 4.2 \\\\\
+M7 & NGC 6475 & Ptolemy Cluster & Cluster, open & 0.3 & Scorpius & 3.3 \\\\\
+M8 & NGC 6523 & Lagoon Nebula & Nebula with cluster & 1.25 & Sagittarius & 6.0 \\\\\
+M9 & NGC 6333 & Messier 9 & Cluster, globular & 7.91 & Ophiuchus & 8.4 \\\\\
+M10 & NGC 6254 & Messier 10 & Cluster, globular & 4.42 & Ophiuchus & 6.4 \\\\\
+\\enddata\
+\\tablecomments\{This table ``hides'' the third column in the \\latex\\ when compiled.\
+The Distance is also centered on the decimals.  Note that when using decimal\
+alignment you need to include the \{\\tt\\string\\decimals\} command before\
+\{\\tt\\string\\startdata\} and all of the values in that column have to have a\
+space before the next ampersand.\}\
+\\end\{deluxetable*\}\
+-->}
