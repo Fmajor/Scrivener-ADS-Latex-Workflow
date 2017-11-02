@@ -1,0 +1,852 @@
+#!/usr/bin/env python3
+# reviewed... good to use
+import os
+import lxml.etree as tree
+import time
+import numpy as np
+import random
+from urllib.parse import unquote, quote
+import numpy as np
+import urllib
+import pdb
+import ipdb
+import shutil
+import copy
+import tagSystem
+import html2text
+import glob
+
+
+import subprocess
+#!! test scrivener open
+r = subprocess.check_output("ps aux | grep Scrivener", shell=True)
+if "/Applications/Scrivener.app" in r.decode():
+    print("Scrivener still open... close it and hit enter")
+    r = input()
+
+debug = 0
+#region: functions
+def safe_mkdir(path):
+    if not os.path.exists(path):
+        os.makedirs(path)
+import rtfunicode
+def rtf(unistr):
+    unistr = unistr.replace("{", "{{")
+    unistr = unistr.replace("}", "}}")
+    #return ''.join([c if ord(c) < 128 else u'\\u' + unicode(ord(c)) + u'?' for c in unistr])
+    #return ''.join([c if ord(c) < 128 else ascii(c)[1:-1] for c in unistr])
+    return unistr.encode('rtfunicode').decode('ascii')
+
+def fileTemplate(title="", author="", abstract="", url="", content="", citationCount="?"):
+    #allLine = content.split("\n")
+    #allLine = [each+"\\" for each in allLine]
+    #lines = "\n".join(allLine)
+    abstract = " ".join(abstract.split("\n"))
+    text = \
+u"""{{\\rtf1\\ansi\\ansicpg1252\cocoartf1404\cocoasubrtf460
+{{\\fonttbl\\f0\\fmodern\\fcharset0 Courier;}}
+{{\\colortbl;
+\\red255\\green255\\blue255;
+\\red230\\green255\\blue79;
+\\red255\\green204\\blue102;
+\\red255\\green128\\blue190;
+\\red128\\green255\\blue105;
+\\red143\\green255\\blue255;}}
+\pard\\tx720\\tx1440\\tx2160\\tx2880\\tx3600\\tx4320\\fi360\sl288\slmult1\pardirnatural
+
+\\f0\\fs28 \cf0
+Url: {{\\field{{\*\\fldinst{{HYPERLINK "{url}"}}}}{{\\fldrslt {url}}}}}\\
+citation Count: {citationCount}\\
+{title}\\
+{author}\\
+{abstract}\\
+\\
+{lines}
+}}""".format(title=rtf(title), abstract=rtf(abstract),
+        author=rtf(author), url=url, lines=rtf(content), citationCount=citationCount)
+    return text
+def makeFolderElement(parent=None, id="?", uuid="?", title="?"):
+    if parent is None:
+        termBase = tree.Element("BinderItem")
+    else:
+        termBase = tree.SubElement(parent, "BinderItem")
+
+    termBase.set("ID", id)
+    termBase.set("UUID", uuid)
+    termBase.set("Type","Folder")
+    termBase.set("Created",time.strftime("%Y-%m-%d %H:%M:%S %z", time.gmtime()))
+    termBase.set("Modified",time.strftime("%Y-%m-%d %H:%M:%S %z", time.gmtime()))
+
+    Title = tree.Element("Title")
+    Title.text = title
+
+    MetaData = tree.Element("MetaData")
+    temp = tree.Element("IncludeInCompile"  );temp.text="Yes";MetaData.append(temp)
+    temp = tree.Element("NotesTextSelection");temp.text="0,0";MetaData.append(temp)
+
+    TextSettings = tree.Element("TextSettings")
+    temp = tree.Element("TextSelection");temp.text="0,0";TextSettings.append(temp)
+
+    Children = tree.Element("Children")
+
+    termBase.extend([Title, MetaData, TextSettings, Children])
+    return termBase
+def makeTextElement(father=None, id="?", uuid="?", title="?", bibcode="?", url="?", citationCount=-1,hardlink=0, ref=None):
+    if father is None:
+        termBase = tree.Element("BinderItem")
+    else:
+        termBase = tree.SubElement(father, "BinderItem")
+    termBase.set("ID", id)
+    termBase.set("UUID", uuid)
+    termBase.set("Type","Text")
+    termBase.set("Created",time.strftime("%Y-%m-%d %H:%M:%S %z", time.gmtime()))
+    termBase.set("Modified",time.strftime("%Y-%m-%d %H:%M:%S %z", time.gmtime()))
+
+    Title = tree.Element("Title")
+    Title.text = title
+
+    MetaData = tree.Element("MetaData")
+    temp = tree.SubElement(MetaData, "IncludeInCompile"  );temp.text="Yes";
+    temp = tree.SubElement(MetaData, "NotesTextSelection");temp.text="0,0";
+    CustomMetaData = tree.SubElement(MetaData, "CustomMetaData")
+    MetaDataItem = tree.SubElement(CustomMetaData, "MetaDataItem")
+    FieldID = tree.SubElement(MetaDataItem, "FieldID");FieldID.text="bibcode"
+    Value = tree.SubElement(MetaDataItem, "Value");Value.text=bibcode
+    MetaDataItem = tree.SubElement(CustomMetaData, "MetaDataItem")
+    FieldID = tree.SubElement(MetaDataItem, "FieldID");FieldID.text="hardlink"
+    Value = tree.SubElement(MetaDataItem, "Value");Value.text=str(hardlink)
+    MetaDataItem = tree.SubElement(CustomMetaData, "MetaDataItem")
+    FieldID = tree.SubElement(MetaDataItem, "FieldID");FieldID.text="url"
+    Value = tree.SubElement(MetaDataItem, "Value");Value.text=str(url)
+    MetaDataItem = tree.SubElement(CustomMetaData, "MetaDataItem")
+    FieldID = tree.SubElement(MetaDataItem, "FieldID");FieldID.text="citationCount"
+    Value = tree.SubElement(MetaDataItem, "Value");Value.text=str(citationCount)
+
+    TextSettings = tree.Element("TextSettings")
+    temp = tree.Element("TextSelection");temp.text="0,0";TextSettings.append(temp)
+
+    if ref is None:
+        termBase.extend([Title, MetaData, TextSettings])
+    else:
+        refBase = tree.Element("References")
+        count = 0
+        for each in ref:
+            if len(each[0])>0:
+                count += 1
+                theRef = tree.SubElement(refBase, "Reference")
+                theRef.text = each[1]
+                try:
+                    int(each[0])
+                except ValueError:
+                    if os.path.exists(each[0]):
+                        theRef.set("Destination", "file://"+
+                                quote(each[0].encode('utf8')))
+                    else:
+                        raise Exception("unknown ref:{}".format(each[0]))
+                else:
+                    theRef.set("BinderID", each[0])
+                    theRef.set("Destination", "[Internal Link]")
+        if count:
+            termBase.extend([Title, MetaData, TextSettings, refBase])
+        else:
+            termBase.extend([Title, MetaData, TextSettings])
+    return termBase
+def makeRef(father, refList, position=None):
+    if len(refList)==1 and position is not None: # change file
+        each = refList[0]
+        if each[0]: # filename
+            theRef = tree.Element("Reference")
+            theRef.text = each[1]
+            try:
+                int(each[0])
+            except ValueError:
+                if os.path.exists(each[0]):
+                    theRef.set("Destination", "file://"+
+                            quote(each[0].encode('utf8')))
+                else:
+                    raise Exception("unknown ref (non exists file):{}".format(each[0]))
+            else:
+                theRef.set("BinderID", each[0])
+                theRef.set("Destination", "[Internal Link]")
+            father.insert(position, theRef)
+        return
+
+    for each in refList:
+        if each[0]:
+            theRef = tree.SubElement(father, "Reference")
+            theRef.text = each[1]
+            try:
+                int(each[0])
+            except ValueError:
+                if os.path.exists(each[0]):
+                    theRef.set("Destination", "file://"+
+                            quote(each[0].encode('utf8')))
+                else:
+                    raise Exception("unknown ref (non exists file):{}".format(each[0]))
+            else:
+                theRef.set("BinderID", each[0])
+                if len(each)==3:
+                    theRef.set("Destination", each[2])
+                else:
+                    theRef.set("Destination", "[Internal Link]")
+def genUUID(all):
+    def s(n):
+        return "".join(random.sample('0123456789ABCDEFGHIJKLMNOPORSTUVWXYZ',n))
+    while True:
+        result = "{}-{}-{}-{}-{}".format(s(8), s(4), s(4), s(4), s(12))
+        if result not in all:
+            return result
+def genID(all):
+    return np.max(all)+1
+def getPath(ele): # return all Titles if exists
+    ps = ele.xpath("ancestor::*")
+    joinList = []
+    for each in ps:
+        if len(each.xpath("Title"))>0:
+            joinList.append(each.xpath("Title")[0].text)
+    return "/".join(joinList)
+
+def addAutoComplete(father, contentList):
+    objs = father.xpath("Completion")
+    data = set([each.text for each in objs])
+    allTags = set(contentList)
+    toAddTags = list(allTags-data)
+    print("add new auto complete: {}".format(", ".join(toAddTags)))
+    for eachTodo in toAddTags:
+        new = tree.SubElement(father, "Completion")
+        new.set("Scope", "-1")
+        new.text = eachTodo
+
+def delAutoComplete(father, key):
+    obj = father.xpath("Completion[text()='{}']".format(key))
+    if len(obj)>0:
+        for each in obj:
+            print("remove auto complete: {}".format(key))
+            father.remove(each)
+
+def addTags(father, contentList):
+    keywordObjs = father.xpath("Keyword")
+    allKeywordIDs       = [int(each.get("ID")) for each in keywordObjs]
+    allKeywords = [each.xpath("Title")[0].text for each in keywordObjs]
+    N = np.array(allKeywordIDs).max()
+    todo = list(set(contentList) - set(allKeywords))
+    tagColors = {}
+    if len(todo)>0:
+        print("add new tags: {}".format(", ".join(todo)))
+    for each in todo:
+        N += 1
+        new = tree.SubElement(father, "Keyword")
+        new.set("ID", str(N))
+        title = tree.SubElement(new, "Title"); title.text=each
+        color = tree.SubElement(new, "Color");
+        if each not in tagColors:
+            color.text = "{} {} {}".format(random.random(), random.random(), random.random())
+            tagColors[each] = color.text
+        else:
+            color.text = tagColors[each]
+#endregion: consts and functions
+
+#!! constants
+doNothing = True # if not do Nothing, not resave the project file at all
+
+backupPath = "./backups"
+safe_mkdir(backupPath)
+projectPath = "./main.scriv"
+bibDir = "./references"
+#bibdataFiles = os.listdir(bibDir)
+#bibdataFiles = [each for each in bibdataFiles if each[-12:]==".bibdata.npz"]
+bibdataFiles = glob.glob(os.path.join(bibDir, '*.bibdata.npz'))
+bibdataFiles = map(lambda _:os.path.basename(_), bibdataFiles)
+projectName = os.path.join(projectPath, "main.scrivx")
+docPath = os.path.join(projectPath,"Files","Docs")
+
+makeHardlink = True
+timeStamp = time.strftime("-%Y-%m-%d-%H-%M-%S", time.gmtime())
+backupPath = os.path.join(backupPath, projectPath[:-6]+timeStamp+".scriv")
+shutil.copytree(projectPath, backupPath)
+logPath = os.path.join(backupPath, "log") + timeStamp + ".txt"
+logFile = open(logPath, "w")
+def log(input):
+    global logFile
+    print(input)
+    logFile.write(input+"\n")
+def flog(input):
+    global logFile
+    logFile.write(input+"\n")
+log("============start of log============")
+
+
+log("filelist:\n\t{}".format(bibdataFiles))
+log('backup to {}'.format(backupPath))
+
+# title year date  url refkey bibcode author abstract file cite
+#  U999  U10  U29 U999   U999    U999  U9999    U9999 U999    o
+# citInd ref refInd citationCount notes tag
+#      o   o      o           int     o   o
+#region: operations about xml
+# tree.SubElement(root, 'newNode')
+# root.xpath('')
+# root.getchildren()
+# thisRoot.xpath("./BinderItem[Title='{}']".format(eachSub))
+# <BinerItem> <Title> </Title> </BinerItem>
+# xpath:
+#      ./BinerIterm[Title='hehe'], here title is children element, hehe is text of it
+#      ./BinerIterm[@ID='0'], here ID is attribute of BinerIterm
+# termBase.set("ID", id)
+# Title = tree.Element("Title")
+# Title.text = title
+# Title.append(subnode)
+# Title.extend([subnode1, subnode2, ...])
+
+#endregion: operations about xml
+for bibdataName in bibdataFiles: #!! for each bibdata file
+    paperName = bibdataName.split('.bibdata.npz')[0]
+    bibdataName = os.path.join(bibDir, bibdataName)
+    bibdataFile = np.load(bibdataName)
+    bibdata = bibdataFile['data']
+    configs = bibdataFile['configs'][0]
+    offline = configs['offline']
+    log("paperName:{}, bibdataName:{}".format(paperName, bibdataName))
+    #time.sleep(0)
+    s = tree.tostring
+    e = tree.parse(projectName)
+    root = e.getroot() #!! xml root
+    #region: Add the bibcode CustomMetaDataSetting into workspace
+    myMetas = [{"ID":"bibcode", "Wraps":"Yes", "Color":"1.0 0.0 0.104621"},
+               {"ID":"hardlink", "Wraps":"Yes", "Color":"1.0 0.0 0.0"},
+               {"ID":"citationCount", "Wraps":"Yes", "Color":"0.0 1.0 0.0"},
+               {"ID":"url", "Wraps":"Yes", "Color":"0.0 1.0 0.0"}]
+    customMetaDataSettings = root.xpath("CustomMetaDataSettings")
+    if len(customMetaDataSettings)==0:
+        customMetaDataSettings = tree.SubElement(root, "CustomMetaDataSettings")
+    else:
+        customMetaDataSettings= customMetaDataSettings[0]
+    IDs = [each.get("ID") for each in customMetaDataSettings.getchildren()]
+    for each in myMetas:
+        if each["ID"] not in IDs:
+            doNothing = False
+            MetaDataField = tree.Element("MetaDataField")
+            for key, value in each.iteritems():
+                MetaDataField.set(key, value)
+            MetaDataField.text = each["ID"]
+            customMetaDataSettings.append(MetaDataField)
+            log("add new custom meta data: {}".\
+                    format(each["ID"]))
+    #endregion: first add the bibcode CustomMetaDataSetting into workspace
+    #region: change AutoCompleteList
+    autoCompleteListRoot = root.xpath("//AutoCompleteList")[0]
+    allRefKeys = bibdata["refkey"]
+    addAutoComplete(autoCompleteListRoot, allRefKeys)
+    addAutoComplete(autoCompleteListRoot, tagSystem.tagList)
+    #endregion: change AutoCompleteList
+    #region: change Keywords
+    keywordsRoot = root.xpath("Keywords")[0]
+    addTags(keywordsRoot, tagSystem.tagList)
+    keywordObjs = keywordsRoot.xpath("Keyword")
+    allKeywordIDs       = [each.get("ID") for each in keywordObjs]
+    allKeywords = [each.xpath("Title")[0].text for each in keywordObjs] # may not be unique
+    #endregion: change Keywords
+    #region: record existing uuid
+    allTerm = root.xpath("//BinderItem")
+    allID = np.array([int(each.get("ID")) for each in allTerm])
+    #inds = np.argsort(allID)
+    allID = allID.tolist()
+
+    allUUID = [each.get("UUID") for each in allTerm]
+    allTemp = root.xpath("//*[@ID]")
+    allTemp = [each.get("ID") for each in allTemp]
+    allUUID += allTemp
+    allUUID += [root.get("ModID")]
+    #endregion: record existing uuid
+    #region: go to the paperRoot/paperName folder
+    paperRoot = "References:Papers"
+    paperRootList = paperRoot.split("/")
+    fileRoot = root.xpath("//Binder")[0]
+    thisRoot = fileRoot
+    for eachSub in paperRootList:
+        thisSub = thisRoot.xpath("./BinderItem[Title='{}']".format(eachSub))
+        if len(thisSub)==0: # not found
+            doNothing = False
+            newID = genID(allID)
+            allID.append(newID)
+            newUUID = genUUID(allUUID)
+            allUUID.append(newUUID)
+            thisSub = makeFolderElement(parent=thisRoot, id=str(newID),
+                    uuid=newUUID, title=eachSub)
+            log("make new folder: {}".format(getPath(thisSub)+"/"+eachSub))
+        elif len(thisSub)==1:
+            thisSub = thisSub[0]
+        else:
+            raise RuntimeError("should not be here...")
+
+        thisChildren = thisSub.xpath("Children")
+        if len(thisChildren)==0:
+            doNothing = False
+            thisChildren = tree.SubElement(thisSub, "Children")
+            log("make new children for {}".format(getPath(thisSub)+"/"+eachSub))
+        else:
+            thisChildren = thisChildren[0]
+        thisRoot = thisChildren
+    #!! now research is the root node we want to change
+    # structures are like
+    #     ${paperRoot}/paperName/years
+    research = thisSub
+    researchChildren = thisChildren
+    #!! go to papers folder
+    papers = research.xpath("Children/BinderItem[Title='{}']".format(paperName))
+    if len(papers)==0:
+        doNothing = False
+        newID = genID(allID)
+        allID.append(newID)
+        newUUID = genUUID(allUUID)
+        allUUID.append(newUUID)
+        papers = makeFolderElement(parent=researchChildren, id=str(newID),
+                uuid=newUUID, title=paperName)
+        log("make new folder: {}".format(getPath(papers)+"/"+paperName))
+    else:
+        papers = papers[0]
+    children = papers.xpath("Children")
+    if len(children)==0:
+        doNothing = False
+        children = tree.SubElement(papers, "Children")
+        log("make new children for {}".format(getPath(papers)))
+    else:
+        children = children[0]
+    #endregion: go to the paperRoot folder (the origin name is research)
+    #region: collect data
+    #!! make all the folders by year
+    allyears = np.unique(bibdata["year"])
+    folders = papers.xpath("Children/BinderItem[@Type='Folder']")
+    dtype = np.dtype([("obj", np.object),
+                      ("year", "U10"),
+                      ("children", np.object)])
+    years = np.empty(0, dtype=dtype)
+    dtypeAlltext = np.dtype([
+                ("bibcode", "U30"),
+                ("url", "U255"),
+                ("refkey", "U30"),
+                ("ID", "U10"),
+                ("ind", np.int),
+                ("obj", np.object),
+                ("path", "U300")])
+    alltext = []
+    allBibcode = bibdata["bibcode"].tolist()
+    allUrl     = bibdata["url"].tolist()
+    #endregion: collect data
+    # obj years chilcren
+    #   o   U10        o
+    # bibcode  url refkey  ID ind obj path
+    #     U20 U255    U30 U10 int   o U300
+    #region: count for already exists text
+    # use thisUrl to count unique exists text
+    # ind is index in allUrl (or in bibdata)
+    # alltext.append((thisBibcode, thisUrl, refkey, thisID, ind, eachc, thisPath))
+    for i, each in enumerate(folders): # folders are folders of years
+        eachChildren = each.xpath("Children")
+        if len(eachChildren)==0:
+            eachChildren = tree.SubElement(each, "Children")
+        else:
+            eachChildren = eachChildren[0]
+        eachChildrens = eachChildren.xpath(".//BinderItem[@Type='Text']")
+        for j, eachc in enumerate(eachChildrens):
+            t = eachc.xpath("MetaData/CustomMetaData/MetaDataItem[FieldID='bibcode']")
+            thisUrl = eachc.xpath("MetaData/CustomMetaData/MetaDataItem[FieldID='url']")
+            if len(thisUrl)>0:
+                thisBibcode = t[0].xpath("Value")[0].text
+                thisID = eachc.get("ID")
+                refkey = eachc.xpath("Title")[0].text
+                thisUrl = thisUrl[0].xpath("Value")[0].text
+                #if thisBibcode in allBibcode:
+                    #ind = allBibcode.index(thisBibcode)
+                # arxiv and ADS may have same paper
+                # use url to identify same entry
+                if thisUrl in allUrl:
+                    ind = allUrl.index(thisUrl)
+                else:
+                    ind = -1
+                thisPath = getPath(eachc)
+                alltext.append((thisBibcode, thisUrl, refkey, thisID, ind, eachc, thisPath))
+                flog("find text term for {} with refkey:{}, path:{}".\
+                    format(thisBibcode, refkey, thisPath))
+
+        years = np.append(years,
+            np.array((each, each.xpath("Title")[0].text, eachChildren),
+                    dtype=dtype))
+    # now alltext contains all the exists item
+    alltext = np.array(alltext, dtype=dtypeAlltext)
+    #endregion: count for already exists text
+    #region: count for exists text that not contains in THIS papers folder
+    allObj = alltext["obj"].tolist() # obj are xml node instance
+    allTextTemp = research.xpath(".//BinderItem[@Type='Text']")
+    allTextTemp = [each for each in allTextTemp if each not in allObj]
+    for j, eachc in enumerate(allTextTemp):
+        t = eachc.xpath("MetaData/CustomMetaData/MetaDataItem[FieldID='bibcode']")
+        thisUrl = eachc.xpath("MetaData/CustomMetaData/MetaDataItem[FieldID='url']")
+        if len(t)>0:
+            thisBibcode = t[0].xpath("Value")[0].text
+            thisID = eachc.get("ID")
+            refkey = eachc.xpath("Title")[0].text
+            thisUrl = thisUrl[0].xpath("Value")[0].text
+            thisPath = getPath(eachc)
+            #if thisBibcode in allBibcode:
+                #ind = allBibcode.index(thisBibcode)
+            if thisUrl in allUrl:
+                ind = allUrl.index(thisUrl)
+            else:
+                ind = -1
+            alltext = np.append(alltext,
+                    np.array((thisBibcode, thisUrl, refkey, thisID, ind, eachc, thisPath), dtype=dtypeAlltext))
+            flog("find text from other folder: {} with refkey:{} at {}".\
+                    format(thisBibcode, refkey, thisPath))
+    #endregion: count for text that not contains in the papers folder
+    #region: make new years folder (and order them)
+    for i, each in enumerate(allyears):
+        if each not in years["year"]:
+            doNothing = False
+            newID = genID(allID)
+            allID.append(newID)
+            newUUID = genUUID(allUUID)
+            allUUID.append(newUUID)
+            yearElement = makeFolderElement(id=str(newID), uuid=newUUID, title=each)
+            eachChildren = yearElement.xpath("Children")[0]
+            years = np.append(years,
+                np.array((yearElement, each, eachChildren),
+                        dtype=dtype) )
+            log("make new years folder: {}".format(each))
+    # reorder years folders
+    inds = np.argsort(years, order="year")[::-1]
+    indsList = inds.tolist()
+    years = years[inds]
+    objList = years["obj"].tolist()
+    for each in children.getchildren():
+        if each in objList:
+            children.remove(each)
+    children.extend(objList)
+    #endregion: make new years folder
+    #region: add text for each folder by year (only basic infos)
+    allyears = years["year"].tolist()
+    for i, each in enumerate(bibdata): # all iterm in bibdata
+        #region: count papers in one year
+        yearInd = allyears.index(each["year"])
+        father = years[yearInd]["children"] # year folder
+        bibcode = each["bibcode"]
+        url = each["url"]
+        refkey = each["refkey"]
+        bibcodeInFather = [] # all papers in this year
+        urlInFather = []     # all papers in this year
+        textInFather = father.xpath(".//BinderItem[@Type='Text']")
+        for eachText in textInFather:
+            t = eachText.xpath("MetaData/CustomMetaData/MetaDataItem[FieldID='bibcode']")
+            thisUrl = eachText.xpath("MetaData/CustomMetaData/MetaDataItem[FieldID='url']")
+            if len(thisUrl)>0:
+                thisBibcode = t[0].xpath("Value")[0].text
+                thisUrl = thisUrl[0].xpath("Value")[0].text
+                bibcodeInFather.append(thisBibcode)
+                urlInFather.append(thisUrl)
+            else:
+                bibcodeInFather.append("none")
+                urlInFather.append("none")
+        #endregion: count papers in one year
+        # now exists in this year, info are recorded in bibcodeInFather, urlInFather
+        # bibcode, url, refkey are extracted
+        #region: new term
+        if url not in alltext["url"]: # create new text and text file
+            newID = genID(allID)
+            allID.append(newID)
+            newUUID = genUUID(allUUID)
+            allUUID.append(newUUID)
+
+            selffile= each["file"] # file path
+            thisText = makeTextElement(father=father, id=str(newID),
+                    uuid=newUUID, title=refkey, bibcode=bibcode, url=url,
+                    ref=[(selffile, refkey)])
+
+            content = fileTemplate(title=each["title"], author=each["author"],
+                                   abstract=each["abstract"], url=each["url"],
+                                   content="", citationCount=each["citationCount"])
+            thisPath = getPath(thisText)
+            alltext = np.append(alltext,
+                np.array((bibcode, url, refkey, newID, i, thisText, thisPath),
+                         dtype=dtypeAlltext))
+            with open(os.path.join(docPath, str(newID) + ".rtf"),"w") as f:
+                f.write(content)
+            doNothing = False
+            log("add new text term for {}:{} with refkey:{}, new file {}, path:{}".\
+                    format(bibcode, url, refkey, str(newID) + ".rtf", thisPath))
+        #endregion: new term
+        #region: old term
+        # already exists, and are in this folder
+        elif url in urlInFather: # test for ref key and bibcode
+            makeChange=False # flag to modify test file
+            tempInd = urlInFather.index(url)
+            obj = textInFather[tempInd]
+            oldRefKey = obj.xpath("Title")[0].text
+            oldBibcode= obj.xpath("MetaData/CustomMetaData/MetaDataItem[FieldID='bibcode']")[0].xpath("Value")[0].text
+            thisPath = getPath(obj)
+            if refkey!=oldRefKey: # change refkey for all text (only url is unique)
+                makeChange = True
+                #allInds = (bibcode == alltext["bibcode"])
+                allInds = (url == alltext["url"])
+                objs = alltext[allInds]["obj"]
+                for eachObj in objs:
+                    eachOldRefKey = eachObj.xpath("Title")[0].text
+                    eachObj.xpath("Title")[0].text = refkey
+                    delAutoComplete(autoCompleteListRoot, eachOldRefKey)
+                    doNothing = False
+                    log("update refkey for {}:{} from {} to {}, path:{}".\
+                        format(bibcode, url, eachOldRefKey, refkey, getPath(eachObj)))
+                    log("\t update auto complete for {} to {}".\
+                        format(eachOldRefKey, refkey))
+                alltext["refkey"][allInds] = refkey
+            if not offline and bibcode!= oldBibcode: # change bibcode for all text if online
+                makeChange=True
+                allInds = (url == alltext["url"])
+                objs = alltext[allInds]["obj"]
+                for eachObj in objs:
+                    eachOldBibcode = eachObj.xpath("MetaData/CustomMetaData/MetaDataItem[FieldID='bibcode']")[0].xpath("Value")[0].text
+                    eachObj.xpath("MetaData/CustomMetaData/MetaDataItem[FieldID='bibcode']")[0].xpath("Value")[0].text = bibcode
+                    doNothing = False
+                    log("update bibcode for {}:{} from {} to {}, path:{}".\
+                        format(bibcode, url, eachOldBibcode, bibcode, getPath(eachObj)))
+                alltext["bibcode"][allInds] = bibcode
+            if not makeChange:
+                flog("do nothing for {} with refeky:{}, path:{}".\
+                        format(bibcode, refkey, thisPath))
+        #endregion: old term
+        #region: new term, but already have data
+        elif makeHardlink: # make hard link
+            allInds = (url == alltext["url"])
+            objs = alltext[allInds]["obj"]
+            # test for validity
+            ids = [eachObj.get("ID") for eachObj in objs]
+            t = ids[0]
+            for eacht in ids:
+                if t!=eacht:
+                    raise Exception("hardlink error: {}".format(ids))
+            for eacht in objs:
+                eacht.xpath("MetaData/CustomMetaData/MetaDataItem[FieldID='hardlink']/Value")[0].text = "1"
+                eacht.xpath("Title")[0].text = refkey # update refkey for all file
+            # add new term
+            thisText = copy.deepcopy(objs[0])
+            father.append(thisText)
+            thisPath = getPath(thisText)
+            alltext = np.append(alltext,
+                np.array((bibcode, url, refkey, t, i, thisText, thisPath),
+                          dtype=dtypeAlltext))
+            doNothing = False
+            log("add hardlink for {}:{} with new refkey:{}, path:{}".\
+                    format(bibcode, url,refkey, thisPath))
+        #endregion: new term, but already have data
+    #endregion: add text for each folder by year
+    #region: update references and keys and citationCount and notes
+    # update text list
+    alltextBibcode = alltext["bibcode"].tolist()
+    alltextUrl     = alltext["url"].tolist()
+    for i, each in enumerate(alltext):
+        ind = each["ind"]
+        if ind<0:
+            continue
+        id  = each["ID"]
+        #region: update notes
+        if bibdata[ind]["notes"]:
+            with open(os.path.join(docPath, str(id) + "_synopsis.txt"),"w") as f:
+                f.write(html2text.html2text(bibdata[ind]["notes"])\
+                        .replace("&lt;","<").replace("&gt;",">"))
+        #endregion: update notes
+        #region: update citationCount
+        if bibdata[ind]["citationCount"]>=0:
+            if len(each["obj"].xpath("MetaData/CustomMetaData/MetaDataItem[FieldID='citationCount']/Value"))==0: # create metadata
+                CustomMetaData = each["obj"].xpath("MetaData/CustomMetaData")[0]
+                MetaDataItem = tree.SubElement(CustomMetaData, "MetaDataItem")
+                FieldID = tree.SubElement(MetaDataItem, "FieldID");FieldID.text="citationCount"
+                Value = tree.SubElement(MetaDataItem, "Value");Value.text=str(bibdata[ind]["citationCount"])
+            else:
+                each["obj"].xpath("MetaData/CustomMetaData/MetaDataItem[FieldID='citationCount']/Value")[0].text = str(bibdata[ind]["citationCount"])
+        #endregion: update citationCount
+        #region: update keywords (tags)
+        thisKeywordRoot = each["obj"].xpath("Keywords")
+        if len(thisKeywordRoot)>0:
+            thisOldKeywordIDs = set([eachKeyword.text
+                                     for eachKeyword in thisKeywordRoot[0].xpath("KeywordID")])
+            thisOldKeywords   = set([allKeywords[allKeywordIDs.index(eachKeyword)]
+                                     for eachKeyword in thisOldKeywordIDs
+                                         if eachKeyword in allKeywordIDs])
+        else:
+            thisOldKeywordIDs = set([])
+            thisOldKeywords   = set([])
+        thisNewKeywords = bibdata[ind]["tag"]
+        # for not unique keywords, add the first one
+        thisNewKeywordIDs = set([allKeywordIDs[allKeywords.index(aux)]
+                                 for aux in thisNewKeywords
+                                     if aux in allKeywords])
+        toAdd = thisNewKeywordIDs - thisOldKeywordIDs
+        toDel = thisOldKeywordIDs - thisNewKeywordIDs
+        if len(toAdd)+len(toDel)>0:
+            log("update tags from {} to {} at {}".format(", ".join(thisOldKeywords), ", ".join(thisNewKeywords), thisPath))
+            log("\t+{} , -{}".format(", ".join(toAdd), ", ".join(toDel)))
+            if len(thisKeywordRoot)==0:
+                thisKeywordRoot = [tree.SubElement(each["obj"] ,"Keywords")]
+        for eachTodo in toAdd:
+            new = tree.SubElement(thisKeywordRoot[0], "KeywordID")
+            new.text = eachTodo
+        for eachTodo in toDel: # may have several keywords with the same name
+            sub = thisKeywordRoot[0].xpath("KeywordID[text()='{}']".format(eachTodo))
+            for eachsub in sub:
+                thisKeywordRoot[0].remove(eachsub)
+        #endregion: update keywords (tags)
+        #region: update references
+        obj = each["obj"].xpath("References")
+        if len(obj)==0:
+            obj = tree.SubElement(each["obj"], "References")
+        else:
+            obj = obj[0] # obj for References
+        thisPath = each['path']
+        refkey  = each["refkey"]
+        bibcode = each["bibcode"]
+        url     = each["url"]
+        cite = bibdata[ind]["cite"]
+        refs = bibdata[ind]["ref"]
+        selffile = bibdata[ind]["file"]
+        flog("\tprocess {} with {}".format(url, refkey))
+        #region: count old reference (and delete duplicated ones)
+        old = obj.xpath("Reference")
+        oldPos=[]
+        oldNames = []
+        for each in old: # oldReference
+            id = each.get("BinderID")
+            if id is None:
+                pos = each.get("Destination")[7:] # remove file://
+            else:
+                pos = id
+            name = each.text
+            oldPos.append(pos)
+            oldNames.append(name)
+        for pos in oldPos: # delete duplicated reference
+            try:
+                pos=int(pos)
+            except:
+                continue
+            posObj = obj.xpath("Reference[@BinderID={}]".format(pos))
+            if len(posObj)>1:
+                doNothing = False
+                for eachPosObj in posObj:
+                    obj.remove(eachPosObj)
+                log("delete duplicate in {}: {} at {}".format(url, pos, thisPath))
+        #endregion: first statistic
+        #region: count old reference
+        old = obj.xpath("Reference")
+        oldPos=[]
+        oldNames = []
+        for each in old:# oldReference
+            id = each.get("BinderID")
+            if id is None:
+                pos = each.get("Destination")[7:] # remove file://
+            else:
+                pos = id
+            name = each.text
+            oldPos.append(pos)
+            oldNames.append(name)
+        #endregion: second statistic
+        # now we have oldPos(file path or text id) and oldNames(refkey of the ids)
+        #region: update file
+        selffileUrl = quote(selffile.encode("utf8"))
+        #!! refkey is not changed
+        if refkey in oldNames:
+            tempInd = oldNames.index(refkey)
+            oldfile = oldPos[tempInd]
+            if selffileUrl!=oldfile:
+                obj.remove(old[tempInd])
+                makeRef(obj, [(selffile, refkey)], position=0)
+                doNothing = False
+                log("update self file for {}:{} from {} to {} at {}".\
+                        format(bibcode, url, oldfile, selffileUrl, thisPath))
+        #!! filepath is not changed
+        if selffileUrl in oldPos:
+            tempInd = oldPos.index(selffileUrl)
+            oldname = oldNames[tempInd]
+            if oldname!=refkey:
+                obj.remove(old[tempInd])
+                makeRef(obj, [(selffile, refkey)], position=0)
+                doNothing = False
+                log("update self refkey for {}:{} from {} to {} at {}".\
+                        format(bibcode, url, oldname, refkey, thisPath))
+        #!! both are changed
+        if (refkey not in oldNames) and (selffileUrl not in oldPos) and len(selffileUrl)>0:
+            makeRef(obj, [(selffile, refkey)], position=0)
+            doNothing = False
+            log(u"add new self file for {}:{} with {} at {}".\
+                    format(bibcode, url, selffile, thisPath))
+        #endregion: update file
+        citeList = []
+        refList = []
+        if cite is not None and not offline:
+            for each in cite:
+                # TODO: can futher make it to the ADS one, not the arxiv one
+                i = alltextBibcode.index(each) # for hard link, find the first one
+                pos = alltext[i]["ID"]
+                name = "c:"+alltext[i]["refkey"]
+                aname = "r:"+alltext[i]["refkey"]
+                tbibcode = alltext[i]["bibcode"]
+                if pos in oldPos:
+                    tempInd = oldPos.index(pos)
+                    oldname = oldNames[tempInd]
+                    # if refkey of others changed (but the ID not changed)
+                    if oldname != name and oldname != aname:
+                        obj.remove(old[tempInd])
+                        citeList.append((pos, name, tbibcode))
+                        doNothing = False
+                        log("update refkey for {} in {} from {} to {} at {}".\
+                                format(tbibcode, bibcode, oldname, name, thisPath))
+                    else:
+                        flog("\t\tdo nothing for {} in {} from {} to {} at {}".\
+                                format(tbibcode, bibcode, oldname, name, thisPath))
+                        continue
+                else:
+                    doNothing = False
+                    log("add new refkey for {} in {} with {} at {}".\
+                            format(tbibcode, bibcode, name, thisPath))
+                    citeList.append((pos, name, tbibcode))
+            makeRef(obj, citeList)
+        if refs is not None and not offline:
+            for each in refs:
+                i = alltextBibcode.index(each)
+                pos = alltext[i]["ID"]
+                name = "r:"+alltext[i]["refkey"]
+                aname = "c:"+alltext[i]["refkey"]
+                tbibcode = alltext[i]["bibcode"]
+                #print name, pos, tbibcode
+                if pos in oldPos:
+                    tempInd = oldPos.index(pos)
+                    oldname = oldNames[tempInd]
+                    if oldname != name and oldname != aname:
+                        try:
+                            obj.remove(old[tempInd])
+                        except:
+                            ipdb.set_trace()
+                        refList.append((pos, name, tbibcode))
+                        doNothing = False
+                        log("update refkey for {} in {} from {} to {} at {}".\
+                                format(tbibcode, bibcode, oldname, name, thisPath))
+                    else:
+                        flog("\t\tdo nothing for {} in {} from {} to {} at {}".\
+                                format(tbibcode, bibcode, oldname, name, thisPath))
+                        continue
+                else:
+                    doNothing = False
+                    log("add new refkey for {} in {} with {} at {}".\
+                            format(tbibcode, bibcode, name, thisPath))
+                    refList.append((pos, name, tbibcode))
+            makeRef(obj, refList)
+        #endregion: update comments
+    #endregion: update references and keys and citationCount and notes
+    log("============end of log============")
+    if not debug and not doNothing:
+        toWrite = tree.tostring(e, xml_declaration=True, standalone=False, encoding="UTF8")
+        log("write result to {}".format(projectName))
+        with open(projectName, "w") as f:
+            f.write(toWrite.decode())
+    else:
+        log("do nothing.. remove the backup")
+        shutil.rmtree(backupPath)
+
+logFile.close()

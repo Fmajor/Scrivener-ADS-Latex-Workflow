@@ -1,0 +1,159 @@
+#!/usr/bin/env python3
+import os
+import lxml.etree as tree
+import time
+import numpy as np
+import random
+import numpy as np
+import urllib
+import pdb
+import shutil
+import copy
+
+
+import subprocess
+r = subprocess.check_output("ps aux | grep Scrivener", shell=True)
+if "/Applications/Scrivener.app" in r:
+    print "Scrivener still open... close it and hit enter"
+    r = raw_input()
+
+
+def safe_mkdir(path):
+    if not os.path.exists(path):
+        os.makedirs(path)
+def log(input):
+    global logFile
+    print input
+    logFile.write(input+"\n")
+def getPath(ele):
+    ps = ele.xpath("ancestor::*")
+    joinList = []
+    for each in ps:
+        if len(each.xpath("Title"))>0:
+            joinList.append(each.xpath("Title")[0].text)
+    return "/".join(joinList)
+
+backupPath = "./backups"
+projectPath = "./main.scriv"
+
+
+timeStamp = time.strftime("-%Y-%m-%d-%H-%M-%S", time.gmtime())
+logPath = os.path.join(backupPath, "remove-log") + timeStamp + ".txt"
+
+
+projectName = os.path.join(projectPath, "main.scrivx")
+logFile = open(logPath, "w")
+log("============start of log============")
+
+s=tree.tostring
+e = tree.parse(projectName)
+root = e.getroot()
+
+
+# get trash folder and research folder
+#research = root.xpath("//BinderItem[@ID=1]")
+#assert len(research)==1
+#research = research[0]
+paperRoot = "References:Papers"
+
+t = raw_input("paperRoot is \n\t{}\n\tdo you want to continue?".format(paperRoot))
+
+paperRootList = paperRoot.split("/")
+fileRoot = root.xpath("//Binder")[0]
+thisRoot = fileRoot
+for eachSub in paperRootList:
+    thisSub = thisRoot.xpath("./BinderItem[Title='{}']".format(eachSub))
+    if len(thisSub)==0:
+        raise Exception("error to go into paperRoot: {}".format(paperRoot))
+    elif len(thisSub)==1:
+        thisSub = thisSub[0]
+    else:
+        print "Some folder have the same name, don't know which one to use.."
+        raise Exception()
+
+    thisChildren = thisSub.xpath("Children")
+    if len(thisChildren)==0:
+        raise Exception("error to go into paperRoot Children: {}".format(paperRoot))
+    else:
+        thisChildren = thisChildren[0]
+    thisRoot = thisChildren
+research = thisSub
+researchChildren = thisChildren
+
+backupPath = os.path.join(backupPath, "remove-"+projectPath[:-6]+timeStamp+".scriv")
+shutil.copytree(projectPath, backupPath)
+
+
+trash = root.xpath("//BinderItem[@ID=2]")
+assert len(trash)==1
+trash = trash[0]
+
+dtypeAlltext = np.dtype([
+            ("bibcode", "U30"),
+            ("url", "U255"),
+            ("refkey", "U30"),
+            ("ID", "U10"),
+            ("ind", np.int),
+            ("obj", np.object),
+            ("path", "U100")])
+alltext = []
+alltext = np.array(alltext, dtype=dtypeAlltext)
+allTrashText = np.empty(0, dtype=dtypeAlltext)
+
+
+# count for text in the research folder
+allTextTemp = research.xpath(".//BinderItem[@Type='Text']")
+for j, eachc in enumerate(allTextTemp):
+    t = eachc.xpath("MetaData/CustomMetaData/MetaDataItem[FieldID='bibcode']")
+    thisUrl = eachc.xpath("MetaData/CustomMetaData/MetaDataItem[FieldID='url']")
+    if len(thisUrl)>0:
+        thisUrl = thisUrl[0].xpath("Value")[0].text
+        thisBibcode = t[0].xpath("Value")[0].text
+        thisID = eachc.get("ID")
+        refkey = eachc.xpath("Title")[0].text
+        thisPath = getPath(eachc)
+        alltext = np.append(alltext,
+                np.array((thisBibcode, thisUrl, refkey, thisID, 0, eachc, thisPath), dtype=dtypeAlltext))
+        log("find text in research: {} at {}".\
+                format(thisBibcode, thisPath))
+
+log("\n\n\n")
+# count for text in the trash folder
+allTextTemp = trash.xpath(".//BinderItem[@Type='Text']")
+for j, eachc in enumerate(allTextTemp):
+    t = eachc.xpath("MetaData/CustomMetaData/MetaDataItem[FieldID='bibcode']")
+    thisUrl = eachc.xpath("MetaData/CustomMetaData/MetaDataItem[FieldID='url']")
+    if len(thisUrl)>0:
+        thisUrl = thisUrl[0].xpath("Value")[0].text
+        thisBibcode = t[0].xpath("Value")[0].text
+        thisID = eachc.get("ID")
+        refkey = eachc.xpath("Title")[0].text
+        thisPath = getPath(eachc)
+        allTrashText = np.append(allTrashText,
+                np.array((thisBibcode, thisUrl, refkey, thisID, 0, eachc, thisPath), dtype=dtypeAlltext))
+        log("find text in trash: {} at {}".\
+                format(thisBibcode, thisPath))
+
+for i, each in enumerate(allTrashText):
+    bibcode = each["bibcode"]
+    url = each["url"]
+    refkey = each["refkey"]
+    #if bibcode in alltext["bibcode"]:
+    if url in alltext["url"]:
+        #allInds = (bibcode == alltext["bibcode"])
+        allInds = (url == alltext["url"])
+        objs = alltext[allInds]["obj"]
+        thisPath = getPath(each["obj"])
+        N = objs.size
+        if N==1:
+            objs[0].xpath("MetaData/CustomMetaData/MetaDataItem[FieldID='hardlink']/Value")[0].text = "0"
+        each["obj"].getparent().remove(each["obj"])
+        # delete term
+        log("delete hardlink for {}:{}, path:{}".\
+                format(bibcode, url, thisPath))
+
+log("============end of log============")
+logFile.close()
+toWrite = tree.tostring(e, xml_declaration=True, standalone=False, encoding="UTF8")
+with open(projectName, "w") as f:
+    f.write(toWrite)

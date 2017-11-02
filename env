@@ -1,0 +1,2 @@
+DIR=$(realpath .)
+export PATH=$DIR/bin:$PATH

@@ -1,16 +1,17 @@
-SHELL:=/bin/zsh
+SHELL:=/bin/bash
 all:
 	cat makefile
 	@echo "you need to ./env first"
-env:
-	@echo "source setup.sh"
 query:
-	./paperSystem/paperSystemStep1
+	./bin/paperSystemStep1
 offline:
-	./paperSystem/paperSystemStep1 --offline
+	./bin/paperSystemStep1 --offline
 gen:
-	./paperSystem/paperSystemStep2
+	./bin/paperSystemStep2
 update:
-	./paperSystem/paperSystemUpdate
+	./bin/paperSystemUpdate
 2rtf:
-	./paperSystem/2rtf
+	./bin/2rtf
+tex:
+	@./bin/copyMakefiles2Tex
+	@echo "copy makefile and compile script to all *.tex folder"

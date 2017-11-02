@@ -1,0 +1,14 @@
+#!/bin/bash
+set -e
+file=compileGroupStr
+if [[ main.tex -nt backup.tex ]]; then
+    if [[ -f backup.tex ]]; then
+        echo "update last.tex"
+        cp backup.tex last.tex
+    fi
+    echo "update backup.tex"
+    cp ${file}.tex backup.tex
+fi
+# cat `find ../references/*.bib | grep -v "all\.bib"` > ../references/all.bib
+pdflatex ${file} && bibtex ${file} && pdflatex ${file} && pdflatex ${file}
+open ${file}.pdf

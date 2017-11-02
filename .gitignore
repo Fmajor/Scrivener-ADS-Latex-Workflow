@@ -1,3 +1,4 @@
 *.swp
 AASTeX6.1.tex
 simpleOneColumn.tex
+__pycache__

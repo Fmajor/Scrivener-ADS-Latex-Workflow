@@ -1,0 +1,509 @@
+
+THE SDSS-III BARYON OSCILLATION SPECTROSCOPIC SURVEY: THE QUASAR LUMINOSITY FUNCTION FROM DATA RELEASE NINE
+===========================================================================================================
+
+Nicholas P. Ross, Ian D. McGreer, Martin White, Gordon T. Richards, Adam D. Myers, Nathalie Palanque-Delabrouille, Michael A. Strauss, Scott F. Anderson, Yue Shen, W. N. Brandt, Christophe Yèche, Molly E. C. Swanson, Éric Aubourg, Stephen Bailey, Dmitry Bizyaev, Jo Bovy, Howard Brewington, J. Brinkmann, Colin DeGraf, Tiziana Di Matteo, Garrett Ebelke, Xiaohui Fan, Jian Ge, Elena Malanushenko, Viktor Malanushenko, Rachel Mandelbaum, Claudia Maraston, Demitri Muna, Daniel Oravetz, Kaike Pan, Isabelle Pâris, Patrick Petitjean, Kevin Schawinski, David J. Schlegel, Donald P. Schneider, John D. Silverman, Audrey Simmons, Stephanie Snedden, Alina Streblyanska, Nao Suzuki, David H. Weinberg, Donald York
+-----------------------------------------------------------------------------------------------------------
+
+### [ApJ, 2013, Volume 773, Issue 1, Page 14](http://dx.doi.org/10.1088/0004-637X/773/1/14) ###
+
+#### Page 1 ####
+
+##### Yellow: #####
+
+> ABSTRACT
+
+***
+
+##### Yellow: #####
+
+> We present a new measurement of the optical quasar luminosity 
+> function (QLF), using data from the Sloan Digital Sky Survey-III: 
+> Baryon Oscillation Spectroscopic Survey (SDSS-III: BOSS). From 
+> the SDSS-III Data Release Nine
+
+***
+
+##### Orange: #####
+
+> a uniform sample of 22,301 i 21.8 quasars are selected over an 
+> area of 2236 deg2, with confirmed spectroscopic redshifts between 
+> 2.2 < z < 3.5,
+
+***
+
+##### Yellow: #####
+
+> filling in a key part of the luminosity–redshift plane for 
+> optical quasar studies.
+
+***
+
+##### Yellow: #####
+
+> The completeness of the survey is derived through simulated 
+> quasar photometry, and this completeness estimate is checked 
+> using a sample of quasars selected by their photometric 
+> variability within the BOSS footprint
+
+***
+
+##### Orange: #####
+
+> We probe the faint end of the QLF to Mi (z = 2.2) ≈ −24.5 and see 
+> a clear break in the QLF at all redshifts up to z = 3.5.
+
+***
+
+##### Yellow: #####
+
+> A log-linear relation (in log Φ∗ −M∗) for a luminosity evolution 
+> and density evolution model is found to adequately describe our 
+> data within the range 2.2 < z < 3.5; across this interval the 
+> break luminosity increases by a factor of ∼2.6 while Φ∗ declines 
+> by a factor of ∼8.
+
+***
+
+##### Orange: #####
+
+> At z 2.2 our data are reasonably well fit by a pure luminosity 
+> evolution model, and only a weak signature of “AGN downsizing” is 
+> seen, in line with recent studies of the hard X-ray luminosity 
+> function.
+
+***
+
+##### Yellow: #####
+
+> 1. INTRODUCTION
+
+***
+
+##### Other: #####
+
+> represent a fascinating and unique population of objects at the
+
+***
+
+##### Other: #####
+
+> intersection of cosmology and astrophysics
+
+***
+
+##### Yellow: #####
+
+> The cosmological evolution of the quasar luminosity function 
+> (QLF) has been of interest since quasars were first identified a 
+> half-century ago (Sandage 1961; Hazard et al. 1963; Schmidt 1963; 
+> Oke 1963; Greenstein & Matthews 1963; Burbidge 1967).
+
+***
+
+#### Page 2 ####
+
+##### Orange: #####
+
+> Measuring the QLF, and its evolution with redshift, is important 
+> for several reasons.
+
+***
+
+##### Green: #####
+
+> It is generally believed that present-day supermassive black 
+> holes (SMBHs) gained most of their mass via gas accretion during 
+> an active nuclear phase, potentially at quasar luminosities (LBol 
+> 1045 erg s−1; Salpeter 1964; Zel’dovich & Novikov 1965; 
+> Lynden-Bell 1969; Soltan 1982),
+
+***
+
+##### Blue: #####
+
+> so an accurate description of the QLF allows us to place 
+> constraints on the formation history of SMBHs (e.g., Rees 1984; 
+> Madau & Rees 2001; Volonteri et al. 2003; Volonteri & Rees 2006; 
+> Netzer & Trakhtenbrot 2007; Haiman 2012) and to map the black 
+> hole (BH) accretion history of the universe via the BH mass 
+> function (Shankar et al. 2009, 2010; Shen 2009; Shen & Kelly 
+> 2012),
+
+***
+
+##### Green: #####
+
+> as well as constrain the effect of BH spin on the central engine 
+> (Volonteri et al. 2005; Fanidakis et al. 2011).
+
+***
+
+##### Yellow: #####
+
+> Measurements of the QLF also place constraints on the intensities 
+> and nature of various cosmic backgrounds, including the buildup 
+> of the cosmic X-ray (Shanks et al. 1991; Comastri et al. 1995; 
+> Ueda et al. 2003; Brandt & Hasinger 2005; Hickox & Markevitch 
+> 2006), ultraviolet (Henry 1991) and infrared (IR) (Hauser & Dwek 
+> 2001; Dole et al. 2006) backgrounds.
+
+***
+
+##### Green: #####
+
+> Knowledge of the UV background is relevant for calculations that 
+> involve the contribution of quasar UV photons to the epoch of H 
+> reionization (e.g., Fan et al. 2006) at z 6. At lower (z 6) 
+> redshift, quasars contribute toward a fraction of the ionizing 
+> photons that keep most of the H ionized, allowing studies of the 
+> Lyα forest (LyαF; e.g., Lynds 1971; Meiksin 2009).
+
+***
+
+##### Blue: #####
+
+> Helium reionization (He ii→He iii) can be measured by its effect 
+> on the LyαF (Jakobsen et al. 1994; Reimers et al. 1997, 2005; 
+> Smette et al. 2002; Syphers et al. 2011; Worseck et al. 2011). 
+> This second epoch of reionization occurs at z ∼ 3, and may be 
+> driven by UV photons from quasars, so an accurate determination 
+> of the QLF at this epoch is a key consistency check on the He 
+> reionization measurements.
+
+***
+
+##### Yellow: #####
+
+> Furthermore, the co-evolution of galaxies and AGNs is a crucial 
+> ingredient in, and test of, modern theories of galaxy formation.
+
+***
+
+##### Blue: #####
+
+> The energy feedback from AGNs is thought to impact their host 
+> galaxies, and thus to influence their present-day properties 
+> (e.g., Cattaneo et al. 2009; Fabian 2012).
+
+***
+
+##### Green: #####
+
+> Observations of the evolution of quasar properties over cosmic 
+> time can inform such models and therefore our understanding of 
+> the galaxy–BH connection.
+
+***
+
+##### Yellow: #####
+
+> Recent large quasar surveys have allowed us to study the 
+> properties of the quasar population with unprecedented 
+> statistical precision.
+
+***
+
+##### Blue: #####
+
+> The number of known quasars has increased nearly 100-fold since 
+> the late 1990s, (for photometrically identified quasars, see 
+> Richards et al. 2009) and since that time, there has been a large 
+> effort to measure the QLF in the UV/optical (Boyle et al. 2000; 
+> Fan et al. 2001, 2004, 2006; Wolf et al. 2003; Hunt et al. 2004; 
+> Croom et al. 2004, 2009a; Hao et al. 2005; Richards et al. 2005, 
+> 2006b; Jiang et al. 2006; Fontanot et al. 2007; Bongiorno et al. 
+> 2007; Reyes et al. 2008; Jiang et al. 2008, 2009; Glikman et al. 
+> 2010, 2011; Willott et al. 2010; Ikeda et al. 2011, 2012; Masters 
+> et al. 2012),
+
+***
+
+##### Green: #####
+
+> midinfrared (Brown et al. 2006; Siana et al. 2008; Assef et al. 
+> 2011)
+
+***
+
+##### Orange: #####
+
+> and the soft and hard X-ray (Cowie et al. 2003; Ueda et al. 2003; 
+> Hasinger et al. 2005; Barger et al. 2005; Silverman et al. 2005, 
+> 2008; Aird et al. 2008, 2010; Treister et al. 2009; Fiore et al. 
+> 2012).
+
+***
+
+##### Orange: #####
+
+> An overview of recent determinations of the optical QLF is given 
+> in Table 1.
+
+***
+
+##### Yellow: #####
+
+> Quasar number density evolves strongly with redshift (Schmidt 
+> 1970; Osmer 1982; Schmidt et al. 1995; Fan et al. 2001; Richards 
+> et al. 2006b; Croom et al. 2009b), and one of the key goals of 
+> quasar studies is to understand what drives this
+
+***
+
+##### Yellow: #####
+
+> strong evolution.
+
+***
+
+##### Green: #####
+
+> A caveat here is that the evolution of the optical QLF is a 
+> composite of intrinsic quasar evolution and the evolution of the 
+> obscuring medium in quasar hosts.
+
+***
+
+##### Yellow: #####
+
+> In this study, we concentrate on the unobscured quasar 
+> population, defined as objects that were selected via their 
+> UV/optical rest-frame continuum and the presence of broad, 1000 
+> km s−1, emission lines.
+
+***
+
+##### Green: #####
+
+> We leave investigations of the obscured AGN population to other 
+> studies, e.g., in the mid-infrared (e.g., Lacy et al. 2004; 
+> Richards et al. 2006a; Donley et al. 2012; Stern et al. 2012; Yan 
+> et al. 2013), and X-ray (Tueller et al. 2010; Luo et al. 2011; 
+> Corral et al. 2011; Brightman & Ueda 2012; Lehmer et al. 2012).
+
+***
+
+##### Yellow: #####
+
+> As the QLF is observed to have a broken power-law form, it is 
+> necessary to probe below the luminosity at which the powerlaw 
+> breaks in order to distinguish luminosity evolution (where the 
+> luminosity of the AGNs changes with time, but their number 
+> density remains constant) from density evolution (where the 
+> number density of the AGNs changes, but the luminosities of 
+> individual objects remains constant), or a combination of the 
+> two.
+
+***
+
+##### Yellow: #####
+
+> The QLF is defined as the number density of quasars per unit 
+> luminosity. It is often described by a double power-law (Boyle et 
+> al. 2000; Croom et al. 2004; Richards et al. 2006b, hereafter, 
+> R06) of the form
+
+equation below
+
+***
+
+##### Yellow: #####
+
+> with a characteristic, or break, luminosity L∗. An alternative 
+> definition of this form of the QLF gives the number density of 
+> quasars per unit magnitude,
+
+euqation below
+
+***
+
+##### Green: #####
+
+> The dimensions of Φ differ in the two conventions. We have 
+> followed R06 such that α describes the faint end QLF slope, and β 
+> the bright end slope. The α/β convention in some other works 
+> (e.g., Croom et al. 2009a) is in the opposite sense from our 
+> definition. Evolution of the QLF can be encoded in the redshift 
+> dependence of the break luminosity, φ∗, and also potentially in 
+> the evolution of the power-law slopes.
+
+***
+
+##### Yellow: #####
+
+> Boyle et al. (2000) and Croom et al. (2004) found that the QLF 
+> measured in the 2dF Quasar Redshift Survey (2QZ; Croom et al. 
+> 2004) was well fit by a pure luminosity evolution (PLE) model 
+> where Φ(M) was constant but M evolved with redshift.
+
+***
+
+##### Green: #####
+
+> In this model, M∗ changed from ≈−26.0 to ≈−22.0 between z ∼ 2.5 
+> and z ∼ 0. However, this paradigm is challenged using recent, 
+> deeper data. Croom et al. (2009a) measured the optical QLF at z 
+> 2.6 from the combination of the 2dF-SDSS (Sloan Digital Sky 
+> Survey) LRG and QSO survey (2SLAQ; Croom et al. 2009b), which 
+> probes down to a magnitude limit of g = 21.85, and the SDSS-I/II 
+> Quasar survey (Richards et al. 2002; Schneider et al. 2010) to i 
+> = 19.1 (z 3) and i = 20.2 (z 3). Here, the double power-law form 
+> with PLE provides a reasonable fit to the observed QLF from low z 
+> up to z ≃ 2, but it appears to break down at higher redshift. 
+> However, the 2SLAQ sample has few objects above z ∼ 2, and the 
+> SDSS does not probe down to L∗ at higher redshifts, making it 
+> difficult to constrain the faint end of the QLF at high z.
+
+***
+
+##### Yellow: #####
+
+> At z 2, the constraints on the QLF are less clear-cut, as the 
+> selection of luminous quasars becomes less efficient.
+
+***
+
+##### Green: #####
+
+> This situation arises because the broad-band colors of z ≈ 2.7 
+> and z ≈ 3.5 quasars are, respectively, very similar to those of 
+> A–F
+
+***
+
+#### Page 3 ####
+
+##### Green: #####
+
+> and K stars (Fan 1999; Fan et al. 2001; Richards et al. 2002; 
+> Ross et al. 2012) in the SDSS color system (Fukugita et al. 
+> 1996). Although we have good constraining power at the bright end 
+> at z > 2, (e.g., Richards et al. 2006b; Jiang et al. 2009), there 
+> is uncertainty in the form, and evolution of the QLF at z > 2, 
+> especially at the faint end. The redshift range z ∼ 2–3 is of 
+> particular importance since the luminous quasar number density 
+> peaks here; this is often referred to as the “quasar epoch” 
+> (Osmer 1982; Warren et al. 1994; Schmidt et al. 1995; Fan et al. 
+> 2001; Richards et al. 2006b; Croom et al. 2009a).
+
+***
+
+##### Yellow: #####
+
+> For our study, we use data from the SDSS-III: Baryon Oscillation 
+> Spectroscopic Survey (BOSS; Dawson et al. 2013) that is 
+> specifically designed to target faint, g 22, quasars in the 
+> redshift range z = 2.2–3.5 (Ross et al. 2012).
+
+***
+
+##### Green: #####
+
+> The first two phases of the SDSS (“SDSS-I/II,” hereafter simply 
+> SDSS; York et al. 2000) have been completed (Abazajian et al. 
+> 2009), with a sample of ≈100,000 spectroscopically confirmed 
+> quasars at 0 < z 5 (Schneider et al. 2010). The third incarnation 
+> of the SDSS (SDSS-III; Eisenstein et al. 2011) is taking spectra 
+> of 150,000 z > 2.2 quasars as part of the BOSS. The main 
+> scientific motivation for the SDSS-III BOSS Quasar survey is to 
+> measure the baryon acoustic oscillation feature (BAO) in the LyαF 
+> (Slosar et al. 2011).
+
+***
+
+##### Orange: #####
+
+> This sample is designed to select quasars with 2.2 < z < 3.5, and 
+> will have an order of magnitude more objects at z > 2 than the 
+> SDSS, sampling the QLF ∼2 mag deeper at each redshift. Combining 
+> the BOSS and SDSS observations gives a dynamic range of ∼5 mag at 
+> a given
+
+***
+
+##### Green: #####
+
+> redshift, and a primary motivation for our study is to extend the 
+> work presented in Richards et al. (2006b), both in dynamic range 
+> in luminosity, and concentrating on the redshift range z = 
+> 2.2–3.5, where the original SDSS selection was sparsesampled in 
+> an attempt to minimize the contamination by stars (Richards et 
+> al. 2002).
+
+***
+
+##### Yellow: #####
+
+> In this paper we present the optical QLF from the first two years 
+> of BOSS spectroscopy, data included in SDSS Data Release Nine 
+> (DR9; Ahn et al. 2012).28
+
+***
+
+##### Green: #####
+
+> We use data from the 3671 deg2 observed over the DR9 footprint, 
+> and supplement this with deeper data over a smaller area (14.6 
+> deg2), in order to probe the redshift range 0.7 < z < 2.2, also 
+> observed as part of the BOSS (Table 1; Palanque-Delabrouille et 
+> al. 2013). Table 1 places the BOSS DR9 survey in context as a 
+> wide-field, medium-depth survey, and we will return to the 
+> surveys that match BOSS in redshift.
+
+***
+
+#### Page 22 ####
+
+##### Yellow: #####
+
+> 7. CONCLUSIONS
+
+***
+
+##### Yellow: #####
+
+> The QLF is one of the most fundamental observables of this class 
+> of important cosmological objects.
+
+***
+
+##### Green: #####
+
+> The shape and evolution of the QLF provides constraints on models 
+> of quasar fueling, feedback and galaxy evolution and the 
+> ionization history of the inter-galactic gas.
+
+***
+
+##### Yellow: #####
+
+> Despite its importance, it has proven difficult observationally 
+> to probe the QLF at magnitudes below the break at the peak of the 
+> quasar epoch.
+
+***
+
+##### Green: #####
+
+> Here we measure the QLF using data from the 
+> SDSS-III:BaryonOscillationSpectroscopicSurvey(BOSS)using a 
+> uniformly selected sample of 23,301 quasars, and fill in the L–z 
+> plane with published results from the SDSS-I/II
+
+***
+
+##### Yellow: #####
+
+> We probethefaintendoftheQLFtoMi =−24.5atz=2.2 and complement our 
+> uniform color-selection with a sample of variability-selected 
+> quasars from the “Stripe 82” field.
+
+***
+
+##### Orange: #####
+
+> Amongst our findings are:
+
+***
+

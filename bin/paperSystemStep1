@@ -1,0 +1,383 @@
+#!/usr/bin/env python3
+import bibtexparser
+import pdb
+import re
+import os
+import ads
+import warnings
+import numpy as np
+import sys
+import pickle
+import ipdb
+import sys, getopt
+import urllib
+from urllib.parse import unquote
+import glob
+import json
+import datetime
+import tagSystem
+
+codeDir = os.path.dirname(sys.argv[0])
+tagList =  list(set(tagSystem.tagList))
+
+opts, args = getopt.getopt(sys.argv[1:], "", ["offline"])
+if "--offline" in dict(opts).keys():
+    offline = 1
+else:
+    offline = 0
+configs = {"offline": offline}
+
+class C():
+    def __init__(self):
+        pass
+
+dtypeUniqueTerm = np.dtype([
+                      ("bibcode", "U100"),
+                      ("refkey", "U100"),
+                      ("searchkey", "U100"),
+                      ("year",np.int),
+                      ("title", "U999"),
+                      ("authors", "U4096"),
+                      ("link", "U255"),
+                      ("file", "U999"),
+                      ("abstract", "U9999"),
+                      ("date", "U20"),
+                      ("citationCount", np.int),
+                      ("obj", np.object),
+                      ("notes", np.object),
+                      ("tag", np.object)])
+dtypeAllPaper = np.dtype([("id", np.int),
+                      ("bibcode", "U100"),
+                      ("refkey", "U100"),
+                      ("searchkey", "U100"),
+                      ("year",np.int),
+                      ("title", "U999"),
+                      ("authors", "U4096"),
+                      ("link", "U255"),
+                      ("file", "U999"),
+                      ("abstract", "U9999"),
+                      ("date", "U20"),
+                      ("citationCount", np.int),
+                      ("obj", np.object),
+                      ("notes", np.object),
+                      ("tag", np.object)])
+dtypeWrite = np.dtype([
+                    ("title",     "U999"),
+                    ("year",      "U10"),
+                    ("date",      "U20"),
+                    ("url",       "U999"),
+                    ("refkey",    "U999"),
+                    ("bibcode",   "U999"),
+                    ("author",    "U9999"),
+                    ("abstract",  "U9999"),
+                    ("file",      "U999"),
+                    ("cite",      np.object),
+                    ("citeInd",   np.object),
+                    ("ref",       np.object),
+                    ("refInd",    np.object),
+                    ("citationCount", np.int),
+                    ("notes", np.object),
+                    ("tag", np.object)
+                    ])
+
+
+bibDir="./references"
+#bibDir="./Ref"
+bibFileLs = os.listdir(bibDir)
+bibFiles = [each for each in bibFileLs if each[-5:]==".json"]
+print("filelist:\n\t{}".format(bibFiles))
+temp = input("go on?")
+
+for eachFile in bibFiles:
+    fullPath = os.path.join(bibDir, eachFile)
+    bibName = fullPath
+    outname = fullPath[:-5]+".bibdata"
+    if os.path.exists(outname):
+        oldData = np.load(outname)["data"]
+    else:
+        oldData = None
+    print("process {}\n\toutput to {}".\
+            format(bibName, outname))
+    with open(bibName) as f:
+        bib = json.load(f)
+    entries = bib["items"]
+    N = 0
+
+    refKeys = []
+    dois = []
+    pages = []
+    links = []
+    files = []
+    abstracts = []
+    dates = []
+    tags = []
+    years=[]
+    titles=[]
+    authors=[]
+    notes=[]
+    for eachItem in entries: # parse json file
+        if eachItem.get('itemType')=='webpage':
+            continue
+        N += 1
+        print("process: {}".format(eachItem["title"]))
+        dateString = eachItem["date"]
+        if "-" in dateString:
+            if dateString[-2:]=="00":
+                thisDate = datetime.datetime.strptime(eachItem["date"], "%Y-%m-00")
+            else:
+                thisDate = datetime.datetime.strptime(eachItem["date"], "%Y-%m-%d")
+        elif "," in dateString:
+            thisDate = datetime.datetime.strptime(eachItem["date"], "%B %m, %Y")
+        else:
+            thisDate = datetime.datetime.strptime(eachItem["date"], "%Y")
+
+        if "bibtex" in eachItem.get("extra",""):
+            aux = eachItem["extra"].split("\n")[0].split(":")[-1].strip()
+            refKeys.append(aux)
+        else:
+            #refKeys.append(eachItem["__citekey__"]+str(thisDate.year))
+            refKeys.append(eachItem["citekey"])
+        dois.append(eachItem.get("DOI",""))
+        pages.append(eachItem.get("pages",""))
+        links.append(eachItem.get("url",""))
+        thisFile=""
+        for eachFile in eachItem["attachments"]:
+            if eachFile["mimeType"]=="application/pdf":
+                thisFile = eachFile["localPath"]
+                break
+        files.append(thisFile)
+        # process notes
+        if eachItem['notes']:
+            __ = ["{dateModified}:\n{note}".format(**_) for _ in eachItem['notes']]
+            thisnotes = '\n'.join(__)
+        else:
+            thisnotes = ''
+        notes.append(thisnotes)
+        abstracts.append(eachItem.get("abstractNote",""))
+        dates.append(thisDate.strftime("%Y-%m-%d"))
+        thisTag = eachItem.get("tags",[])
+        thisTag = map(lambda _:_['tag'], thisTag)
+        thisTagUse = [eachTag for eachTag in thisTag if eachTag in tagList]
+        tags.append(thisTagUse)
+        titles.append(eachItem['title'])
+        years.append(int(thisDate.strftime("%Y")))
+        authors.append( ", ".join( [" ".join([eachName.get("firstName", "?"), eachName.get("lastName", "?")]) for eachName in eachItem["creators"]]))
+
+    searchKeys = [""] * N
+    assert len(refKeys)==len(dois)==len(pages)==len(links)==len(files)==len(abstracts)==len(dates)==len(tags)==len(years)==len(titles)==len(authors)==len(notes)
+    #ipdb.set_trace()
+
+    # gen search keys
+    for i in range(N):
+        if dois[i]:
+            thisSearchKey = "    doi: " + dois[i]
+        elif "arXiv" in pages[i]:
+            thisSearchKey = pages[i].lower().split(":")
+            thisSearchKey = ": ".join(thisSearchKey)
+        elif "arxiv" in links[i]:
+            thisSearchKey = "  arxiv: " + links[i].split("arxiv.org/abs/")[-1]
+        elif "adsabs.harvard.edu/abs/" in links[i]:
+            thisSearchKey = "bibcode: " + unquote(links[i].split("/")[-1])
+        elif "ui.adsabs.harvard.edu" in links[i]:
+            thisSearchKey = "bibcode: " + unquote(links[i].split("/")[-2])
+        else:
+            todo = entries[i]
+            print("unknown search key doi:{} page:{} links:{}".format(dois[i], pages[i], links[i]))
+        #eachFile = files[i]
+        #reStr = r"PDF:(.*):application/pdf|pdf:(.*):application/pdf"
+        #if eachFile:
+        #    result = re.search(reStr, eachFile)
+        #    if result:
+        #        thisFile = result.group(0).split(":")[1]
+        #        files[i] = thisFile
+        #        if not os.path.exists(thisFile):
+        #            print u"file not exists: {}\nfrom\n{}".format(thisFile, eachFile)
+        #            allFile = glob.glob(os.path.dirname(thisFile)+"/*.pdf")
+        #            if allFile:
+        #                files[i]=allFile[0]
+        #                print u"\tuse this one: {}\n".format(files[i])
+        #            else:
+        #                ipdb.set_trace()
+        #                raise Exception()
+        #    else:
+        #        files[i] = ""
+
+        searchKeys[i] = thisSearchKey
+
+    #if offline == 1 and oldData is not None and len(refKeys) != oldData.size:
+    #    print "old data not the same length, update all"
+    #elif offline == 1:
+    #    toWrite = oldData
+    #    for i, eachUrl in enumerate(links):
+    #        eachUrl = links[i]
+    #        if eachUrl in toWrite["url"]:
+    #            index = toWrite["url"].index(eachUrl)
+    #            if eachRefKey==toWrite[index]["refkey"]:
+    #                print "refkey unchanged: {}".format(eachRefKey)
+    #            else:
+    #                print "\trefkey changing: {} to {}".format(toWrite[index]["refkey"], eachRefKey)
+    #                toWrite[index]["refkey"] = eachRefKey
+    #            if files[index]==toWrite[index]["file"]:
+    #                print u"\tfile unchanged"
+    #            else:
+    #                print u"\tfile changing: {} to {}".format(toWrite[index]["file"], files[index])
+    #                toWrite[index]["file"] = files[index]
+    #            if tags[index]==toWrite[index]["tag"]:
+    #                print u"\ttag unchanged"
+    #            else:
+    #                print u"\ttag changing: {} to {}".format(toWrite[index]["tag"], tags[index])
+    #    print "finished."
+    #    #toWrite.dump(outname)
+    #    np.savez(outname, data=toWrite, configs=[configs])
+    #    continue # skip this bibfile
+
+
+    # need network here
+    uniqueTerm = np.empty(0, dtype=dtypeUniqueTerm)
+    allPaper = np.empty(N, dtype=dtypeAllPaper)
+
+    for i, each in enumerate(searchKeys):
+        print('{:<4}/{:<4}  {}\r'.format(i+1, N, each))
+        thisRefkey = refKeys[i]
+        allPaper[i]["refkey"] = thisRefkey
+        thisSearchKey = searchKeys[i]
+        allPaper[i]["searchkey"] = thisSearchKey
+        thisLink = links[i]
+        allPaper[i]["link"] = thisLink
+        thisFile = files[i]
+        allPaper[i]["file"] = thisFile
+        thisAbstract = abstracts[i]
+        allPaper[i]["abstract"] = thisAbstract
+        thisDate = dates[i]
+        allPaper[i]["date"] = thisDate
+        thisYear = years[i]
+        allPaper[i]["year"] = thisYear
+        thisTitle = titles[i]
+        allPaper[i]["title"] = thisTitle
+        thisAuthors = authors[i]
+        allPaper[i]["authors"] = thisAuthors
+        thisTag = tags[i]
+        allPaper[i]["tag"] = thisTag
+        thisNotes = notes[i]
+        allPaper[i]["notes"] = thisNotes
+        keyType = each.split(": ")[0].strip()
+        content = each.split(": ")[1].strip()
+        if not offline:
+            if keyType=="doi":
+                res = list(ads.SearchQuery(doi=content))
+            elif keyType=="arxiv":
+                res = list(ads.SearchQuery(arxiv=content))
+            elif keyType=="bibcode":
+                res = list(ads.SearchQuery(bibcode=content))
+            else:
+                raise Exception("unknown type: {}".format(keyType))
+        else:
+            res=[C()]
+            res[0].bibcode = "?"
+            res[0].citation_count = -1
+        if len(res)==0:
+            warnings.warn("no result for request {}:{}".format(keyType, content))
+        elif len(res)>1:
+            print("result should not > 1, need debug for 'res'...")
+            pdb.set_trace()
+        else: # part to process query result
+            res = res[0]
+            thisBibCode = res.bibcode
+            thisCitationCount = res.citation_count
+            #thisCitationCount = -1
+            thisUrl = thisLink
+            allPaper[i]["obj"] = res
+            allPaper[i]["bibcode"] = thisBibCode
+            #if thisBibCode not in uniqueTerm["bibcode"]:
+            if thisUrl not in uniqueTerm["link"]:
+                allPaper[i]["id"] = uniqueTerm.size
+                uniqueTerm = np.append(uniqueTerm,
+                    np.array([(thisBibCode, thisRefkey, thisSearchKey, thisYear, thisTitle, thisAuthors, thisLink, thisFile, thisAbstract, thisDate, thisCitationCount, res, thisNotes, thisTag)],
+                    dtype=dtypeUniqueTerm))
+            else:
+                #thisID = uniqueTerm["bibcode"].tolist().index(thisBibCode)
+                thisID = uniqueTerm["link"].tolist().index(thisUrl)
+                allPaper[i]["id"] = thisID
+                if len(uniqueTerm[thisID]["file"])==0:
+                    if len(thisFile)>0:
+                        uniqueTerm[thisID]["file"] = thisFile
+                        uniqueTerm[thisID]["refkey"] = thisRefkey
+                        uniqueTerm[thisID]["searchkey"] = thisSearchKey
+                        uniqueTerm[thisID]["year"] = thisYear
+                        uniqueTerm[thisID]["title"] = thisTitle
+                        uniqueTerm[thisID]["authors"] = thisAuthors
+                        uniqueTerm[thisID]["abstract"] = thisAbstract
+                        uniqueTerm[thisID]["link"] = thisLink
+                        uniqueTerm[thisID]["date"] = thisDate
+                        uniqueTerm[thisID]["citationCount"] = thisCitationCount
+                        uniqueTerm[thisID]["obj"] = res
+                        uniqueTerm[thisID]["tag"] = thisTag
+                        uniqueTerm[thisID]["notes"] = thisNotes
+                else:
+                    if len(thisFile)>0:
+                        if thisFile!=uniqueTerm[thisID]["file"]:
+                            raise Exception("Duplicated term {} and {} for {} {}".\
+                                    format(thisFile, uniqueTerm[thisID]["file"], thisBibCode, thisSearchKey))
+
+    toWrite = np.empty(uniqueTerm.size, dtype=dtypeWrite)
+    allBibCodeList = uniqueTerm["bibcode"]
+    allBibCode = set(allBibCodeList)
+    for i, each in enumerate(uniqueTerm):
+        print('process reference matrix for {}'.format(each['bibcode']))
+        eachObj = each["obj"]
+        toWrite[i]["refkey"] = each["refkey"]
+        toWrite[i]["url"] = each["link"]
+        #toWrite[i]["title"] = eachObj.title[0]
+        toWrite[i]["title"] = each['title']
+        #toWrite[i]["author"] = "  ".join(eachObj.author)
+        toWrite[i]["author"] = each["authors"]
+        toWrite[i]["abstract"] = each["abstract"]
+        toWrite[i]["file"] = each["file"]
+        toWrite[i]["year"] = each["year"]
+        toWrite[i]["date"] = each["date"]
+        toWrite[i]["bibcode"] = each["bibcode"]
+        toWrite[i]["citationCount"] = each["citationCount"]
+        toWrite[i]["tag"] = each["tag"]
+        toWrite[i]["notes"] = each["notes"]
+
+        if not offline:
+            thiscite = eachObj.citation
+            if thiscite is None:
+                thiscite=[]
+            eachCite = set(thiscite)
+            eachCite = np.array(list(allBibCode & eachCite))
+            citeInd = np.array([allBibCodeList.tolist().index(each) for each in eachCite])
+            if citeInd.size>0:
+                ind = np.argsort(uniqueTerm[citeInd]["date"])[::-1]
+                eachCite = eachCite[ind]
+                citeInd = citeInd[ind]
+            else:
+                eachCite = None
+                citeInd = None
+            toWrite[i]["cite"] = eachCite
+            toWrite[i]["citeInd"] = citeInd
+        else:
+            toWrite[i]["cite"] = []
+            toWrite[i]["citeInd"] = []
+
+        if not offline:
+            thisref = eachObj.reference
+            if thisref is None:
+                thisref=[]
+            eachRef = set(thisref)
+            eachRef = np.array(list(allBibCode & eachRef))
+            refInd = np.array([allBibCodeList.tolist().index(each) for each in eachRef])
+            if refInd.size>0:
+                ind = np.argsort(uniqueTerm[refInd]["date"])[::-1]
+                eachRef = eachRef[ind]
+                refInd = refInd[ind]
+            else:
+                eachRef = None
+                refInd = None
+            toWrite[i]["ref"] = eachRef
+            toWrite[i]["refInd"] = refInd
+        else:
+            toWrite[i]["ref"] = []
+            toWrite[i]["refInd"] = []
+    np.savez(outname, data=toWrite, configs=[configs])
+    #toWrite.dump(outname)

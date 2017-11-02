@@ -1,0 +1,161 @@
+#!/usr/local/bin/python
+import markdown2
+import lxml.etree as etree
+import urllib
+import StringIO
+import os
+import re
+import subprocess
+import ipdb
+import numpy as np
+
+def rtf(unistr):
+    unistr = unistr.replace("{", "{{")
+    unistr = unistr.replace("}", "}}")
+    return ''.join([c if ord(c) < 128 else u'\\u' + unicode(ord(c)) + u'?' for c in unistr])
+def getPath(ele):
+    ps = ele.xpath("ancestor::*")
+    joinList = []
+    for each in ps:
+        if len(each.xpath("Title"))>0:
+            joinList.append(each.xpath("Title")[0].text)
+    return "/".join(joinList)
+rtfHeader=\
+u"""{\\rtf1\\ansi\\ansicpg1252\cocoartf1404\cocoasubrtf460
+{\\fonttbl\\f0\\fmodern\\fcharset0 Courier;}
+
+{\\colortbl;
+\\red255\\green255\\blue255;
+\\red230\\green255\\blue79;
+\\red255\\green204\\blue102;
+\\red255\\green128\\blue190;
+\\red128\\green255\\blue105;
+\\red143\\green255\\blue255;
+\\red0\\green0\\blue0;}
+
+\pard\\tx720\\tx1440\\tx2160\\tx2880\\tx3600\\tx4320\\fi360\sl288\slmult1\pardirnatural
+
+\\f0\\fs28 \cf0"""
+rtfTail="}"
+
+
+
+def rtf(unistr):
+    unistr = unistr.replace("{", "{{")
+    unistr = unistr.replace("}", "}}")
+    return ''.join([c if ord(c) < 128 else u'\\u' + unicode(ord(c)) + u'?' for c in unistr])
+
+projectPath = "./main.scriv"
+projectName = os.path.join(projectPath, "main.scrivx")
+docPath     = os.path.join(projectPath,"Files","Docs")
+paperRoot = "References:Papers"
+
+
+s=etree.tostring
+e = etree.parse(projectName)
+root = e.getroot()
+
+paperRootList = paperRoot.split("/")
+fileRoot = root.xpath("//Binder")[0]
+thisRoot = fileRoot
+for eachSub in paperRootList:
+    thisSub = thisRoot.xpath("./BinderItem[Title='{}']".format(eachSub))
+    if len(thisSub)==0:
+        raise Exception("error to go into paperRoot: {}".format(paperRoot))
+    elif len(thisSub)==1:
+        thisSub = thisSub[0]
+    else:
+        print "Some folder have the same name, don't know which one to use.."
+        raise Exception()
+
+    thisChildren = thisSub.xpath("Children")
+    if len(thisChildren)==0:
+        raise Exception("error to go into paperRoot Children: {}".format(paperRoot))
+    else:
+        thisChildren = thisChildren[0]
+    thisRoot = thisChildren
+research = thisSub
+researchChildren = thisChildren
+
+dtypeAlltext = np.dtype([
+            ("bibcode", "U30"),
+            ("refkey", "U30"),
+            ("ID", "U10"),
+            ("ind", np.int),
+            ("obj", np.object),
+            ("path", "U100")])
+alltext = []
+alltext = np.array(alltext, dtype=dtypeAlltext)
+
+# count for text in the research folder
+allTextTemp = research.xpath(".//BinderItem[@Type='Text']")
+for j, eachc in enumerate(allTextTemp):
+    t = eachc.xpath("MetaData/CustomMetaData/MetaDataItem[FieldID='bibcode']")
+    if len(t)>0:
+        thisBibcode = t[0].xpath("Value")[0].text
+    else:
+        thisBibcode = "?"
+    thisID = eachc.get("ID")
+    refkey = eachc.xpath("Title")[0].text
+    thisPath = getPath(eachc)
+    alltext = np.append(alltext,
+            np.array((thisBibcode, refkey, thisID, 0, eachc, thisPath), dtype=dtypeAlltext))
+    print "find text in research: {} at {}".format(thisBibcode, thisPath)
+
+allUniqueID, inds = np.unique(alltext["ID"],return_index=True)
+allUnique = alltext[inds]
+allCommentFound = []
+rmConfigReg = re.compile(ur"([^\\])(\{.+?[^\\]\})")
+rmOther0 = re.compile(ur"\\partightenfactor\d\?|\\pardirnatural|\\pard|\\slmult\d|\\partightenfactor\d|\\ls\d|\\ilvl\d|\\cf\d|\\tx\d+|\\li\d+\\fi\-\d+|\\sl\d+")
+
+commentColorR=r"\\red230\\green255\\blue79"
+commentColor=  "\\red230\\green255\\blue79"
+commentColorR=r"\\red143\\green255\\blue255"
+commentColor=  "\\red143\\green255\\blue255"
+commentReg = re.compile(commentColorR)
+colortblReg = re.compile(r"\{\\colortbl;(.+?)\}")
+
+result = rtfHeader
+for each in allUnique:
+    thisID = each["ID"]
+    thisTitle = each["refkey"]
+    thisFile = os.path.join(docPath,thisID+".rtf")
+    #print "finding in:", thisTitle, thisFile
+    if not os.path.exists(thisFile):
+        print "file not exists: {} for {}".format(thisFile, thisTitle)
+        continue
+    with open(thisFile, "r") as f:
+        thisText = f.read()
+
+    textForColor = "".join(thisText.split("\n"))
+    colorInds = colortblReg.findall(textForColor)
+    if len(colorInds):
+        colorInds = colorInds[0].split(";")
+    else:
+        raise Exception("no color table for {}".format(textForColor))
+    colorInds = [eachColor for eachColor in colorInds if len(eachColor)>15]
+    colortoDo = ";".join(colorInds)
+    find = commentReg.findall(colortoDo)
+    if len(find):
+        colorInd = colorInds.index(commentColor)+1
+        print "finding color in:", thisTitle, thisFile, colorInd
+    else:
+        continue
+    thisText = "?".join(thisText.split("\n"))
+    #colorInd = "6"
+    colorStr = ur"\\cb{}(.+?)\\cb".format(colorInd)
+    colorReg = re.compile(colorStr)
+    thisRegResult = colorReg.findall(thisText)
+    if len(thisRegResult):
+        print "\nfind grammar in {} with ID:{}".format(thisTitle, thisID)
+        result += rtf("\\cb6 {}:\\cb1\\\n".format(thisTitle))
+        thisRegResult = [rmConfigReg.sub(r"\1", eachReg) for eachReg in thisRegResult]
+        thisRegResult = [rmOther0.sub("", eachReg).split("\\?")[0].strip() for eachReg in thisRegResult]
+        thisRegResult = [eachReg for eachReg in thisRegResult if eachReg]
+        result += (rtf("\\\n".join(thisRegResult)) + "\\\n")
+
+result += rtfTail
+
+with open("findgrammar.rtf", "w") as f:
+    f.write(result.encode("utf8"))
+subprocess.call("open findgrammar.rtf", shell=True)

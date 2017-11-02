@@ -1,0 +1,10 @@
+#!/bin/bash
+folders=$(ls *.tex)
+for each in ${folders}
+do
+    if [ -d "$each" ]; then
+        cat bin/compileTexMakefile | sed s/compileGroupStr/${each%.*}/g > ${each}/makefile
+        cat bin/compileTex | sed s/compileGroupStr/${each%.*}/g > ${each}/compileTex
+    fi
+done
+

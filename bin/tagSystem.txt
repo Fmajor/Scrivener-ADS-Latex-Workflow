@@ -1,0 +1,106 @@
+# Jin's paper tag system
+
+tagged
+	survey
+		SDSS        # Sloan Digital Sky Survey
+			BOSS
+		2QZ         # 2dF Quasar Redshift Survey
+		CFHQS       # Canada–France High-redshift Quasar Survey
+		Pan-STARRS1 # Panoramic Survey Telescope & Rapid Response System 1
+		VIKING      # Visible and Infrared Survey Telescope for Astronomy Kilo-Degree Infrared Galaxy
+		SHELLQs
+		ATLAS
+		DES           # Dark energy survey
+		UKIDSS
+		VHS
+		VST ATLAS
+
+# telescope
+	telescope
+		VISTA  # Visible and Infrared Survey Telescope for Astronomy
+		Gemini
+		HST
+		LBT
+		SALT
+		VLT
+		E-ELT
+		VLA
+		TMT
+		FAST
+		MMT
+		LBT
+		Planck
+		NIR
+		MIR
+		Keck
+		Magellan
+
+	objects
+		high z
+		AGN
+			QSO
+				quasar discovery
+				BAL
+			type2 QSO
+		LBG
+		LAE
+		GRB
+		dust
+		nearby galaxy
+
+	techniques
+		RM
+		LF
+			QLF
+		BHM
+		MF
+			BHMF
+		SFRD
+		R-L
+		IGM
+			reionization
+				DLA
+				Ly \alpha forest
+		simulation
+		composition
+		variability
+		absorption
+
+	events
+		data release
+			DR10
+			DR9
+			DR7
+			DR11
+			DR12
+			DR1
+		catalog
+		discovery
+		commissioning
+		review    # a review paper
+		discovery # all paper with new obj discovery
+			quasar discovery
+			LAE discovery
+			LGB discovery
+			GRB discovery
+		intro     # introduction for a new survey or techniques
+		record    # the most xx things ever found
+		fancy figure
+			sci figure
+			tech figure
+		sci table
+
+	deep fields
+		HST
+			CANDLES
+			GOODS
+			HUDF
+		SDSS
+			stripe82
+		Subaru
+			SDF
+		overlap
+
+# temps Delta,Omega,lambda
+temp:todo
+

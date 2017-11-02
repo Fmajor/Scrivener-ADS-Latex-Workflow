@@ -1,0 +1,163 @@
+#!/usr/local/bin/python3
+import markdown2
+import markdown
+import lxml.etree as etree
+import urllib
+from io import StringIO
+import os
+import re
+import subprocess
+import ipdb
+import copy
+
+
+rtfHeader=\
+u"""{\\rtf1\\ansi\\ansicpg1252\cocoartf1404\cocoasubrtf460
+{\\fonttbl\\f0\\fmodern\\fcharset0 Courier;}
+
+{\\colortbl;
+\\red255\\green255\\blue255;
+\\red230\\green255\\blue79;
+\\red255\\green204\\blue102;
+\\red255\\green128\\blue190;
+\\red128\\green255\\blue105;
+\\red143\\green255\\blue255;
+\\red254\\green207\\blue208;}
+
+\pard\\tx720\\tx1440\\tx2160\\tx2880\\tx3600\\tx4320\\fi360\sl288\slmult1\pardirnatural
+
+\\f0\\fs28 \cf0"""
+rtfTail="}"
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+inputFile =  os.path.join(BASE_DIR, 'data', "2rtf.txt")
+outputFile = os.path.join(BASE_DIR, 'data', "2rtf.rtf")
+
+debug = 1
+
+subprocess.call("open {}".format(inputFile), shell=True)
+temp = input("save and hit enter")
+
+with open(inputFile, "r") as f:
+    data = f.read()
+
+import rtfunicode
+def rtf(unistr):
+    unistr = unistr.replace("{", "{{")
+    unistr = unistr.replace("}", "}}")
+    #return ''.join([c if ord(c) < 128 else u'\\u' + unicode(ord(c)) + u'?' for c in unistr])
+    return unistr.encode('rtfunicode').decode('ascii')
+
+subNewline = re.compile("\n")
+def c2c(obj):
+    c = obj[0]
+    doComment = obj[2]
+    if "InnerComment" in doComment:
+        text = rtf(obj[1])
+        comment = u"<<%{}>>".format(rtf(obj[2]))
+        c = doComment[13:]
+    else:
+        text = rtf(obj[1])+"\n"
+        comment = u"<<%{}>>".format(rtf(obj[2]))+"\n"
+    commentColorInd = "3"
+    result = ""
+    if c=="Yellow:":
+        colorInd = "2"
+    elif c=="Orange:":
+        colorInd = "4"
+    elif c=="Green:" or c=="Blue:":
+        colorInd = "5"
+    elif c=="Other:":
+        colorInd = "6"
+    else:
+        raise Exception(u"color:{}, text:{}, comment:{}".format(c, text, comment))
+    colorIndOrgin = colorInd
+    if "InnerComment" in doComment:
+        colorInd = "7"
+
+    #text = subNewline.sub(r"\\cb1\\\n\\cb{}".format(colorInd), text)
+    text = subNewline.sub(r"\\\n\\cb{}".format(colorInd), text)
+    text = u"\\cb{} {}".format(colorInd, text)
+    if "InnerComment" in doComment:
+        print("{} {}".format(colorIndOrgin, colorInd))
+        text += u"\\cb{} ".format(colorIndOrgin)
+        return text
+    if doComment:
+        #comment = subNewline.sub(r"\\cb1\\\n\\cb{}".format(commentColorInd), comment)
+        comment = subNewline.sub(r"\\\n\\cb{}".format(commentColorInd), comment)
+        comment = u"\\cb{} {}".format(commentColorInd, comment)
+        if "\\\n\\cb" in text[-6:]:
+            return text[:-6] + comment
+        else:
+            return text + comment
+    else:
+        return text
+
+sub1 = re.compile(r"([^\s])<([^\s])")
+sub2 = re.compile(r"([^^])>([^\s])")
+data = sub1.sub(r"\1 < \2", data)
+data = sub2.sub(r"\1 > \2", data)
+
+markdown = markdown2.markdown(data)
+#markdown = markdown.markdown(data)
+#ipdb.set_trace()
+markdown = u"<body>{}</body>".format(markdown)
+markdownDebug = markdown.split("\n")
+if debug:
+    with open("./2rtf.html", "w") as f:
+        f.write(markdown)
+markdownFile = StringIO(markdown)
+
+tree = etree.parse(markdownFile)
+root = tree.getroot()
+
+h5 = root.xpath("//h5")
+content=[]
+lastRefText = ""
+for each in h5:
+    n = each
+    thisResult = ["","",""]
+    thisResult[0] = n.text
+    while n.tag!="hr":
+        n = n.getnext()
+        if n.tag=="blockquote":
+            obj = n.xpath("./p//text()")
+            obj = [each.strip() for each in obj]
+            text = "".join(obj)
+            text = text.split("\n")
+            text = [each.strip() for each in text]
+            text = " ".join(text)
+            thisResult[1] = text
+        elif n.tag=="p":
+            obj = n.xpath("./text()")
+            assert len(obj)==1, "{} \n {}".format(etree.tostring(n), obj)
+            text = "COMMENT: " + "".join(obj[0].split("\n"))
+            thisResult[2] += text
+            #thisResult[1] += text
+    if not thisResult[1] and not thisResult[2]:
+        continue
+    print(thisResult)
+    if thisResult[1] in lastRefText and len(thisResult[2])==0: # not comment for this short str
+        print(u"find inner comment \n\t|{}| \n in \t|{}|".format(thisResult[1], lastRefText))
+        toSub = thisResult[1].replace("(","\\(").replace(")","\\)").replace("+","\\+")
+        reRes = re.findall(toSub, lastRefText)
+        if len(reRes)==0:
+            ipdb.set_trace()
+        subRes = re.sub(toSub,
+                c2c([thisResult[0], thisResult[1], "InnerComment:{}".format(content[lastRefInd][0])]),
+                        content[lastRefInd][1])
+        content[lastRefInd][1] = subRes
+        lastRefText = subRes
+    else:
+        lastRefInd = len(content)
+        lastRefText = thisResult[1]
+        content.append(thisResult)
+
+allText = [c2c(each) for each in content]
+result = u"{} {} {} ".format(rtfHeader, "".join(allText), rtfTail)
+
+with open(outputFile, "w") as f:
+    f.write(result)
+
+subprocess.call("open {}".format(outputFile), shell=True)
