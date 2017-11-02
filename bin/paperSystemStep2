@@ -326,7 +326,7 @@ for bibdataName in bibdataFiles: #!! for each bibdata file
         if each["ID"] not in IDs:
             doNothing = False
             MetaDataField = tree.Element("MetaDataField")
-            for key, value in each.iteritems():
+            for key, value in each.items():
                 MetaDataField.set(key, value)
             MetaDataField.text = each["ID"]
             customMetaDataSettings.append(MetaDataField)
