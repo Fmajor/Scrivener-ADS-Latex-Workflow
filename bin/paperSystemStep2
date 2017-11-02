@@ -334,7 +334,13 @@ for bibdataName in bibdataFiles: #!! for each bibdata file
                     format(each["ID"]))
     #endregion: first add the bibcode CustomMetaDataSetting into workspace
     #region: change AutoCompleteList
-    autoCompleteListRoot = root.xpath("//AutoCompleteList")[0]
+    autoCompleteListRoot = root.xpath("//AutoCompleteList")
+    if not len(autoCompleteListRoot ):
+        project = root.xpath("//ScrivenerProject")[0]
+        autoCompleteListRoot = tree.SubElement(project, 'AutoCompleteList')
+    else:
+        autoCompleteListRoot = autoCompleteListRoot[0]
+
     allRefKeys = bibdata["refkey"]
     addAutoComplete(autoCompleteListRoot, allRefKeys)
     addAutoComplete(autoCompleteListRoot, tagSystem.tagList)
