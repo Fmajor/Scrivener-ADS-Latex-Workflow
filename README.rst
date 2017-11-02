@@ -20,24 +20,24 @@ Use MultiMarkdown_ Syntax in Scrivener_ to write latex?
 
 * MultiMarkdown_ syntax support many latex features
     examples:
-    
+
     * citation and cross ref
-    
-      * "[#citekey]" will be compiled to \\citep{citekey}
-      * "[#citekey;]" will be compiled to \\citet{citekey}
-      * "[](#sec:1)" will be compiled to \\autoref{sec:1}
+
+      * ``[#citekey]`` will be compiled to ``\citep{citekey}``
+      * ``[#citekey;]`` will be compiled to ``\citet{citekey}``
+      * ``[](#sec:1)`` will be compiled to ``autoref{sec:1}``
       * you can add refkey for sections, figures and equations
-    
+
     * ordered and unordered lists
-    
+
       * you can use the markdown "List" syntax,
-        which will be compiled to `\begin{itemize} ... \begin{itemize}` or
-        `\begin{enumerate} ... \end{enumerate}`
+        which will be compiled to ``\begin{itemize} ... \begin{itemize}`` or
+        ``\begin{enumerate} ... \end{enumerate}``
     * equations
-    
-      * you can use $...$ and $$....$$ command to insert inline and normal euqations
+
+      * you can use ``$...$`` and ``$$....$$`` command to insert inline and normal euqations
     * figures
-    
+
       * you can use
       ::
 
@@ -45,10 +45,10 @@ Use MultiMarkdown_ Syntax in Scrivener_ to write latex?
           [label]: $PATH width="0.30\textwidth" height="0.25\textheight"
       to insert figure (with label and simple options)
     * for other unsupported latex features,
-      you can use latex code inside <!-- --> comment pair to archieve it.
+      you can use latex code inside ``<!-- -->`` comment pair to archieve it.
     * the MultiMarkdown syntax make the source code more readable than raw latex code,
       but when you have to insert latex command, you need to put them in the
-      comment pair (i use << >> pair in the project), this may make the code less
+      comment pair (i use ``<< >>`` pair in the project), this may make the code less
       readable. Don't mind, because
     * the most important: you can use Scrivener_ to manage your source code,
       so you no longer deal with long latex source code, you can efficiently
@@ -61,10 +61,10 @@ Use MultiMarkdown_ Syntax in Scrivener_ to write latex?
     difficult documents.
   * features:
   .. figure:: assets/2017-11-02T20-16-34.png
-  * suppport MultiMarkdown_ syntax and compile it into latex
+  * suppport MultiMarkdown_ syntax and can compile it into latex
   * **Tree structure to organize article content**:
     As you can see in the left Binder, the title in sections and subsections
-    will be automatically compiled as "\\section{title}" or "\\subsection{title}",
+    will be automatically compiled as ``\section{title}`` or ``\subsection{title}``,
     the sections 1 will have a label "sec:intro"
   * **History nagivation**: see the "<" and ">" button in the top left of the editor?
     when you move around in the Binder, your view history will be record and you can
@@ -80,7 +80,7 @@ Use MultiMarkdown_ Syntax in Scrivener_ to write latex?
   * .. figure:: assets/2017-11-02T20-31-56.png
   * using python script, i can import paper info from Zotero_ into Scrivener_:
     here is an example,
-    
+
     * papers are listed in inverse time order in the Binder.
     * basic information are collected as the main text.
     * the cross reference relation are show in their Reference list
@@ -109,11 +109,13 @@ Requirements and Configs
 1. Scrivener_
 2. Zotero_
    Install the BetterBibtex_ Plugin, then in Preferences ==> Better BibTeX
+
    1. in Citation keys, set Citation key format to [auth.etal][year] and check "Force citation key to ASCII"
    2. in Export, check "Export BibteX as ASCII"
 3. Latex_
    Install latex and make sure you have the latex commands in Shell
 4. Highlights_  (optional)
+
    Preferences ==> Customize ==> Annotation header ==> ONLY check Color category
 
 .. _BetterBibtex: https://github.com/retorquere/zotero-better-bibtex
@@ -129,7 +131,7 @@ import collections in Zotero into Scrivener
 
   1. make new collections (LAE in the following example) and collect papers
      the papers should come from ADS_ or arxiv_
-  2. export collections into the "references" folder using these two format,
+  2. export collections using these two format,
      Better Bibtex (.bib file) and BetterBibTex JSON(.json file),
      into the references folder.
      The .bib file is used by latex and the .json file is used by scripts
@@ -146,9 +148,11 @@ Using MultiMarkdown to write paper, compile them into latex file and pdfs
 -------------------------------------------------------------------------
 
 we have two AASTeX_ based template and convert them into MultiMarkdown_ format in the Main.scriv project,
-all the useful syntax are included in the SimpleOneColumn and AASTeX6.1 demo, you should read the "README"
-Text in the Draft folder and inside each demo, then follow them to compiled these two demos,
-after that, you can duplicate one of these demos or convert your own Latex template into MultiMarkdown_ version.
+all the useful syntax are included in the SimpleOneColumn and AASTeX6.1 demo.
+
+You should read the "README" Text in the Draft folder and inside each demo, then follow them to compiled these two demos.
+
+After that, you can duplicate one of these demos or convert your own Latex template into MultiMarkdown_ version.
 
 A makefile to help compile latex file
 ---------------------------------------
