@@ -347,6 +347,11 @@ for bibdataName in bibdataFiles: #!! for each bibdata file
     #endregion: change AutoCompleteList
     #region: change Keywords
     keywordsRoot = root.xpath("Keywords")[0]
+    if not len(keywordsRoot):
+        project = root.xpath("//ScrivenerProject")[0]
+        keywordsRoot = tree.SubElement(project, 'Keywords')
+    else:
+        keywordsRoot = keywordsRoot[0]
     addTags(keywordsRoot, tagSystem.tagList)
     keywordObjs = keywordsRoot.xpath("Keyword")
     allKeywordIDs       = [each.get("ID") for each in keywordObjs]
