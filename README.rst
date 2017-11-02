@@ -20,6 +20,7 @@ Use MultiMarkdown_ Syntax in Scrivener_ to write latex?
 
 * MultiMarkdown_ syntax support many latex features
     examples:
+
     * citation and cross ref
       * "[#citekey]" will be compiled to \\citep{citekey}
       * "[#citekey;]" will be compiled to \\citet{citekey}
