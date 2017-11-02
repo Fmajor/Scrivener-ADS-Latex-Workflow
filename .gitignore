@@ -5,3 +5,4 @@ __pycache__
 bin/data
 user.lock
 backups
+*.bibdata.npz
