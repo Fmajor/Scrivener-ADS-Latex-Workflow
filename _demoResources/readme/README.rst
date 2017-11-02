@@ -159,4 +159,14 @@ then cd into the *.tex folder and type ``make``, you will get the final pdf
 
 Also, you can choose to use your own IDE to compile the tex file.
 
+Extract colorful text from Highlights
+-------------------------------------
+1. make highlights and comments for a pdf in the Highlights
+2. Show the notes panel, choose Edit mode
+3. copy all text in the notes panel
+4. ``make 2rtf``, the paste the content in the popped TextEditor
+5. save the content in the TextEditor
+6. hit Enter in the termainal
+7. now will will get the extracted colorful text in RTF in the new popped TextEditor
+
 .. _AASTeX: http://journals.aas.org/authors/aastex.html#_download
