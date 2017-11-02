@@ -228,7 +228,10 @@ def addTags(father, contentList):
     keywordObjs = father.xpath("Keyword")
     allKeywordIDs       = [int(each.get("ID")) for each in keywordObjs]
     allKeywords = [each.xpath("Title")[0].text for each in keywordObjs]
-    N = np.array(allKeywordIDs).max()
+    if not allKeywordIDs:
+        N = 0
+    else:
+        N = np.array(allKeywordIDs).max()
     todo = list(set(contentList) - set(allKeywords))
     tagColors = {}
     if len(todo)>0:
