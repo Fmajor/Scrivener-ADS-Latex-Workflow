@@ -114,7 +114,7 @@ Requirements and Configs
    2. in Export, check "Export BibteX as ASCII"
 3. Latex_
    Install latex and make sure you have the latex commands in Shell
-4. Highlights_  (optional)
+4. Highlights_
 
    Preferences ==> Customize ==> Annotation header ==> ONLY check Color category
 
