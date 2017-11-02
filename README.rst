@@ -20,24 +20,29 @@ Use MultiMarkdown_ Syntax in Scrivener_ to write latex?
 
 * MultiMarkdown_ syntax support many latex features
     examples:
-
+    
     * citation and cross ref
+    
       * "[#citekey]" will be compiled to \\citep{citekey}
       * "[#citekey;]" will be compiled to \\citet{citekey}
       * "[](#sec:1)" will be compiled to \\autoref{sec:1}
       * you can add refkey for sections, figures and equations
+    
     * ordered and unordered lists
+    
       * you can use the markdown "List" syntax,
         which will be compiled to `\begin{itemize} ... \begin{itemize}` or
         `\begin{enumerate} ... \end{enumerate}`
     * equations
+    
       * you can use $...$ and $$....$$ command to insert inline and normal euqations
     * figures
+    
       * you can use
       ::
 
-        ![caption][label]
-         [label]: $PATH width="0.30\textwidth" height="0.25\textheight"
+          ![caption][label]
+          [label]: $PATH width="0.30\textwidth" height="0.25\textheight"
       to insert figure (with label and simple options)
     * for other unsupported latex features,
       you can use latex code inside <!-- --> comment pair to archieve it.
@@ -50,10 +55,12 @@ Use MultiMarkdown_ Syntax in Scrivener_ to write latex?
       organize them into hierarchical structure and get focused on the content
       itself when you are writing.
 * Reasons i choose Scrivener_:
+
   * Scrivener is a powerful content-generation tool for writers that
     allows you to concentrate on composing and structuring long and
     difficult documents.
-  * features: |2017-11-02T20-16-34|
+  * features:
+  .. figure:: assets/2017-11-02T20-16-34.png
   * suppport MultiMarkdown_ syntax and compile it into latex
   * **Tree structure to organize article content**:
     As you can see in the left Binder, the title in sections and subsections
@@ -70,11 +77,12 @@ Use MultiMarkdown_ Syntax in Scrivener_ to write latex?
   * **Reference list**: the reference list are shown at the bottom right, you can goto this
     references by a simple click, also notice the three blue word "Zheng.etal2011",
     "Zheng.etal2011" and "JeesonDaniel2012", they are references links, and are clickable
-  * |2017-11-02T20-31-56|
+  * .. figure:: assets/2017-11-02T20-31-56.png
   * using python script, i can import paper info from Zotero_ into Scrivener_:
     here is an example,
+    
     * papers are listed in inverse time order in the Binder.
-    * Basic information are collected as the main text.
+    * basic information are collected as the main text.
     * the cross reference relation are show in their Reference list
     * you can access the pdf directly in the Reference list
   * other useful features: keyworkds, metadata, snapshorts, collections...
@@ -82,25 +90,16 @@ Use MultiMarkdown_ Syntax in Scrivener_ to write latex?
     that, you will find it very helpful when you collect, extract and refine
     informations from numerous resources.
 * Reasons i choose Highlights_ to read paper:
-  * |2017-11-02T20-46-50|
+
+  * .. figure:: assets/2017-11-02T20-46-50.png
   * as shown in the figure, it has the simplest way to highlight, comment
-    pdf with multipile color, among all PDF readers i have ever used.
-  * |2017-11-02T20-49-08|
+    pdf with multipie color, among all PDF readers i have ever used.
+  * .. figure:: assets/2017-11-02T20-49-08.png
   * it can collect all the highlight text and the comments text in markdown format
-  * |2017-11-02T20-58-22|
+  * .. figure:: assets/2017-11-02T20-58-22.png
   * another script can extract all the text into RTF format, and you can put them
     into your scrivener project!
 
-.. |2017-11-02T20-16-34| figure:: assets/2017-11-02T20-16-34.png
-	 :alt: 2017-11-02T20-16-34
-.. |2017-11-02T20-31-56| figure:: assets/2017-11-02T20-31-56.png
-	 :alt: 2017-11-02T20-31-56
-.. |2017-11-02T20-46-50| figure:: assets/2017-11-02T20-46-50.png
-	 :alt: 2017-11-02T20-46-50
-.. |2017-11-02T20-49-08| figure:: assets/2017-11-02T20-49-08.png
-	 :alt: 2017-11-02T20-49-08
-.. |2017-11-02T20-58-22| figure:: assets/2017-11-02T20-58-22.png
-	 :alt: 2017-11-02T20-58-22
 .. _MultiMarkdown: http://fletcherpenney.net/multimarkdown/
 
 Requirements and Configs
@@ -127,16 +126,18 @@ Usage
 import collections in Zotero into Scrivener
 -------------------------------------------
 * export Zotero collections:
-    1. make new collections (LAE in the following example) and collect papers
-       the papers should come from ADS_ or arxiv_
-    2. export collections into the "references" folder using these two format,
-       Better Bibtex (.bib file) and BetterBibTex JSON(.json file),
-       into the references folder.
-       The .bib file is used by latex and the .json file is used by scripts
+
+  1. make new collections (LAE in the following example) and collect papers
+     the papers should come from ADS_ or arxiv_
+  2. export collections into the "references" folder using these two format,
+     Better Bibtex (.bib file) and BetterBibTex JSON(.json file),
+     into the references folder.
+     The .bib file is used by latex and the .json file is used by scripts
 * use scripts to generate paper database and import them into Scrivener (make sure you have .json files in the reference folder)
-  1. **make query** will generate the database and query all the papers in ADS and generate Cross reference relation between them, this will take some time
-  2. **make offline** will only generate the database
-  3. after **make query** or **make offline**, your can **make gen** to import the papers into Scirvener
+
+  1. ``make query`` will generate the database and query all the papers in ADS and generate Cross reference relation between them, this will take some time
+  2. ``make offline`` will only generate the database
+  3. after ``make query`` or ``make offline``, your can ``make gen`` to import the papers into Scirvener
 
 .. _ADS: https://ui.adsabs.harvard.edu/
 .. _arxiv: http://arxiv.org/
