@@ -54,51 +54,55 @@ Use MultiMarkdown_ Syntax in Scrivener_ to write latex?
       so you no longer deal with long latex source code, you can efficiently
       organize them into hierarchical structure and get focused on the content
       itself when you are writing.
-* Reasons i choose Scrivener_:
 
-  * Scrivener is a powerful content-generation tool for writers that
-    allows you to concentrate on composing and structuring long and
-    difficult documents.
-  * features:
-  .. figure:: assets/2017-11-02T20-16-34.png
-  * suppport MultiMarkdown_ syntax and can compile it into latex
-  * **Tree structure to organize article content**:
-    As you can see in the left Binder, the title in sections and subsections
-    will be automatically compiled as ``\section{title}`` or ``\subsection{title}``,
-    the sections 1 will have a label "sec:intro"
-  * **History nagivation**: see the "<" and ">" button in the top left of the editor?
-    when you move around in the Binder, your view history will be record and you can
-    go around it.
-  * **The scrivening feature**: now i use cmd+click to select 4 text in the binder,
-    they are collected together in the text editor!! This is the most remarkable feature
-    and also where the name of this software come from.
-  * **Rich text**: the format of all the texts are RTF (Rich Text Format), you can color
-    all the text, inserting images every where.
-  * **Reference list**: the reference list are shown at the bottom right, you can goto this
-    references by a simple click, also notice the three blue word "Zheng.etal2011",
-    "Zheng.etal2011" and "JeesonDaniel2012", they are references links, and are clickable
-  * .. figure:: assets/2017-11-02T20-31-56.png
-  * using python script, i can import paper info from Zotero_ into Scrivener_:
-    here is an example,
+Reasons i choose Scrivener_
+---------------------------
 
-    * papers are listed in inverse time order in the Binder.
-    * basic information are collected as the main text.
-    * the cross reference relation are show in their Reference list
-    * you can access the pdf directly in the Reference list
-  * other useful features: keyworkds, metadata, snapshorts, collections...
-  * you need some time to learn all the Scrivener features, but after
-    that, you will find it very helpful when you collect, extract and refine
-    informations from numerous resources.
-* Reasons i choose Highlights_ to read paper:
+* Scrivener is a powerful content-generation tool for writers that
+  allows you to concentrate on composing and structuring long and
+  difficult documents.
+* features:
+* .. figure:: assets/2017-11-02T20-16-34.png
+* suppport MultiMarkdown_ syntax and can compile it into latex
+* **Tree structure to organize article content**:
+  As you can see in the left Binder, the title in sections and subsections
+  will be automatically compiled as ``\section{title}`` or ``\subsection{title}``,
+  the sections 1 will have a label "sec:intro"
+* **History nagivation**: see the "<" and ">" button in the top left of the editor?
+  when you move around in the Binder, your view history will be record and you can
+  go around it.
+* **The scrivening feature**: now i use cmd+click to select 4 text in the binder,
+  they are collected together in the text editor!! This is the most remarkable feature
+  and also where the name of this software come from.
+* **Rich text**: the format of all the texts are RTF (Rich Text Format), you can color
+  all the text, inserting images every where.
+* **Reference list**: the reference list are shown at the bottom right, you can goto this
+  references by a simple click, also notice the three blue word "Zheng.etal2011",
+  "Zheng.etal2011" and "JeesonDaniel2012", they are references links, and are clickable
+* .. figure:: assets/2017-11-02T20-31-56.png
+* using python script, i can import paper info from Zotero_ into Scrivener_:
+  here is an example,
 
-  * .. figure:: assets/2017-11-02T20-46-50.png
-  * as shown in the figure, it has the simplest way to highlight, comment
-    pdf with multipie color, among all PDF readers i have ever used.
-  * .. figure:: assets/2017-11-02T20-49-08.png
-  * it can collect all the highlight text and the comments text in markdown format
-  * .. figure:: assets/2017-11-02T20-58-22.png
-  * another script can extract all the text into RTF format, and you can put them
-    into your scrivener project!
+  * papers are listed in inverse time order in the Binder.
+  * basic information are collected as the main text.
+  * the cross reference relation are show in their Reference list
+  * you can access the pdf directly in the Reference list
+* other useful features: keyworkds, metadata, snapshorts, collections...
+* you need some time to learn all the Scrivener features, but after
+  that, you will find it very helpful when you collect, extract and refine
+  informations from numerous resources.
+
+Reasons i choose Highlights_ to read paper
+------------------------------------------
+
+* .. figure:: assets/2017-11-02T20-46-50.png
+* as shown in the figure, it has the simplest way to highlight, comment
+  pdf with multipie color, among all PDF readers i have ever used.
+* .. figure:: assets/2017-11-02T20-49-08.png
+* it can collect all the highlight text and the comments text in markdown format
+* .. figure:: assets/2017-11-02T20-58-22.png
+* another script can extract all the text into RTF format, and you can put them
+  into your scrivener project!
 
 .. _MultiMarkdown: http://fletcherpenney.net/multimarkdown/
 
