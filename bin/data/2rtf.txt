@@ -1,0 +1,50 @@
+
+Dust: Calculate The Intensity Of Dust Scattering Halos In The X-Ray
+===================================================================
+
+Lia Corrales
+-------------------------------------------------------------------
+
+### Subject, 2015, Page – ###
+
+#### Page 1 ####
+
+##### Yellow: #####
+
+> AN EXAMPLE
+
+***
+
+##### Orange: #####
+
+comments here!
+
+***
+
+##### Green: #####
+
+> This example manuscript is intended to serve as a tutorial and 
+> template for authors to use when writing their own AAS Journal 
+> articles.
+
+***
+
+##### Orange: #####
+
+> The manuscript includes a history of AASTEX and documents the new 
+> features in the previous version, 6.0, as well as the new 
+> features in version 6.1. This manuscript includes many figure and 
+> table examples to illustrate these new features.
+
+***
+
+##### Yellow: #####
+
+> Information on features not explicitly mentioned in the article 
+> can be viewed in the manuscript comments or more extensive online 
+> documentation.
+
+comments yellow here
+
+***
+
