@@ -34,7 +34,7 @@
 <ul>
 <li>
 <p class="binderItem"><strong>Recommended preference about Scrivener</strong><br/>Formatting<br/>
-<br/>
+#<br/>
 Corrections<br/>
 <br/>
 Backup<br/>
@@ -42,7 +42,7 @@ Backup<br/>
 </li>
 <li>
 <p class="binderItem"><strong>How to compile</strong><br/>Compile format:<br/>
-<br/>
+#<br/>
 Formatting:<br/>
 <br/>
 Replacements: (now you can use latex command in <<>> pair)<br/>
@@ -55,7 +55,7 @@ Open the inspector(), there are several important configurations.<br/>
 2. : if checked, the text will NOT generate a '/section{}', '/subsection{}' or '/subsubsection{}' according to its level.<br/>
 <br/>
 1. text inside <!-- --> comment pair will be directly inserted into the output .tex file<br/>
-2. because we have set the "Replacements" ...</p>
+2. because we have set the "Replacements"...</p>
 </li>
 </ul>
 <hr/>
@@ -82,7 +82,7 @@ latex footer: ../_demoResources/configs/<$Compilegroup>/footer<br/>
  %* You select the parent folder (“SimpleOneColumn” in this example) as the Compile Group<br/>
  %* The “Treat compile group as entire draft” options is checked<br/>
  %* the “Article” is included<br/>
-%<br/>
+%#<br/>
 % Make a folder that have the same name as your .tex file (if the folder does not exists, you need do this only once)<br/>
 % Because we want to make the root folder clean (as latex will generate lots of temp file when compile)<br/>
 %<br/>
@@ -227,8 +227,8 @@ Inline: \\({x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a}\\)  , blabla<br/>
 Inline: ${x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a}\label{eq:3}$  , blabla<br/>
 <br/>
 [eq:1](#eq:5) [eq3 inline](#eq:3)<br/>
-<<>> <<% This figure will not include in the final test>><br/>
-<<% Any thing in the co...</p>
+<<#>> <<% This figure will not include in the final test>><br/>
+<<% Any thing in the c...</p>
 </li>
 <li>
 <p class="binderItem"><strong>test for table</strong><br/>MultiMarkdown table [here](#table:multimarkdown): <br/>
@@ -341,12 +341,12 @@ latex footer: ../_demoResources/configs/<$Compilegroup>/footer<br/>
 <hr/>
 <ul>
 <li>
-<p class="binderItem"><strong>Introduction [sec:intro]</strong></p>
+<p class="binderItem"><strong>Introduction 简介 [sec:intro]</strong></p>
 </li>
 <hr/>
 <ul>
 <li>
-<p class="binderItem"><strong>Test for cite and enumerate and term [sec:cite]</strong><br/>Test for cite and enumerate <<%some comments>><br/>
+<p class="binderItem"><strong>Test for cite and enumerate and term 同时测试中文 [sec:cite]</strong><br/>Test for cite and enumerate <<%some comments>><br/>
 <br/>
 <<% Some comments>><br/>
 <<<br/>
@@ -478,9 +478,12 @@ Inline: \\({x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a}\\)  , blabla<br/>
 <br/>
 Inline: ${x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a}\label{eq:3}$  , blabla<br/>
 <br/>
-[eq:1](#eq:5) [eq3 inline](#eq:3)<br/>
-<<>> <<% This figure will not include in the final test>><br/>
-<<% Any thing in the co...</p>
+公式堆叠测试<br/>
+\\[<br/>
+\setstackgap{S}{2pt}<br/>
+\stackunder{\stackon{\text{text}}{\scriptstyle i=n}}{\scriptstyle i=1}<br/>
+\quad<br/>
+\under...</p>
 </li>
 <li>
 <p class="binderItem"><strong>test for table</strong><br/>MultiMarkdown table [here](#table:multimarkdown): <br/>
@@ -582,11 +585,11 @@ latex footer: ../_demoResources/configs/<$Compilegroup>/footer<br/>
  %* The “Treat compile group as entire draft” options is checked<br/>
  %* the “Article” is included<br/>
   %* the “Abstract and keywords” has "As-is" checked<br/>
-%<br/>
+%#<br/>
 % Make a folder that have the same name as your .tex file (if the folder does not exists, you need do this only once)<br/>
 % Because we want to make the root folder clean (as latex will generate lots of temp file when compile)<br/>
 % <br/>
-% Click Replace here, ...</p>
+% Click Replace here,...</p>
 </li>
 <hr/>
 <ul>

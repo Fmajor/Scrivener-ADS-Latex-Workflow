@@ -1,7 +1,50 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <SearchIndexes Version="1.0">
     <Documents>
-        <Document ID="39">
+        <Document ID="53">
+            <Title>Manuscript styles [sec:style]</Title>
+            <Text>The default style in &lt;&lt;\aastex\ &gt;&gt; v6.1 is a tight single column style, e.g. 10 point font, single spaced.  
+The single column style is very useful for article with wide equations. It is also the easiest to style to work with since figures and tables, see Section [](#sec:floats), will span the entire page, reducing the need for address float sizing.
+
+To invoke a two column style similar to the what is produced in
+the published PDF copy use &lt;&lt;\\&gt;&gt;
+
+&lt;&lt;\noindent {\tt\string\documentclass[twocolumn]\{aastex61\}}. \\&gt;&gt;
+
+&lt;&lt;\noindent&gt;&gt; Note that in the two column style figures and tables will only span one column unless specifically ordered across both with the ``*'' flag, e.g. &lt;&lt;\\&gt;&gt;
+
+&lt;&lt;
+\noindent{\tt\string\begin\{figure*\}} ... {\tt\string\end\{figure*\}}, \\
+\noindent{\tt\string\begin\{table*\}} ... {\tt\string\end\{table*\}}, and \\
+\noindent{\tt\string\begin\{deluxetable*\}} ... {\tt\string\end\{deluxetable*\}}. \\
+&gt;&gt;
+
+&lt;&lt;\noindent&gt;&gt; This option is ignored in the onecolumn style.
+
+Some other style options are outlined in the commented sections of this article. Any combination of style options can be used.
+
+Two style options that are needed to fully use the new revision tracking feature, see [](#sec:highlight), are &lt;&lt;{\tt\string linenumbers}&gt;&gt; which uses the lineno style file to number each article line in the left margin and &lt;&lt;{\tt\string trackchanges}&gt;&gt; which controls the revision and commenting highlight output.
+
+There is also a new &lt;&lt;{\tt\string modern}&gt;&gt; option that uses a Daniel Foreman-Mackey and David Hogg design to produce stylish, single column output that has wider left and right margins. It is designed to have fewer words per line to improve reader retention. It also looks better on devices with smaller displays such as smart phones.</Text>
+        </Document>
+        <Document ID="61">
+            <Title>Figures [subsec:figures]</Title>
+            <Text>&lt;!--
+%% The "ht!" tells LaTeX to put the figure "here" first, at the "top" next
+%% and to override the normal way of calculating a float position
+\begin{figure}[ht!]
+\plotone{../_demoResources/figs/&lt;$Compilegroup&gt;/cost.eps}
+\caption{The subscription and author publication costs from 1991 to 2013.
+The data comes from Table \ref{tab:table}.\label{fig:general}}
+\end{figure}
+--&gt;
+
+Authors can include a wide number of different graphics with their articles in  encapsulated postscript (EPS) or portable document format (PDF).
+These range from general figures all authors are familiar with to new enhanced graphics that can only be fully experienced in HTML.
+The later include animations, figure sets and interactive figures.
+This portion of the article provides examples for setting up all these graphics in with the latest version of &lt;&lt;\aastex&gt;&gt;.</Text>
+        </Document>
+        <Document ID="106">
             <Title>test for rules</Title>
             <Text>Test for rules:
 
@@ -21,23 +64,6 @@ rules
 
 ----------------------
 En...</Text>
-        </Document>
-        <Document ID="61">
-            <Title>Figures [subsec:figures]</Title>
-            <Text>&lt;!--
-%% The "ht!" tells LaTeX to put the figure "here" first, at the "top" next
-%% and to override the normal way of calculating a float position
-\begin{figure}[ht!]
-\plotone{../_demoResources/figs/&lt;$Compilegroup&gt;/cost.eps}
-\caption{The subscription and author publication costs from 1991 to 2013.
-The data comes from Table \ref{tab:table}.\label{fig:general}}
-\end{figure}
---&gt;
-
-Authors can include a wide number of different graphics with their articles in  encapsulated postscript (EPS) or portable document format (PDF).
-These range from general figures all authors are familiar with to new enhanced graphics that can only be fully experienced in HTML.
-The later include animations, figure sets and interactive figures.
-This portion of the article provides examples for setting up all these graphics in with the latest version of &lt;&lt;\aastex&gt;&gt;.</Text>
         </Document>
         <Document ID="54">
             <Title>Floats [sec:floats]</Title>
@@ -160,27 +186,6 @@ We simultaneously fit the close companions of J1108 and J1146.
 \end{center}
 \end{figure*}
 --&gt;</Text>
-        </Document>
-        <Document ID="106">
-            <Title>test for rules</Title>
-            <Text>Test for rules:
-
-Some
-
-* * *
-Thing
-
-***
-Between
-
-*****
-different 
-
-- - - 
-rules
-
-----------------------
-En...</Text>
         </Document>
         <Document ID="113">
             <Title>Test for figs</Title>
@@ -344,6 +349,32 @@ space before the next ampersand.}
 \end{deluxetable*}
 --&gt;</Text>
         </Document>
+        <Document ID="107">
+            <Title>test for Links</Title>
+            <Text>This is [an example](http://example.com/ "Title") inline link.
+
+[This link](http://example.net/) has no title attribute.
+
+Also we can add a foot note[^footnote]
+
+Or like [this][id]
+
+Or like [id][]
+
+I get 10 times more traffic from [Google][] than from
+[Yahoo][] or [MSN][].
+
+
+[^footnote]: http://example.net/
+
+[id]: http://example.com "Optional Title Here"
+
+[google]: http://google.com/        "Google"
+
+[yahoo]:  http://search.yahoo.com/  "Yahoo Search"
+
+[msn]:    http://search.msn.com/    "MSN Search"	</Text>
+        </Document>
         <Document ID="56">
             <Title>Grid figures</Title>
             <Text>Including more than two EPS/PDF files in a single figure call can be tricky easily format.
@@ -390,32 +421,6 @@ latex footer: ../_demoResources/configs/&lt;$Compilegroup&gt;/footer
 %  Mind the path in all the included .tex file
 &gt;&gt;
 </Text>
-        </Document>
-        <Document ID="107">
-            <Title>test for Links</Title>
-            <Text>This is [an example](http://example.com/ "Title") inline link.
-
-[This link](http://example.net/) has no title attribute.
-
-Also we can add a foot note[^footnote]
-
-Or like [this][id]
-
-Or like [id][]
-
-I get 10 times more traffic from [Google][] than from
-[Yahoo][] or [MSN][].
-
-
-[^footnote]: http://example.net/
-
-[id]: http://example.com "Optional Title Here"
-
-[google]: http://google.com/        "Google"
-
-[yahoo]:  http://search.yahoo.com/  "Yahoo Search"
-
-[msn]:    http://search.msn.com/    "MSN Search"	</Text>
         </Document>
         <Document ID="64">
             <Title>Splitting a table into multiple horizontal components</Title>
@@ -698,6 +703,10 @@ Authors should consult the online tutorials for more information on how to const
 
 As with animations authors should include a non-interactive regular figure to use as an example.  The example figure should also indicate to the reader that the enhanced figure is interactive and can be accessed online.</Text>
         </Document>
+        <Document ID="116">
+            <Title>-----------------------------------</Title>
+            <Text>&lt;&lt;\newsinglepage&gt;&gt;</Text>
+        </Document>
         <Document ID="109">
             <Title>test for code</Title>
             <Text>Use the `printf()` function.
@@ -711,10 +720,6 @@ A backtick-delimited string in a code span: `` `foo` ``
 Please don't use any `&lt;blink&gt;` tags.
 
 `&amp;#8212;` is the decimal-encoded equivalent of `&amp;mdash;`.</Text>
-        </Document>
-        <Document ID="116">
-            <Title>-----------------------------------</Title>
-            <Text>&lt;&lt;\newsinglepage&gt;&gt;</Text>
         </Document>
         <Document ID="81">
             <Title>simpleOneColumn</Title>
@@ -1739,21 +1744,6 @@ En...</Text>
         <Document ID="83">
             <Title>zhihu</Title>
         </Document>
-        <Document ID="84">
-            <Title>Meta-Data</Title>
-            <Text>latex input: ../_demoResources/configs/&lt;$Compilegroup&gt;/config-header
-latex input: ../_demoResources/configs/&lt;$Compilegroup&gt;/config-newCommands
-latex input: ../_demoResources/configs/&lt;$Compilegroup&gt;/cover
-Base Header Level: 1
-latex footer: ../_demoResources/configs/&lt;$Compilegroup&gt;/footer
-
-&lt;&lt;
-%  Comments:
-%  * Choose which bibliography file to include in the  ../configs/SimpleOneColumn/footer.tex
-%  Mind the path in all the included .tex file
-&gt;&gt;
-</Text>
-        </Document>
         <Document ID="77">
             <Title>Appendix</Title>
             <Text>&lt;&lt;\appendix&gt;&gt;</Text>
@@ -1784,6 +1774,21 @@ I get 10 times more traffic from [Google][] than from
 
 [msn]:    http://search.msn.com/    "MSN Search"	</Text>
         </Document>
+        <Document ID="84">
+            <Title>Meta-Data</Title>
+            <Text>latex input: ../_demoResources/configs/&lt;$Compilegroup&gt;/config-header
+latex input: ../_demoResources/configs/&lt;$Compilegroup&gt;/config-newCommands
+latex input: ../_demoResources/configs/&lt;$Compilegroup&gt;/cover
+Base Header Level: 1
+latex footer: ../_demoResources/configs/&lt;$Compilegroup&gt;/footer
+
+&lt;&lt;
+%  Comments:
+%  * Choose which bibliography file to include in the  ../configs/SimpleOneColumn/footer.tex
+%  Mind the path in all the included .tex file
+&gt;&gt;
+</Text>
+        </Document>
         <Document ID="92">
             <Title>test for emphasis</Title>
             <Text>*single asterisks*
@@ -1813,8 +1818,6 @@ __double underscores__
         </Document>
         <Document ID="86">
             <Title>Introduction [sec:intro]</Title>
-            <Text>
-</Text>
         </Document>
         <Document ID="93">
             <Title>test for code</Title>
@@ -2197,7 +2200,7 @@ I get 10 times more traffic from [Google][] than from
             <Title>SimpleOneColumn</Title>
         </Document>
         <Document ID="102">
-            <Title>Introduction [sec:intro]</Title>
+            <Title>Introduction 简介 [sec:intro]</Title>
             <Text>
 </Text>
         </Document>
@@ -2229,7 +2232,7 @@ __double underscores__
 </Text>
         </Document>
         <Document ID="103">
-            <Title>Test for cite and enumerate and term [sec:cite]</Title>
+            <Title>Test for cite and enumerate and term 同时测试中文 [sec:cite]</Title>
             <Text>Test for cite and enumerate &lt;&lt;%some comments&gt;&gt;
 
 &lt;&lt;% Some comments&gt;&gt;
@@ -2269,6 +2272,7 @@ Here is a enumerate:
 
 1984. Type for "1984."
 
+
 Here is not:
 
 1984\. Type for "1984\."
@@ -2295,13 +2299,13 @@ List of Markers:
 This is a line.\
 This is a new line.
 
-Cite for intro [note](#sec:intro)
+Cite for intro &lt;&lt;\S\nameref{sec:intro}&gt;&gt;
 
 Cite for cite [note](#sec:cite)
 
-Cite for quote [](#sec:quote)
+Cite for quote &lt;&lt;\S\nameref{sec:quote}&gt;&gt;
 
-
+在这里测试中文的显示效果
     
 </Text>
         </Document>
@@ -2334,12 +2338,21 @@ Inline: \\({x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a}\\)  , blabla
 
 Inline: ${x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a}\label{eq:3}$  , blabla
 
+公式堆叠测试
+\\[
+\setstackgap{S}{2pt}
+\stackunder{\stackon{\text{text}}{\scriptstyle i=n}}{\scriptstyle i=1}
+\quad
+\underset{\textrm{下面}}{\overset{\textrm{上面}}{\text{text}}}
+\\]
+
+
 [eq:1](#eq:5) [eq3 inline](#eq:3)
-&lt;&lt;￼&gt;&gt; &lt;&lt;% This figure will not include in the final test&gt;&gt;
+&lt;&lt;#&gt;&gt; &lt;&lt;% This figure will not include in the final test&gt;&gt;
 &lt;&lt;% Any thing in the comment region will be inserted directly into the output .tex file&gt;&gt;
 &lt;!--
 \begin{equation}
-1=\Omega_0+\Omega_{\Lambda}+\Omega_k, \label{eq:1}
+1=\Omega_0+\underset{\textrm{暗能量}}{\overset{\textrm{这是}}{\Omega_{\Lambda}}}+\Omega_k, \label{eq:1}
 \end{equation}
 And:
 \begin{eqnarray}
@@ -2688,55 +2701,6 @@ The bulge mass is obtained by adding up the two bulge components in \galfit\ dec
         <Document ID="105">
             <Title>Other test [set:other]</Title>
         </Document>
-        <Document ID="60">
-            <Title>General figures [subsec:general]</Title>
-            <Text>&lt;&lt;\aastex\ has a {\tt\string\plotone}&gt;&gt; command to display a figure consisting of one EPS/PDF file.
-[](#fig:general) is an example which uses the data from [](#tab:table).
-For a general figure consisting of two EPS/PDF files the &lt;&lt;{\tt\string\plottwo}&gt;&gt; command can be used to position the two image files side by side.
-[](#fig:f2) shows the Swift/XRT X-ray light curves of two recurrent novae.
-The data from [](#fig:f2) through [](#fig:fig4) are taken from Table 2 of [#2011ApJS..197...31S;]. 
-
-&lt;!--
-\begin{figure}
-\plottwo{../_demoResources/figs/&lt;$Compilegroup&gt;/RS_Oph.eps}{../_demoResources/figs/&lt;$Compilegroup&gt;/U_Sco.eps}
-\caption{Swift/XRT X-ray light curves of RS Oph and U Sco which represent the two canonical recurrent types, a long period system with a red giant secondary and a short period system with a dwarf/sub-dwarf secondary, respectively.\label{fig:f2}}
-\end{figure}
---&gt;
-
-Both &lt;&lt;{\tt\string\plotone} and {\tt\string\plottwo} take a {\tt\string\caption} and an optional {\tt\string\figurenum}&gt;&gt; command to specify the figure number[^footnote].
-Each is based on the &lt;&lt;{\tt\string graphicx} package command, {\tt\string\includegraphics}&gt;&gt;.
-Authors are welcome to use &lt;&lt;{\tt\string\includegraphics}&gt;&gt; along with its optional arguments that control the height, width, scale, and position angle of a file within the figure.
-More information on the full usage of &lt;&lt;{\tt\string\includegraphics} can be found at \break &gt;&gt;
-&lt;&lt;\url{https://en.wikibooks.org/wiki/LaTeX/Importing_Graphics#Including_graphics}&gt;&gt;.
-
-[^footnote]: It is better to not use &lt;&lt;{\tt\string\figurenum}&gt;&gt; and let LaTeX auto-increment all the figures.If you do use this command you need to mark all of them accordingly.</Text>
-        </Document>
-        <Document ID="53">
-            <Title>Manuscript styles [sec:style]</Title>
-            <Text>The default style in &lt;&lt;\aastex\ &gt;&gt; v6.1 is a tight single column style, e.g. 10 point font, single spaced.  
-The single column style is very useful for article with wide equations. It is also the easiest to style to work with since figures and tables, see Section [](#sec:floats), will span the entire page, reducing the need for address float sizing.
-
-To invoke a two column style similar to the what is produced in
-the published PDF copy use &lt;&lt;\\&gt;&gt;
-
-&lt;&lt;\noindent {\tt\string\documentclass[twocolumn]\{aastex61\}}. \\&gt;&gt;
-
-&lt;&lt;\noindent&gt;&gt; Note that in the two column style figures and tables will only span one column unless specifically ordered across both with the ``*'' flag, e.g. &lt;&lt;\\&gt;&gt;
-
-&lt;&lt;
-\noindent{\tt\string\begin\{figure*\}} ... {\tt\string\end\{figure*\}}, \\
-\noindent{\tt\string\begin\{table*\}} ... {\tt\string\end\{table*\}}, and \\
-\noindent{\tt\string\begin\{deluxetable*\}} ... {\tt\string\end\{deluxetable*\}}. \\
-&gt;&gt;
-
-&lt;&lt;\noindent&gt;&gt; This option is ignored in the onecolumn style.
-
-Some other style options are outlined in the commented sections of this article. Any combination of style options can be used.
-
-Two style options that are needed to fully use the new revision tracking feature, see [](#sec:highlight), are &lt;&lt;{\tt\string linenumbers}&gt;&gt; which uses the lineno style file to number each article line in the left margin and &lt;&lt;{\tt\string trackchanges}&gt;&gt; which controls the revision and commenting highlight output.
-
-There is also a new &lt;&lt;{\tt\string modern}&gt;&gt; option that uses a Daniel Foreman-Mackey and David Hogg design to produce stylish, single column output that has wider left and right margins. It is designed to have fewer words per line to improve reader retention. It also looks better on devices with smaller displays such as smart phones.</Text>
-        </Document>
         <Document ID="46">
             <Title>Test for figs</Title>
             <Text>&lt;!--
@@ -2788,6 +2752,50 @@ The compass and $3''$ scale bar are on the lower right corner of {\it left} and 
 \end{figure*}
 --&gt;
 </Text>
+        </Document>
+        <Document ID="39">
+            <Title>test for rules</Title>
+            <Text>Test for rules:
+
+Some
+
+* * *
+Thing
+
+***
+Between
+
+*****
+different 
+
+- - - 
+rules
+
+----------------------
+En...</Text>
+        </Document>
+        <Document ID="60">
+            <Title>General figures [subsec:general]</Title>
+            <Text>&lt;&lt;\aastex\ has a {\tt\string\plotone}&gt;&gt; command to display a figure consisting of one EPS/PDF file.
+[](#fig:general) is an example which uses the data from [](#tab:table).
+For a general figure consisting of two EPS/PDF files the &lt;&lt;{\tt\string\plottwo}&gt;&gt; command can be used to position the two image files side by side.
+[](#fig:f2) shows the Swift/XRT X-ray light curves of two recurrent novae.
+The data from [](#fig:f2) through [](#fig:fig4) are taken from Table 2 of [#2011ApJS..197...31S;]. 
+
+&lt;!--
+\begin{figure}
+\plottwo{../_demoResources/figs/&lt;$Compilegroup&gt;/RS_Oph.eps}{../_demoResources/figs/&lt;$Compilegroup&gt;/U_Sco.eps}
+\caption{Swift/XRT X-ray light curves of RS Oph and U Sco which represent the two canonical recurrent types, a long period system with a red giant secondary and a short period system with a dwarf/sub-dwarf secondary, respectively.\label{fig:f2}}
+\end{figure}
+--&gt;
+
+Both &lt;&lt;{\tt\string\plotone} and {\tt\string\plottwo} take a {\tt\string\caption} and an optional {\tt\string\figurenum}&gt;&gt; command to specify the figure number[^footnote].
+Each is based on the &lt;&lt;{\tt\string graphicx} package command, {\tt\string\includegraphics}&gt;&gt;.
+Authors are welcome to use &lt;&lt;{\tt\string\includegraphics}&gt;&gt; along with its optional arguments that control the height, width, scale, and position angle of a file within the figure.
+More information on the full usage of &lt;&lt;{\tt\string\includegraphics} can be found at \break &gt;&gt;
+&lt;&lt;\url{https://en.wikibooks.org/wiki/LaTeX/Importing_Graphics#Including_graphics}&gt;&gt;.
+
+[^footnote]: It is better to not use &lt;&lt;{\tt\string\figurenum}&gt;&gt; and let LaTeX auto-increment all the figures.If you do use this command you need to mark all of them accordingly.</Text>
         </Document>
     </Documents>
 </SearchIndexes>
