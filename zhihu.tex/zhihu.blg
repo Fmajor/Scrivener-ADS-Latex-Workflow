@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: zhihu.aux
+The style file: ieeetr.bst
+Database file #1: ../_demoResources/references/SimpleOneColumn/ref0.bib
+You've used 4 entries,
+            1876 wiz_defined-function locations,
+            507 strings with 4523 characters,
+and the built_in function-call counts, 1242 in all, are:
+= -- 106
+> -- 80
+< -- 0
++ -- 28
+- -- 24
+* -- 101
+:= -- 197
+add.period$ -- 4
+call.type$ -- 4
+change.case$ -- 4
+chr.to.int$ -- 0
+cite$ -- 4
+duplicate$ -- 61
+empty$ -- 89
+format.name$ -- 24
+if$ -- 292
+int.to.chr$ -- 0
+int.to.str$ -- 4
+missing$ -- 4
+newline$ -- 15
+num.names$ -- 4
+pop$ -- 8
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 52
+stack$ -- 0
+substring$ -- 48
+swap$ -- 32
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 9
+width$ -- 5
+write$ -- 42

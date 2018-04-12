@@ -305,6 +305,251 @@ The scale bar is shown in t...</p>
 </ul>
 <hr/>
 <li>
+<p class="binderItem"><strong>zhihu</strong></p>
+</li>
+<hr/>
+<ul>
+<li>
+<p class="binderItem"><strong>Meta-Data</strong><br/>latex input: ../_demoResources/configs/<$Compilegroup>/config-header<br/>
+latex input: ../_demoResources/configs/<$Compilegroup>/config-newCommands<br/>
+latex input: ../_demoResources/configs/<$Compilegroup>/cover<br/>
+Base Header Level: 1<br/>
+latex footer: ../_demoResources/configs/<$Compilegroup>/footer<br/>
+<br/>
+<<<br/>
+%  Comments:<br/>
+%  * Choose which bibliography file to include in the  ../configs/SimpleOneColumn/footer.tex<br/>
+%  Mind the path in all the included .tex file<br/>
+>></p>
+</li>
+<li>
+<p class="binderItem"><strong>Article(Readme inside)</strong><br/><<%Make sure that <br/>
+ %* You select the parent folder (“SimpleOneColumn” in this example) as the Compile Group<br/>
+ %* The “Treat compile group as entire draft” options is checked<br/>
+ %* the “Article” is included<br/>
+%<br/>
+% Make a folder that have the same name as your .tex file (if the folder does not exists, you need do this only once)<br/>
+% Because we want to make the root folder clean (as latex will generate lots of temp file when compile)<br/>
+%<br/>
+% Click Replace here, and finish export<br/>
+%<br/>
+>></p>
+</li>
+<hr/>
+<ul>
+<li>
+<p class="binderItem"><strong>Introduction [sec:intro]</strong></p>
+</li>
+<hr/>
+<ul>
+<li>
+<p class="binderItem"><strong>Test for cite and enumerate and term [sec:cite]</strong><br/>Test for cite and enumerate <<%some comments>><br/>
+<br/>
+<<% Some comments>><br/>
+<<<br/>
+% Without ";", citep<br/>
+% With ";", citet<br/>
+>><br/>
+Example:<br/>
+<br/>
+ [#Kormendy&Ho2013ARA&A, Koss2012ApJ]<br/>
+ [#Kormendy&Ho2013ARA&A, Koss2012ApJ][]<br/>
+ [foo][#Kormendy&Ho2013ARA&A, Koss2012ApJ]<br/>
+ [foo\]\[bar][#Kormendy&Ho2013ARA&A, Koss2012ApJ]<br/>
+<br/>
+ [#Kormendy&Ho2013ARA&A, Koss2012ApJ;]<br/>
+ [#Kormendy&Ho2013ARA&A, Koss2012ApJ;][]<br/>
+ [foo][#Kormendy&Ho2013ARA&A, Koss2012ApJ;]<br/>
+ [foo\]\[bar][#Kormendy&Ho2013ARA&A, Koss2012ApJ;]<br/>
+  <br/>
+Term:<br/>
+<br/>
+* [#Kormendy&Ho2013A...</p>
+</li>
+<li>
+<p class="binderItem"><strong>Test for quote [sec:quote]</strong><br/>Test for quote:<br/>
+<br/>
+> Level 1<br/>
+Lazy type in for level 1<br/>
+<br/>
+> Level 1, must have a empty line for new line, <br/>
+> Level 1 (failed new line)<br/>
+> > Level 2<br/>
+Lazy type in for level 2, must have a empty type for lazy type<br/>
+<br/>
+> > Level 2<br/>
+<br/>
+> > Level 2 (successful new line)<br/>
+> > > Level 3<br/>
+Lazy type in for level 3,<br/>
+  Not lazy type in for level 3</p>
+</li>
+</ul>
+<hr/>
+<li>
+<p class="binderItem"><strong>Other test [set:other]</strong><br/><<\newpage>></p>
+</li>
+<hr/>
+<ul>
+<li>
+<p class="binderItem"><strong>test for rules</strong><br/>Test for rules:<br/>
+<br/>
+Some<br/>
+<br/>
+* * *<br/>
+Thing<br/>
+<br/>
+***<br/>
+Between<br/>
+<br/>
+*****<br/>
+different <br/>
+<br/>
+- - - <br/>
+rules<br/>
+<br/>
+----------------------<br/>
+En...</p>
+</li>
+<li>
+<p class="binderItem"><strong>test for Links</strong><br/>This is [an example](http://example.com/ "Title") inline link.<br/>
+<br/>
+[This link](http://example.net/) has no title attribute.<br/>
+<br/>
+Also we can add a foot note[^footnote]<br/>
+<br/>
+Or like [this][id]<br/>
+<br/>
+Or like [id][]<br/>
+<br/>
+I get 10 times more traffic from [Google][] than from<br/>
+[Yahoo][] or [MSN][].<br/>
+<br/>
+<br/>
+[^footnote]: http://example.net/<br/>
+<br/>
+[id]: http://example.com "Optional Title Here"<br/>
+<br/>
+[google]: http://google.com/        "Google"<br/>
+<br/>
+[yahoo]:  http://search.yahoo.com/  "Yahoo Search"<br/>
+<br/>
+[msn]:    http://search.msn.com/    "MSN Sea...</p>
+</li>
+<li>
+<p class="binderItem"><strong>test for emphasis</strong><br/>*single asterisks*<br/>
+<br/>
+_single underscores_<br/>
+<br/>
+**double asterisks**<br/>
+<br/>
+__double underscores__<br/>
+<br/>
+\*this text is surrounded by literal asterisks\*</p>
+</li>
+<li>
+<p class="binderItem"><strong>test for code</strong><br/>Use the `printf()` function.<br/>
+<br/>
+``There is a literal backtick (`) here.``<br/>
+<br/>
+A single backtick in a code span: `` ` ``<br/>
+<br/>
+A backtick-delimited string in a code span: `` `foo` ``<br/>
+<br/>
+Please don't use any `<blink>` tags.<br/>
+<br/>
+`&#8212;` is the decimal-encoded equivalent of `&mdash;`.</p>
+</li>
+<li>
+<p class="binderItem"><strong>test for equation</strong><br/>Some equations: [eq:0](#eq:0)<br/>
+<br/>
+$${x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a} \label{eq:0}$$ <<%equation with no equation number>><br/>
+<br/>
+\\[{x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a} \label{eq:5} \\] <<%equation with equation number>><br/>
+<br/>
+Inline: \\({x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a}\\)  , blabla<br/>
+<br/>
+Inline: ${x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a}\label{eq:3}$  , blabla<br/>
+<br/>
+[eq:1](#eq:5) [eq3 inline](#eq:3)<br/>
+<<>> <<% This figure will not include in the final test>><br/>
+<<% Any thing in the co...</p>
+</li>
+<li>
+<p class="binderItem"><strong>test for table</strong><br/>MultiMarkdown table [here](#table:multimarkdown): <br/>
+<br/>
+|             |  Grouping     |              |<br/>
+First Header  | Second Header | Third Header |<br/>
+ ------------ | :-----------: | -----------: |<br/>
+Content       |  *Long Cell*  |              |<br/>
+Content       |   **Cell**    |         Cell |<br/>
+<br/>
+New section   |     More      |         Data |<br/>
+And more      |    And more   |              |<br/>
+[Very very very very very very very very very long caption][table:multimarkdown]</p>
+</li>
+<hr/>
+<ul>
+<li>
+<p class="binderItem"><strong>Large table</strong><br/>Large Table:[large](#table:large)<br/>
+<br/>
+<!--<br/>
+\begin{table*}<br/>
+\caption{Photometric Parameters}<br/>
+\begin{center}<br/>
+\begin{tabular}{c c c c c c c c c}<br/>
+  \hline<br/>
+  \hline<br/>
+  Target name     & Aperture & $m_Y$           & $m_U$           & $M_z$  & $M_u$  & $u-z$          & $M_*$ & B/T  \\ <br/>
+      (1)         &    (2)   &  (3)            &  (4)            &   (5)  &   (6)  &  (7)           &  (8)  & (9)  \\ \hline<br/>
+SDSS J1108+0659   & $18''$   & 16.24$\pm 0.05$ & 18.48$\pm 0.26$ & -23.12 & -21.37 & 1.76$\pm 0.26$ ...</p>
+</li>
+</ul>
+</ul>
+<hr/>
+<li>
+<p class="binderItem"><strong>Test for figs</strong><br/><!--<br/>
+%Use <br/>
+% ![caption][label]<br/>
+% And later<br/>
+% [label]: $PATH width="0.30\textwidth" height="0.25\textheight"<br/>
+<br/>
+--><br/>
+<br/>
+Include some figure:<br/>
+<br/>
+Image one (image with given size, 200x400): [image fixed](#image:small)<br/>
+<br/>
+![Fig with give size, 200x400][image:fixed]<br/>
+<br/>
+Image two (image direct): [image direct, no way to ref it](#image:direct)<br/>
+<br/>
+![Direct figure title](../_demoResources/figs/<$Compilegroup>/comp_dr7.pdf "Optional title attribute")<br/>
+<br/>
+Image three (image: normal): [](#image:normal)<br/>
+<br/>
+![Here we have our ...</p>
+</li>
+<hr/>
+<ul>
+<li>
+<p class="binderItem"><strong>Long fig</strong><br/><!--<br/>
+\begin{figure*}[!htpb]<br/>
+\begin{center}<br/>
+\includegraphics[width=0.95\textwidth]{../_demoResources/figs/<$Compilegroup>/IR_galfit.pdf}<br/>
+\caption{<br/>
+Model fits of the \hst\ $Y$-band images of the four sources. <br/>
+{\it Left column} is the $Y$-band image of each target. <br/>
+The white dashed circles demonstrate the coverage of SDSS fibers ($3''$ in diameter). <br/>
+The compass of each image is shown in the lower right corner. <br/>
+{\it Middle column} is \galfit\ best fit of each target. <br/>
+The scale bar is shown in t...</p>
+</li>
+</ul>
+</ul>
+</ul>
+<hr/>
+<li>
 <p class="binderItem"><strong>AASTeX6.1</strong></p>
 </li>
 <hr/>

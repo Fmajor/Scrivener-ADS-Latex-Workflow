@@ -1,0 +1,54 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fnil\fcharset0 DejaVuSansMono;}
+{\colortbl;\red255\green255\blue255;}
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\fi360\sl288\slmult1\pardirnatural
+
+\f0\fs28 \cf0 <!--\
+%Use \
+%	![caption][label]\
+%	And later\
+%	[label]: $PATH width="0.30\\textwidth" height="0.25\\textheight"\
+\
+-->\
+\
+Include some figure:\
+\
+Image one (image with given size, 200x400): [image fixed](#image:small)\
+\
+![Fig with give size, 200x400][image:fixed]\
+\
+Image two (image direct): [image direct, no way to ref it](#image:direct)\
+\
+![Direct figure title](../_demoResources/figs/<$Compilegroup>/comp_dr7.pdf "Optional title attribute")\
+\
+Image three (image: normal): [](#image:normal)\
+\
+![Here we have our long long blablaFigblablaFigblablaFigblabla FigtitleblablaFigblablaF igblablaFigblablaFigti tleblablaFigblablaFig, <<\\small A demonstration of our near- to far-IR SEDs of PG quasars, produced by \\cite\{Kormendy&Richstone1995ARA&A\}.>>, I try to ref [intro](#sec:intro)][image:normal]\
+\
+Image Four (image:small):[](#image:small)\
+\
+![0.3 \\\\textwidth and 0.25 \\\\textheight, compare the size with [](#image:normal)][image:small]\
+\
+[image:normal]: ../_demoResources/figs/<$Compilegroup>/comp_dr7.pdf  \
+\
+[image:fixed]: ../_demoResources/figs/<$Compilegroup>/comp_dr7.pdf width=300px height=200px\
+\
+[image:small]: ../_demoResources/figs/<$Compilegroup>/comp_dr7.pdf width="0.30\\textwidth" height="0.25\\textheight"\
+\
+Good include: [cmp](#fig:cmp)\
+\
+<!--\
+\\begin\{figure*\}\
+\\begin\{center\}\
+\\includegraphics[width=0.95\\textwidth]\{../_demoResources/figs/<$Compilegroup>/color_map.pdf\}\
+\\caption\{\
+Images observed through U- and Y-band filters are shown in \{\\it left\} and \{\\it middle\} columns. \
+The color maps are in the \{\\it right column\}. \
+The FOV and orientation of the images in each row are the same.\
+The compass and $3''$ scale bar are on the lower right corner of \{\\it left\} and \{\\it middle\} panels in each row.\
+\}\
+\\label\{fig:cmp\}\
+\\end\{center\}\
+\\end\{figure*\}\
+-->\
+}

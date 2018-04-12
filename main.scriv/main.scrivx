@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<ScrivenerProject Version="1.5" Creator="SCRMAC-2.8.1-26326" Device="MacBook-2" Modified="2017-11-02 21:07:18 +0800" ModID="C9F98959-2911-45CF-9C24-4CFE91F185F3">
+<ScrivenerProject Version="1.5" Creator="SCRMAC-2.8.1-26326" Device="MacBook-3" Modified="2018-04-12 18:57:50 +0800" ModID="9385AF87-E04E-42D6-8D36-7C17B7209B8E">
     <Binder>
         <BinderItem ID="0" UUID="47FC700E-BF3E-41F0-AE76-83F95D609DB7" Type="DraftFolder" Created="2017-11-01 15:43:22 +0800" Modified="2017-11-01 15:43:22 +0800">
             <Title>Draft</Title>
@@ -83,7 +83,7 @@
                                 <NotesTextSelection>0,0</NotesTextSelection>
                             </MetaData>
                             <TextSettings>
-                                <TextSelection>104,0</TextSelection>
+                                <TextSelection>428,0</TextSelection>
                             </TextSettings>
                             <Children>
                                 <BinderItem ID="35" UUID="75D268A7-1C47-4DFA-9634-7F05D3FDBC02" Type="Text" Created="2015-12-12 16:14:45 +0800" Modified="2017-11-01 21:39:46 +0800">
@@ -205,7 +205,7 @@
                                                         <NotesTextSelection>0,0</NotesTextSelection>
                                                     </MetaData>
                                                     <TextSettings>
-                                                        <TextSelection>12,21</TextSelection>
+                                                        <TextSelection>1854,19</TextSelection>
                                                     </TextSettings>
                                                 </BinderItem>
                                             </Children>
@@ -223,6 +223,224 @@
                                     </TextSettings>
                                     <Children>
                                         <BinderItem ID="47" UUID="2612188E-C547-483D-9D00-2912E9334258" Type="Text" Created="2016-03-31 21:14:44 +0800" Modified="2017-11-01 22:53:42 +0800">
+                                            <Title>Long fig</Title>
+                                            <MetaData>
+                                                <IncludeInCompile>Yes</IncludeInCompile>
+                                                <CompileAsIs>Yes</CompileAsIs>
+                                                <NotesTextSelection>0,0</NotesTextSelection>
+                                            </MetaData>
+                                            <TextSettings>
+                                                <TextSelection>816,0</TextSelection>
+                                            </TextSettings>
+                                        </BinderItem>
+                                    </Children>
+                                </BinderItem>
+                            </Children>
+                        </BinderItem>
+                    </Children>
+                </BinderItem>
+                <BinderItem ID="99" UUID="60193A80-DEF0-4904-875B-8CF0E2CA714D" Type="Text" Created="2017-11-01 16:16:42 +0800" Modified="2018-04-12 17:01:53 +0800">
+                    <Title>zhihu</Title>
+                    <MetaData>
+                        <NotesTextSelection>0,0</NotesTextSelection>
+                        <IconFileName>Notes (Blue Notepad).tiff</IconFileName>
+                        <CustomMetaData>
+                            <MetaDataItem>
+                                <FieldID>testmetadata</FieldID>
+                                <Value>hehehehe</Value>
+                            </MetaDataItem>
+                        </CustomMetaData>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                    <Children>
+                        <BinderItem ID="100" UUID="03B797D7-BC00-424D-A64F-EBDC8B7C1C67" Type="Text" Created="2015-12-01 22:18:06 +0800" Modified="2017-11-01 23:25:13 +0800">
+                            <Title>Meta-Data</Title>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                                <NotesTextSelection>0,0</NotesTextSelection>
+                                <CustomMetaData>
+                                    <MetaDataItem>
+                                        <FieldID>testmetadata</FieldID>
+                                        <Value>test</Value>
+                                    </MetaDataItem>
+                                </CustomMetaData>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>444,0</TextSelection>
+                            </TextSettings>
+                        </BinderItem>
+                        <BinderItem ID="101" UUID="57CAD3E9-4B9E-4E95-B6D5-1DD625C5A452" Type="Text" Created="2015-12-12 16:14:36 +0800" Modified="2018-04-12 18:29:54 +0800">
+                            <Title>Article(Readme inside)</Title>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                                <CompileAsIs>Yes</CompileAsIs>
+                                <NotesTextSelection>0,0</NotesTextSelection>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>484,0</TextSelection>
+                            </TextSettings>
+                            <Children>
+                                <BinderItem ID="102" UUID="124AE3CA-790B-4464-BBB0-1650BE4BC6CA" Type="Text" Created="2015-12-12 16:14:45 +0800" Modified="2017-11-01 21:39:46 +0800">
+                                    <Title>Introduction [sec:intro]</Title>
+                                    <MetaData>
+                                        <IncludeInCompile>Yes</IncludeInCompile>
+                                        <NotesTextSelection>0,0</NotesTextSelection>
+                                        <CustomMetaData>
+                                            <MetaDataItem>
+                                                <FieldID>testmetadata</FieldID>
+                                                <Value>test</Value>
+                                            </MetaDataItem>
+                                        </CustomMetaData>
+                                    </MetaData>
+                                    <TextSettings>
+                                        <TextSelection>0,0</TextSelection>
+                                    </TextSettings>
+                                    <Children>
+                                        <BinderItem ID="103" UUID="BF7FAF3D-2646-406B-A0F0-CF8AD957BC81" Type="Text" Created="2016-03-31 19:10:13 +0800" Modified="2017-11-01 23:44:06 +0800">
+                                            <Title>Test for cite and enumerate and term [sec:cite]</Title>
+                                            <MetaData>
+                                                <IncludeInCompile>Yes</IncludeInCompile>
+                                                <NotesTextSelection>0,0</NotesTextSelection>
+                                            </MetaData>
+                                            <TextSettings>
+                                                <TextSelection>91,0</TextSelection>
+                                            </TextSettings>
+                                        </BinderItem>
+                                        <BinderItem ID="104" UUID="9BE4D5DF-6D45-496D-AD81-8BA21CE61DAE" Type="Text" Created="2016-03-31 19:39:30 +0800" Modified="2018-04-12 18:28:28 +0800">
+                                            <Title>Test for quote [sec:quote]</Title>
+                                            <MetaData>
+                                                <IncludeInCompile>Yes</IncludeInCompile>
+                                                <NotesTextSelection>0,0</NotesTextSelection>
+                                            </MetaData>
+                                            <TextSettings>
+                                                <TextSelection>325,0</TextSelection>
+                                            </TextSettings>
+                                        </BinderItem>
+                                    </Children>
+                                </BinderItem>
+                                <BinderItem ID="115" UUID="31DEC782-3286-4A86-868C-8399916B378D" Type="Text" Created="2018-04-12 18:28:21 +0800" Modified="2018-04-12 18:28:34 +0800">
+                                    <Title>-----------------------------------</Title>
+                                    <MetaData>
+                                        <IncludeInCompile>Yes</IncludeInCompile>
+                                        <CompileAsIs>Yes</CompileAsIs>
+                                        <NotesTextSelection>0,0</NotesTextSelection>
+                                    </MetaData>
+                                    <TextSettings>
+                                        <TextSelection>18,0</TextSelection>
+                                    </TextSettings>
+                                </BinderItem>
+                                <BinderItem ID="105" UUID="258FCDF2-F15C-4D25-91B6-513607B6DF9C" Type="Text" Created="2016-03-31 20:07:20 +0800" Modified="2018-04-12 17:47:48 +0800">
+                                    <Title>Other test [set:other]</Title>
+                                    <MetaData>
+                                        <IncludeInCompile>Yes</IncludeInCompile>
+                                        <NotesTextSelection>0,0</NotesTextSelection>
+                                    </MetaData>
+                                    <TextSettings>
+                                        <TextSelection>0,0</TextSelection>
+                                    </TextSettings>
+                                    <Children>
+                                        <BinderItem ID="106" UUID="3FF081C9-387B-41FC-A886-EA85DAC23E9C" Type="Text" Created="2016-03-31 20:07:38 +0800" Modified="2016-03-31 20:09:24 +0800">
+                                            <Title>test for rules</Title>
+                                            <MetaData>
+                                                <IncludeInCompile>Yes</IncludeInCompile>
+                                                <NotesTextSelection>0,0</NotesTextSelection>
+                                            </MetaData>
+                                            <TextSettings>
+                                                <TextSelection>79,0</TextSelection>
+                                            </TextSettings>
+                                        </BinderItem>
+                                        <BinderItem ID="107" UUID="8D7E705C-23EA-450D-B6DE-720A0FF6E102" Type="Text" Created="2016-03-31 20:09:52 +0800" Modified="2017-11-01 22:17:33 +0800">
+                                            <Title>test for Links</Title>
+                                            <MetaData>
+                                                <IncludeInCompile>Yes</IncludeInCompile>
+                                                <NotesTextSelection>0,0</NotesTextSelection>
+                                            </MetaData>
+                                            <TextSettings>
+                                                <TextSelection>196,0</TextSelection>
+                                            </TextSettings>
+                                        </BinderItem>
+                                        <BinderItem ID="108" UUID="9C174F7E-9178-4BD8-9336-A469E7A13A96" Type="Text" Created="2016-03-31 20:16:58 +0800" Modified="2016-03-31 20:18:04 +0800">
+                                            <Title>test for emphasis</Title>
+                                            <MetaData>
+                                                <IncludeInCompile>Yes</IncludeInCompile>
+                                                <NotesTextSelection>0,0</NotesTextSelection>
+                                            </MetaData>
+                                            <TextSettings>
+                                                <TextSelection>95,0</TextSelection>
+                                            </TextSettings>
+                                        </BinderItem>
+                                        <BinderItem ID="109" UUID="D6E4AB6C-C42C-4592-95CE-FF1F18FCEC46" Type="Text" Created="2016-03-31 20:18:50 +0800" Modified="2016-03-31 20:20:31 +0800">
+                                            <Title>test for code</Title>
+                                            <MetaData>
+                                                <IncludeInCompile>Yes</IncludeInCompile>
+                                                <NotesTextSelection>0,0</NotesTextSelection>
+                                            </MetaData>
+                                            <TextSettings>
+                                                <TextSelection>210,0</TextSelection>
+                                            </TextSettings>
+                                            <References>
+                                                <Reference BinderID="143" Destination="[Internal Link]">test for Links</Reference>
+                                            </References>
+                                        </BinderItem>
+                                        <BinderItem ID="110" UUID="765449A5-272E-48CC-9532-E41B7CC763CB" Type="Text" Created="2016-03-31 20:54:38 +0800" Modified="2017-11-01 22:26:49 +0800">
+                                            <Title>test for equation</Title>
+                                            <MetaData>
+                                                <IncludeInCompile>Yes</IncludeInCompile>
+                                                <NotesTextSelection>0,0</NotesTextSelection>
+                                            </MetaData>
+                                            <TextSettings>
+                                                <TextSelection>565,0</TextSelection>
+                                            </TextSettings>
+                                        </BinderItem>
+                                        <BinderItem ID="111" UUID="84F58831-B7FA-4B06-BC49-95C5D3044239" Type="Text" Created="2016-03-31 21:16:51 +0800" Modified="2017-11-01 22:45:37 +0800">
+                                            <Title>test for table</Title>
+                                            <MetaData>
+                                                <IncludeInCompile>Yes</IncludeInCompile>
+                                                <NotesTextSelection>0,0</NotesTextSelection>
+                                            </MetaData>
+                                            <TextSettings>
+                                                <TextSelection>34,0</TextSelection>
+                                            </TextSettings>
+                                            <Children>
+                                                <BinderItem ID="112" UUID="AE80C03C-192D-4777-9317-7016F7B0FB0B" Type="Text" Created="2016-03-31 21:17:00 +0800" Modified="2018-04-12 18:28:17 +0800">
+                                                    <Title>Large table</Title>
+                                                    <MetaData>
+                                                        <IncludeInCompile>Yes</IncludeInCompile>
+                                                        <CompileAsIs>Yes</CompileAsIs>
+                                                        <NotesTextSelection>0,0</NotesTextSelection>
+                                                    </MetaData>
+                                                    <TextSettings>
+                                                        <TextSelection>1874,0</TextSelection>
+                                                    </TextSettings>
+                                                </BinderItem>
+                                            </Children>
+                                        </BinderItem>
+                                    </Children>
+                                </BinderItem>
+                                <BinderItem ID="116" UUID="16EC404D-55FE-4ED4-B53B-93EAEC9F4EEF" Type="Text" Created="2018-04-12 18:28:21 +0800" Modified="2018-04-12 18:28:34 +0800">
+                                    <Title>----------------------------------- copy</Title>
+                                    <MetaData>
+                                        <IncludeInCompile>Yes</IncludeInCompile>
+                                        <CompileAsIs>Yes</CompileAsIs>
+                                        <NotesTextSelection>0,0</NotesTextSelection>
+                                    </MetaData>
+                                    <TextSettings>
+                                        <TextSelection>18,0</TextSelection>
+                                    </TextSettings>
+                                </BinderItem>
+                                <BinderItem ID="113" UUID="C4D9366E-3E20-444D-8DFF-F58128D80D1E" Type="Text" Created="2016-03-31 20:23:17 +0800" Modified="2018-04-12 17:13:27 +0800">
+                                    <Title>Test for figs</Title>
+                                    <MetaData>
+                                        <IncludeInCompile>Yes</IncludeInCompile>
+                                        <NotesTextSelection>0,0</NotesTextSelection>
+                                    </MetaData>
+                                    <TextSettings>
+                                        <TextSelection>855,0</TextSelection>
+                                    </TextSettings>
+                                    <Children>
+                                        <BinderItem ID="114" UUID="2F77F0AF-9332-4DF4-BCB2-DC9F39634ED8" Type="Text" Created="2016-03-31 21:14:44 +0800" Modified="2017-11-01 22:53:42 +0800">
                                             <Title>Long fig</Title>
                                             <MetaData>
                                                 <IncludeInCompile>Yes</IncludeInCompile>
@@ -562,7 +780,7 @@
                                 <NotesTextSelection>0,0</NotesTextSelection>
                             </MetaData>
                             <MediaSettings>
-                                <CurrentPDFPage>12</CurrentPDFPage>
+                                <CurrentPDFPage>8</CurrentPDFPage>
                             </MediaSettings>
                             <References>
                                 <Reference BinderID="22" Destination="[Internal Link]">How to compile</Reference>
@@ -591,6 +809,204 @@
             <MetaData>
                 <IncludeInCompile>Yes</IncludeInCompile>
             </MetaData>
+            <Children>
+                <BinderItem ID="83" UUID="E5331554-5FB0-4D20-AEB8-A4F125A8CCE7" Type="Text" Created="2017-11-01 16:16:42 +0800" Modified="2018-04-12 14:51:09 +0800">
+                    <Title>zhihu</Title>
+                    <MetaData>
+                        <NotesTextSelection>0,0</NotesTextSelection>
+                        <IconFileName>Notes (Blue Notepad).tiff</IconFileName>
+                        <CustomMetaData>
+                            <MetaDataItem>
+                                <FieldID>testmetadata</FieldID>
+                                <Value>hehehehe</Value>
+                            </MetaDataItem>
+                        </CustomMetaData>
+                    </MetaData>
+                    <TextSettings>
+                        <TextSelection>0,0</TextSelection>
+                    </TextSettings>
+                    <Children>
+                        <BinderItem ID="84" UUID="1003D5EF-CA5D-4330-8BB5-25A21B7F24D0" Type="Text" Created="2015-12-01 22:18:06 +0800" Modified="2017-11-01 23:25:13 +0800">
+                            <Title>Meta-Data</Title>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                                <NotesTextSelection>0,0</NotesTextSelection>
+                                <CustomMetaData>
+                                    <MetaDataItem>
+                                        <FieldID>testmetadata</FieldID>
+                                        <Value>test</Value>
+                                    </MetaDataItem>
+                                </CustomMetaData>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>444,0</TextSelection>
+                            </TextSettings>
+                        </BinderItem>
+                        <BinderItem ID="85" UUID="9FA5C389-FA32-421C-9F25-54FC59E1666B" Type="Text" Created="2015-12-12 16:14:36 +0800" Modified="2017-11-02 03:22:27 +0800">
+                            <Title>Article(Readme inside)</Title>
+                            <MetaData>
+                                <IncludeInCompile>Yes</IncludeInCompile>
+                                <CompileAsIs>Yes</CompileAsIs>
+                                <NotesTextSelection>0,0</NotesTextSelection>
+                            </MetaData>
+                            <TextSettings>
+                                <TextSelection>428,0</TextSelection>
+                            </TextSettings>
+                            <Children>
+                                <BinderItem ID="86" UUID="6D304171-85CF-4517-8A13-8EBDD93C823A" Type="Text" Created="2015-12-12 16:14:45 +0800" Modified="2017-11-01 21:39:46 +0800">
+                                    <Title>Introduction [sec:intro]</Title>
+                                    <MetaData>
+                                        <IncludeInCompile>Yes</IncludeInCompile>
+                                        <NotesTextSelection>0,0</NotesTextSelection>
+                                        <CustomMetaData>
+                                            <MetaDataItem>
+                                                <FieldID>testmetadata</FieldID>
+                                                <Value>test</Value>
+                                            </MetaDataItem>
+                                        </CustomMetaData>
+                                    </MetaData>
+                                    <TextSettings>
+                                        <TextSelection>0,0</TextSelection>
+                                    </TextSettings>
+                                    <Children>
+                                        <BinderItem ID="87" UUID="C9DCB1A3-C7CF-4373-AABA-1AF2DA70FF2E" Type="Text" Created="2016-03-31 19:10:13 +0800" Modified="2017-11-01 23:44:06 +0800">
+                                            <Title>Test for cite and enumerate and term [sec:cite]</Title>
+                                            <MetaData>
+                                                <IncludeInCompile>Yes</IncludeInCompile>
+                                                <NotesTextSelection>0,0</NotesTextSelection>
+                                            </MetaData>
+                                            <TextSettings>
+                                                <TextSelection>91,0</TextSelection>
+                                            </TextSettings>
+                                        </BinderItem>
+                                        <BinderItem ID="88" UUID="809B00C1-F4E7-4393-B372-5788D2B46949" Type="Text" Created="2016-03-31 19:39:30 +0800" Modified="2017-11-01 16:51:07 +0800">
+                                            <Title>Test for quote [sec:quote]</Title>
+                                            <MetaData>
+                                                <IncludeInCompile>Yes</IncludeInCompile>
+                                                <NotesTextSelection>0,0</NotesTextSelection>
+                                            </MetaData>
+                                            <TextSettings>
+                                                <TextSelection>324,0</TextSelection>
+                                            </TextSettings>
+                                        </BinderItem>
+                                    </Children>
+                                </BinderItem>
+                                <BinderItem ID="89" UUID="8078F047-3C02-4C4C-A7FF-ED5007AA9464" Type="Text" Created="2016-03-31 20:07:20 +0800" Modified="2016-03-31 20:07:38 +0800">
+                                    <Title>Other test [set:other]</Title>
+                                    <MetaData>
+                                        <IncludeInCompile>Yes</IncludeInCompile>
+                                        <NotesTextSelection>0,0</NotesTextSelection>
+                                    </MetaData>
+                                    <TextSettings>
+                                        <TextSelection>0,0</TextSelection>
+                                    </TextSettings>
+                                    <Children>
+                                        <BinderItem ID="90" UUID="42A129D0-D68E-4DE7-B9E6-66513A4DA570" Type="Text" Created="2016-03-31 20:07:38 +0800" Modified="2016-03-31 20:09:24 +0800">
+                                            <Title>test for rules</Title>
+                                            <MetaData>
+                                                <IncludeInCompile>Yes</IncludeInCompile>
+                                                <NotesTextSelection>0,0</NotesTextSelection>
+                                            </MetaData>
+                                            <TextSettings>
+                                                <TextSelection>79,0</TextSelection>
+                                            </TextSettings>
+                                        </BinderItem>
+                                        <BinderItem ID="91" UUID="C246003D-CFBF-421D-B8E2-1FDA04C2C11F" Type="Text" Created="2016-03-31 20:09:52 +0800" Modified="2017-11-01 22:17:33 +0800">
+                                            <Title>test for Links</Title>
+                                            <MetaData>
+                                                <IncludeInCompile>Yes</IncludeInCompile>
+                                                <NotesTextSelection>0,0</NotesTextSelection>
+                                            </MetaData>
+                                            <TextSettings>
+                                                <TextSelection>196,0</TextSelection>
+                                            </TextSettings>
+                                        </BinderItem>
+                                        <BinderItem ID="92" UUID="87026A74-B9C6-482B-9B41-4C11C2464ADA" Type="Text" Created="2016-03-31 20:16:58 +0800" Modified="2016-03-31 20:18:04 +0800">
+                                            <Title>test for emphasis</Title>
+                                            <MetaData>
+                                                <IncludeInCompile>Yes</IncludeInCompile>
+                                                <NotesTextSelection>0,0</NotesTextSelection>
+                                            </MetaData>
+                                            <TextSettings>
+                                                <TextSelection>95,0</TextSelection>
+                                            </TextSettings>
+                                        </BinderItem>
+                                        <BinderItem ID="93" UUID="DB37DB20-D425-40EF-AEDE-3A1150D9CFD0" Type="Text" Created="2016-03-31 20:18:50 +0800" Modified="2016-03-31 20:20:31 +0800">
+                                            <Title>test for code</Title>
+                                            <MetaData>
+                                                <IncludeInCompile>Yes</IncludeInCompile>
+                                                <NotesTextSelection>0,0</NotesTextSelection>
+                                            </MetaData>
+                                            <TextSettings>
+                                                <TextSelection>210,0</TextSelection>
+                                            </TextSettings>
+                                            <References>
+                                                <Reference BinderID="143" Destination="[Internal Link]">test for Links</Reference>
+                                            </References>
+                                        </BinderItem>
+                                        <BinderItem ID="94" UUID="9B298D9F-1F7F-4579-9D53-3546D9FA628D" Type="Text" Created="2016-03-31 20:54:38 +0800" Modified="2017-11-01 22:26:49 +0800">
+                                            <Title>test for equation</Title>
+                                            <MetaData>
+                                                <IncludeInCompile>Yes</IncludeInCompile>
+                                                <NotesTextSelection>0,0</NotesTextSelection>
+                                            </MetaData>
+                                            <TextSettings>
+                                                <TextSelection>367,4</TextSelection>
+                                            </TextSettings>
+                                        </BinderItem>
+                                        <BinderItem ID="95" UUID="DD399C8D-A95B-40C6-A450-DEA803E9E6C8" Type="Text" Created="2016-03-31 21:16:51 +0800" Modified="2018-04-12 15:38:04 +0800">
+                                            <Title>test for table</Title>
+                                            <MetaData>
+                                                <IncludeInCompile>Yes</IncludeInCompile>
+                                                <NotesTextSelection>0,0</NotesTextSelection>
+                                            </MetaData>
+                                            <TextSettings>
+                                                <TextSelection>513,0</TextSelection>
+                                            </TextSettings>
+                                            <Children>
+                                                <BinderItem ID="96" UUID="647E536A-B356-4573-B2E2-F7E754B9FB96" Type="Text" Created="2016-03-31 21:17:00 +0800" Modified="2018-04-12 16:20:44 +0800">
+                                                    <Title>Large table</Title>
+                                                    <MetaData>
+                                                        <IncludeInCompile>Yes</IncludeInCompile>
+                                                        <CompileAsIs>Yes</CompileAsIs>
+                                                        <NotesTextSelection>0,0</NotesTextSelection>
+                                                    </MetaData>
+                                                    <TextSettings>
+                                                        <TextSelection>963,0</TextSelection>
+                                                    </TextSettings>
+                                                </BinderItem>
+                                            </Children>
+                                        </BinderItem>
+                                    </Children>
+                                </BinderItem>
+                                <BinderItem ID="97" UUID="C7B01E94-9582-4030-A2D9-05A4BB6CCCB2" Type="Text" Created="2016-03-31 20:23:17 +0800" Modified="2017-11-01 23:19:48 +0800">
+                                    <Title>Test for figs</Title>
+                                    <MetaData>
+                                        <IncludeInCompile>Yes</IncludeInCompile>
+                                        <NotesTextSelection>0,0</NotesTextSelection>
+                                    </MetaData>
+                                    <TextSettings>
+                                        <TextSelection>195,11</TextSelection>
+                                    </TextSettings>
+                                    <Children>
+                                        <BinderItem ID="98" UUID="E8DD4E20-CD80-4191-8EF8-72B48471E970" Type="Text" Created="2016-03-31 21:14:44 +0800" Modified="2017-11-01 22:53:42 +0800">
+                                            <Title>Long fig</Title>
+                                            <MetaData>
+                                                <IncludeInCompile>Yes</IncludeInCompile>
+                                                <CompileAsIs>Yes</CompileAsIs>
+                                                <NotesTextSelection>0,0</NotesTextSelection>
+                                            </MetaData>
+                                            <TextSettings>
+                                                <TextSelection>816,0</TextSelection>
+                                            </TextSettings>
+                                        </BinderItem>
+                                    </Children>
+                                </BinderItem>
+                            </Children>
+                        </BinderItem>
+                    </Children>
+                </BinderItem>
+            </Children>
         </BinderItem>
     </Binder>
     <Collections>
@@ -632,7 +1048,7 @@
     <ProjectTargets Notify="No">
         <DraftTarget Type="Words" CountIncludedOnly="Yes" CurrentCompileGroupOnly="No" Deadline="2017-11-01 15:43:21 +0800" IgnoreDeadline="Yes">0</DraftTarget>
         <SessionTarget Type="Words" CountDraftOnly="Yes" AllowNegatives="Yes" ResetType="Midnight" DeterminedFromDeadline="No" WritingDays="" CanWriteOnDeadlineDate="No">0</SessionTarget>
-        <PreviousSession Words="8661" Characters="57961" Date="2017-11-02 19:24:16 +0800"></PreviousSession>
+        <PreviousSession Words="-135" Characters="-799" Date="2018-04-12 14:41:12 +0800"></PreviousSession>
     </ProjectTargets>
     <PrintSettings PaperSize="595.0,842.0" LeftMargin="72.0" RightMargin="72.0" TopMargin="90.0" BottomMargin="90.0" PaperType="iso-a4" Orientation="Portrait" HorizontalPagination="Clip" VerticalPagination="Auto" ScaleFactor="1.0" HorizontallyCentered="Yes" VerticallyCentered="Yes" Collates="Yes" PagesAcross="1" PagesDown="1"></PrintSettings>
 </ScrivenerProject>
