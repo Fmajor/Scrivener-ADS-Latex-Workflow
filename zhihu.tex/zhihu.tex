@@ -24,10 +24,10 @@
 % use \newsinglepage to generate another page
 
 
-\section{Introduction}
+\section{Introduction 简介}
 \label{sec:intro}
 
-\subsection{Test for cite and enumerate and term}
+\subsection{Test for cite and enumerate and term 同时测试中文}
 \label{sec:cite}
 
 Test for cite and enumerate %some comments
@@ -124,11 +124,13 @@ List of Markers:
 This is a line.
 This is a new line.
 
-Cite for intro note (\autoref{sec:intro})
+Cite for intro \S\nameref{sec:intro}
 
 Cite for cite note (\autoref{sec:cite})
 
-Cite for quote \autoref{sec:quote}
+Cite for quote \S\nameref{sec:quote}
+
+在这里测试中文的显示效果
 
 \subsection{Test for quote}
 \label{sec:quote}
@@ -255,12 +257,20 @@ Inline: ${x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a}$ , blabla
 
 Inline: ${x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a}\label{eq:3}$ , blabla
 
+公式堆叠测试
+\[
+\setstackgap{S}{2pt}
+\stackunder{\stackon{\text{text}}{\scriptstyle i=n}}{\scriptstyle i=1}
+\quad
+\underset{\textrm{下面}}{\overset{\textrm{上面}}{\text{text}}}
+\]
+
 eq:1 (\autoref{eq:5}) eq3 inline (\autoref{eq:3})
 ￼ % This figure will not include in the final test
 % Any thing in the comment region will be inserted directly into the output .tex file
 
 \begin{equation}
-1=\Omega_0+\Omega_{\Lambda}+\Omega_k, \label{eq:1}
+1=\Omega_0+\underset{\textrm{暗能量}}{\overset{\textrm{这是}}{\Omega_{\Lambda}}}+\Omega_k, \label{eq:1}
 \end{equation}
 And:
 \begin{eqnarray}

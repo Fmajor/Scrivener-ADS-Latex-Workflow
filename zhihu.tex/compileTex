@@ -10,5 +10,5 @@ if [[ main.tex -nt backup.tex ]]; then
     cp ${file}.tex backup.tex
 fi
 # cat `find ../references/*.bib | grep -v "all\.bib"` > ../references/all.bib
-pdflatex ${file} && bibtex ${file} && pdflatex ${file} && pdflatex ${file}
+xelatex ${file} && bibtex ${file} && xelatex ${file} && xelatex ${file}
 open ${file}.pdf

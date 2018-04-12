@@ -1,280 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <SearchIndexes Version="1.0">
     <Documents>
-        <Document ID="69">
-            <Title>Author publication charges [sec:pubcharge]</Title>
-            <Text>Finally some information about the AAS Journal's publication charges.
-In April 2011 the traditional way of calculating author charges based on the number of printed pages was changed.
-The reason for the change was due to a recognition of the growing number of article items that could not  be represented in print.
-Now author charges are determined by a number of digital ``quanta''.
-A single quantum is 350 words, one figure, one table, and one enhanced digital item.
-For the latter this includes machine readable tables, figure sets, animations, and interactive figures.  
-The current cost is \$27 per word quantum and \$30 for all other quantum type.</Text>
-        </Document>
-        <Document ID="4">
-            <Title>AASTeX6.1</Title>
-        </Document>
-        <Document ID="22">
-            <Title>How to compile</Title>
-            <Text>Compile format:
-#
-Formatting:
-￼
-Replacements: (now you can use latex command in &lt;&lt;&gt;&gt; pair)
-￼
-Latex Options:
-￼
+        <Document ID="39">
+            <Title>test for rules</Title>
+            <Text>Test for rules:
 
-Open the inspector(￼), there are several important configurations.
-1. ￼: This text will be include in the final .tex only if this is checked
-2. ￼: if checked, the text will NOT generate a '/section{}', '/subsection{}' or '/subsubsection{}' according to its level.
+Some
 
-1. text inside &lt;!-- --&gt; comment pair will be directly inserted into the output .tex file
-2. because we have set the "Replacements" configuration, now we can use &lt;&lt; &gt;&gt; pair as abbreviate of &lt;!-- --&gt;, but the inside text can not contains "&lt;" or "&gt;", e.g. &lt;&lt;\latex&gt;&gt; will result in "\latex" command.
-3. the "Meta-Data" text in each demo contains basic tex compile configurations, make sure the relative path of "latex input" is correct, the &lt;$Compilegroup&gt; will be replaced by the selected compile group
-(￼in this example it is AASTeX6.1)
-4. also make sure all the relative path inside the "latex input" files are correct
-5. you can first try to compile the SimpleOneColumn and AASTeX6.1 demo (read the "Article(Readme inside)" text to see more compile detail)
-	SimpleOneColumn show you some basic MultiMarkdown Syntax 
-	AASTeX6.1 is the full MultiMarkdown version of AASTeX6.1 template, you can find the origin template .tex file in _demoResources/configs/AASTeX6.1/sample61.tex
-	the compiled pdf are also attached here (simpleOneColumn, AASTeX6.1), you can compare your compiled result with them
-6. After successfully compile the two demo, now you can replicated one of these demos or convert your own tex template into MultiMarkdown version. In the Meta-Data text
-file of "latex input" will be compiled into "\intput{}" and inserted in front of the output .tex file 
-file of "latex footer" will be compiled into "\input{}" and append on the tail of the output .tex file
-"Base Header Level" should be 1
-</Text>
-        </Document>
-        <Document ID="40">
-            <Title>test for Links</Title>
-            <Text>This is [an example](http://example.com/ "Title") inline link.
+* * *
+Thing
 
-[This link](http://example.net/) has no title attribute.
+***
+Between
 
-Also we can add a foot note[^footnote]
+*****
+different 
 
-Or like [this][id]
+- - - 
+rules
 
-Or like [id][]
-
-I get 10 times more traffic from [Google][] than from
-[Yahoo][] or [MSN][].
-
-
-[^footnote]: http://example.net/
-
-[id]: http://example.com "Optional Title Here"
-
-[google]: http://google.com/        "Google"
-
-[yahoo]:  http://search.yahoo.com/  "Yahoo Search"
-
-[msn]:    http://search.msn.com/    "MSN Search"	</Text>
-        </Document>
-        <Document ID="23">
-            <Title>Recommended preference about Scrivener</Title>
-            <Text>Formatting
-#
-Corrections
-￼
-Backup
-￼
-</Text>
-        </Document>
-        <Document ID="41">
-            <Title>test for emphasis</Title>
-            <Text>*single asterisks*
-
-_single underscores_
-
-**double asterisks**
-
-__double underscores__
-
-\*this text is surrounded by literal asterisks\*</Text>
-        </Document>
-        <Document ID="50">
-            <Title>Introduction [sec:intro]</Title>
-            <Text>&lt;&lt;\latex\ &gt;&gt;[^latex] is a document markup language that is particularly well suited for the publication of mathematical and scientific articles [#lamport94].
-&lt;&lt;\latex\ &gt;&gt; was written in 1985 by Leslie Lamport who based it on the &lt;&lt;\TeX\ &gt;&gt; typesetting language which itself was created by Donald E. Knuth in 1978.
-In 1988 a suite of &lt;&lt;\latex\ &gt;&gt; macros were developed to investigate electronic submission and publication of AAS Journal articles [#1989BAAS...21..780H].
-Shortly afterwards, Chris Biemesdefer merged these macros and more into a &lt;&lt;\latex\ &gt;&gt; 2.08 style file called &lt;&lt;\aastex\ &gt;&gt;.  These early &lt;&lt;\aastex\ &gt;&gt; versions introduced many common commands and practices that authors take for granted today.
-Substantial revisions were made by Lee Brotzman and Pierre Landau when the package was updated to v4.0.  AASTeX v5.0, written in 1995 by Arthur Ogawa, upgraded to &lt;&lt;\latex\ &gt;&gt; 2e which uses the document class in lieu of a style file.  Other improvements to version 5 included hypertext support, landscape deluxetables and improved figure support to facilitate electronic submission.
-&lt;&lt;\aastex\ &gt;&gt; v5.2 was released in 2005 and introduced additional graphics support plus new mark up to identifier astronomical objects, datasets and facilities.
-
-In 1996 Maxim Markevitch modified the AAS preprint style file, aaspp4.sty, to closely emulate the very tight, two column style of a typeset Astrophysical Journal article. The result was emulateapj.sty. 
-A year later Alexey Vikhlinin took over development and maintenance. In 2001 he converted emulateapj into a class file in &lt;&lt;\latex\ &gt;&gt; 2e and in 2003 Vikhlinin completely rewrote emulateapj based on the APS Journal's RevTEX class.
-
-During this time emulateapj gained growing acceptance in the astronomical community as it filled an author need to obtain an approximate number of manuscript pages prior to submission for cost and length estimates. The tighter typeset also had the added advantage of saving paper when printing out hard copies.
-
-Even though author publication charges are no longer based on print pages [^printpages] the emulateapj class file has proven to be extremely popular with AAS Journal authors. An informal analysis of submitted &lt;&lt;\latex\ &gt;&gt; manuscripts in 2015 revealed that $\sim$ 65% either called emulateapj or have a commented emulateapj classfile call indicating it was used at some stage of the manuscript construction. Clearly authors want to have access to a tightly typeset version of the article when corresponding with co-authors and for preprint submissions.
-
-When planning the next &lt;&lt;\aastex\ &gt;&gt; release the popularity of emulateapj played an important roll in the decision to drop the old base code and adopt and modify emulateapj for &lt;&lt;\aastex\ &gt;&gt; v6.+ instead.  The change brings &lt;&lt;\aastex\ &gt;&gt; inline with what the majority of authors are already using while still delivering new and improved features. &lt;&lt;\aastex\ &gt;&gt; v6.0 and v6.1 were written by Amy Hendrickson and released in January and October 2016, respectively. Some of the new features in v6.0 included:
-
-1. improved citations for third party data repositories and software,
-2. easier construction of matrix figures consisting of multiple 
-encapsulated postscript (EPS) or portable document format (PDF) files,
-3. figure set mark up for large collections of similar figures,
-4. color mark up to easily enable/disable revised text highlighting,
-5. improved url support, and
-6. numerous table options such as the ability to hide columns, column decimal alignment, automatic column math mode and numbering, plus splitting of wide tables.
-
-The new features in v6.1 are:
-
-1. ORCID support for preprints,
-2. improved author, affiliation and collaboration mark up,
-3. reintroduced the old AASTeX v5.2 &lt;&lt;{\tt\string\received}, {\tt\string\revised}, {\tt\string\accepted}, and {\tt\string\published} commands plus added the new {\tt\string\submitjournal}&gt;&gt; command to document which AAS Journal the manuscript was submitted to, plus
-4. new typeset style options.
-
-The rest of this article provides information and examples on how to create your own AAS Journal manuscript with v6.1. 
-Special emphasis is placed on how to use the full potential of &lt;&lt;\aastex\ &gt;&gt; v6+.
-The next section describes the different manuscript styles available and how they differ from past releases.
-[](#sec:floats) describes how tables and figures are placed in a &lt;&lt;\latex\ &gt;&gt; document. 
-Specific examples of tables, [](#subsec:tables), and figures, [](#subsec:figures), are also provided.
-[](#sec:displaymath) discusses how to display math and incorporate equations in a manuscript while [](#sec:highlight) discuss how to use the new revision mark up.
-The last section, [](#sec:cite), shows how recognize software and external data as first class references in the manuscript bibliography.
-An appendix is included to show how to construct one and provide some information on how article charges are calculated. Additional information is available both embedded in the comments of this &lt;&lt;\latex\ &gt;&gt; file and in the online documentation at [http://journals.aas.org/authors/aastex.html](http://journals.aas.org/authors/aastex.html).
-
-
-[^latex]: http://www.latex-project.org/
-[^printpages]: see Section [](#sec:pubcharge) in the Appendix for more details about how current article costs are calculated.</Text>
-        </Document>
-        <Document ID="33">
-            <Title>SimpleOneColumn</Title>
-        </Document>
-        <Document ID="42">
-            <Title>test for code</Title>
-            <Text>Use the `printf()` function.
-
-``There is a literal backtick (`) here.``
-
-A single backtick in a code span: `` ` ``
-
-A backtick-delimited string in a code span: `` `foo` ``
-
-Please don't use any `&lt;blink&gt;` tags.
-
-`&amp;#8212;` is the decimal-encoded equivalent of `&amp;mdash;`.</Text>
-        </Document>
-        <Document ID="25">
-            <Title>Readme</Title>
-        </Document>
-        <Document ID="51">
-            <Title>Abstract and keywords</Title>
-            <Text>&lt;!--
-
-\begin{abstract} 
-
-This example manuscript is intended to serve as a tutorial and template for authors to use when writing their own AAS Journal articles. The manuscript includes a history of \aastex\  and documents the new features in the previous version, 6.0, as well as the new features in version 6.1. This manuscript includes many figure and table examples to illustrate these new features.  Information on features not explicitly mentioned in the article can be viewed in the manuscript comments or more extensive online documentation. Authors are welcome replace the text, tables, figures, and bibliography with their own and submit the resulting manuscript to the AAS Journals peer review system.  The first lesson in the tutorial is to remind
-authors that the AAS Journals, the Astrophysical Journal (ApJ), the Astrophysical Journal Letters (ApJL), and Astronomical Journal (AJ), all have a 250 word limit for the abstract.  If you exceed this length the Editorial office will ask you to shorten it.
-
-\end{abstract}
-
-
-%% Keywords should appear after the \end{abstract} command. 
-%% See the online documentation for the full list of available subject
-%% keywords and the rules for their use.
-
-
-\keywords{editorials, notices miscellaneous --- catalogs --- surveys}
-
-
-%% From the front matter, we move on to the body of the paper.
-%% Sections are demarcated by \section and \subsection, respectively.
-%% Observe the use of the LaTeX \label
-%% command after the \subsection to give a symbolic KEY to the
-%% subsection for cross-referencing in a \ref command.
-%% You can use LaTeX's \ref and \label commands to keep track of
-%% cross-references to sections, equations, tables, and figures.
-%% That way, if you change the order of any elements, LaTeX will
-%% automatically renumber them.
-
-%% We recommend that authors also use the natbib \citep
-%% and \citet commands to identify citations.  The citations are
-%% tied to the reference list via symbolic KEYs. The KEY corresponds
-%% to the KEY in the \bibitem in the reference list below. 
---&gt;</Text>
-        </Document>
-        <Document ID="34">
-            <Title>Article(Readme inside)</Title>
-            <Text>&lt;&lt;%Make sure that 
-	%* You select the parent folder (“SimpleOneColumn” in this example) as the Compile Group
-	%* The “Treat compile group as entire draft” options is checked
-	%* the “Article” is included
-%#
-% Make a folder that have the same name as your .tex file (if the folder does not exists, you need do this only once)
-% Because we want to make the root folder clean (as latex will generate lots of temp file when compile)
-%￼
-% Click Replace here, and finish export
-%￼
-&gt;&gt;
-</Text>
-        </Document>
-        <Document ID="60">
-            <Title>General figures [subsec:general]</Title>
-            <Text>&lt;&lt;\aastex\ has a {\tt\string\plotone}&gt;&gt; command to display a figure consisting of one EPS/PDF file.
-[](#fig:general) is an example which uses the data from [](#tab:table).
-For a general figure consisting of two EPS/PDF files the &lt;&lt;{\tt\string\plottwo}&gt;&gt; command can be used to position the two image files side by side.
-[](#fig:f2) shows the Swift/XRT X-ray light curves of two recurrent novae.
-The data from [](#fig:f2) through [](#fig:fig4) are taken from Table 2 of [#2011ApJS..197...31S;]. 
-
-&lt;!--
-\begin{figure}
-\plottwo{../_demoResources/figs/&lt;$Compilegroup&gt;/RS_Oph.eps}{../_demoResources/figs/&lt;$Compilegroup&gt;/U_Sco.eps}
-\caption{Swift/XRT X-ray light curves of RS Oph and U Sco which represent the two canonical recurrent types, a long period system with a red giant secondary and a short period system with a dwarf/sub-dwarf secondary, respectively.\label{fig:f2}}
-\end{figure}
---&gt;
-
-Both &lt;&lt;{\tt\string\plotone} and {\tt\string\plottwo} take a {\tt\string\caption} and an optional {\tt\string\figurenum}&gt;&gt; command to specify the figure number[^footnote].
-Each is based on the &lt;&lt;{\tt\string graphicx} package command, {\tt\string\includegraphics}&gt;&gt;.
-Authors are welcome to use &lt;&lt;{\tt\string\includegraphics}&gt;&gt; along with its optional arguments that control the height, width, scale, and position angle of a file within the figure.
-More information on the full usage of &lt;&lt;{\tt\string\includegraphics} can be found at \break &gt;&gt;
-&lt;&lt;\url{https://en.wikibooks.org/wiki/LaTeX/Importing_Graphics#Including_graphics}&gt;&gt;.
-
-[^footnote]: It is better to not use &lt;&lt;{\tt\string\figurenum}&gt;&gt; and let LaTeX auto-increment all the figures.If you do use this command you need to mark all of them accordingly.</Text>
-        </Document>
-        <Document ID="43">
-            <Title>test for equation</Title>
-            <Text>Some equations: [eq:0](#eq:0)
-
-$${x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a} \label{eq:0}$$ &lt;&lt;%equation with no equation number&gt;&gt;
-
-\\[{x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a} \label{eq:5} \\] &lt;&lt;%equation with equation number&gt;&gt;
-
-Inline: \\({x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a}\\)  , blabla
-
-Inline: ${x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a}\label{eq:3}$  , blabla
-
-[eq:1](#eq:5) [eq3 inline](#eq:3)
-&lt;&lt;#&gt;&gt; &lt;&lt;% This figure will not include in the final test&gt;&gt;
-&lt;&lt;% Any thing in the comment region will be inserted directly into the output .tex file&gt;&gt;
-&lt;!--
-\begin{equation}
-1=\Omega_0+\Omega_{\Lambda}+\Omega_k, \label{eq:1}
-\end{equation}
-And:
-\begin{eqnarray}
-&amp;\Omega_0=\frac{\rho_0}{\rho_{c0}}=\Omega_m+\Omega_r; \\
-&amp;\Omega_{\Lambda}=\frac{\rho_{\Lambda}}{\rho_{c0}}; \\
-&amp;\Omega_k=-\frac{kc^2}{a_0^2H_0^2}; \label{eq:2}
-\end{eqnarray}
---&gt;</Text>
-        </Document>
-        <Document ID="52">
-            <Title>Meta-Data</Title>
-            <Text>latex input: ../_demoResources/configs/&lt;$Compilegroup&gt;/config-newCommands
-latex input: ../_demoResources/configs/&lt;$Compilegroup&gt;/config-header
-Base Header Level: 1
-latex footer: ../_demoResources/configs/&lt;$Compilegroup&gt;/footer
-
-&lt;&lt;
-%  Comments:
-%  * Choose which bibliography file to include in the  ../configs/SimpleOneColumn/footer.tex
-%  Mind the path in all the included .tex file
-&gt;&gt;
-</Text>
-        </Document>
-        <Document ID="35">
-            <Title>Introduction [sec:intro]</Title>
+----------------------
+En...</Text>
         </Document>
         <Document ID="61">
             <Title>Figures [subsec:figures]</Title>
@@ -292,180 +38,6 @@ Authors can include a wide number of different graphics with their articles in  
 These range from general figures all authors are familiar with to new enhanced graphics that can only be fully experienced in HTML.
 The later include animations, figure sets and interactive figures.
 This portion of the article provides examples for setting up all these graphics in with the latest version of &lt;&lt;\aastex&gt;&gt;.</Text>
-        </Document>
-        <Document ID="44">
-            <Title>test for table</Title>
-            <Text>MultiMarkdown table [here](#table:multimarkdown): 
-
-|             |  Grouping     |              |
-First Header  | Second Header | Third Header |
- ------------ | :-----------: | -----------: |
-Content       |  *Long Cell*  |              |
-Content       |   **Cell**    |         Cell |
-
-New section   |     More      |         Data |
-And more      |    And more   |              |
-[Very very very very very very very very very long caption][table:multimarkdown]</Text>
-        </Document>
-        <Document ID="70">
-            <Title>Appendix information</Title>
-            <Text>Appendices can be broken into separate sections just like in the main text.
-The only difference is that each appendix section is indexed by a letter (A, B, C, etc.) instead of a number.
-Likewise numbered equations have the section letter appended.  Here is an equation as an example.
-
-&lt;!--
-\begin{equation}
-I = \frac{1}{1 + d_{1}^{P (1 + d_{2} )}}
-\end{equation}
---&gt;
-
-Appendix tables and figures should not be numbered like equations. Instead they should continue the sequence from the main article body.</Text>
-        </Document>
-        <Document ID="53">
-            <Title>Manuscript styles [sec:style]</Title>
-            <Text>The default style in &lt;&lt;\aastex\ &gt;&gt; v6.1 is a tight single column style, e.g. 10 point font, single spaced.  
-The single column style is very useful for article with wide equations. It is also the easiest to style to work with since figures and tables, see Section [](#sec:floats), will span the entire page, reducing the need for address float sizing.
-
-To invoke a two column style similar to the what is produced in
-the published PDF copy use &lt;&lt;\\&gt;&gt;
-
-&lt;&lt;\noindent {\tt\string\documentclass[twocolumn]\{aastex61\}}. \\&gt;&gt;
-
-&lt;&lt;\noindent&gt;&gt; Note that in the two column style figures and tables will only span one column unless specifically ordered across both with the ``*'' flag, e.g. &lt;&lt;\\&gt;&gt;
-
-&lt;&lt;
-\noindent{\tt\string\begin\{figure*\}} ... {\tt\string\end\{figure*\}}, \\
-\noindent{\tt\string\begin\{table*\}} ... {\tt\string\end\{table*\}}, and \\
-\noindent{\tt\string\begin\{deluxetable*\}} ... {\tt\string\end\{deluxetable*\}}. \\
-&gt;&gt;
-
-&lt;&lt;\noindent&gt;&gt; This option is ignored in the onecolumn style.
-
-Some other style options are outlined in the commented sections of this article. Any combination of style options can be used.
-
-Two style options that are needed to fully use the new revision tracking feature, see [](#sec:highlight), are &lt;&lt;{\tt\string linenumbers}&gt;&gt; which uses the lineno style file to number each article line in the left margin and &lt;&lt;{\tt\string trackchanges}&gt;&gt; which controls the revision and commenting highlight output.
-
-There is also a new &lt;&lt;{\tt\string modern}&gt;&gt; option that uses a Daniel Foreman-Mackey and David Hogg design to produce stylish, single column output that has wider left and right margins. It is designed to have fewer words per line to improve reader retention. It also looks better on devices with smaller displays such as smart phones.</Text>
-        </Document>
-        <Document ID="36">
-            <Title>Test for cite and enumerate and term [sec:cite]</Title>
-            <Text>Test for cite and enumerate &lt;&lt;%some comments&gt;&gt;
-
-&lt;&lt;% Some comments&gt;&gt;
-&lt;&lt;
-% Without ";", citep
-% With ";", citet
-&gt;&gt;
-Example:
-
-	[#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ]
-	[#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ][]
-	[foo][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ]
-	[foo\]\[bar][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ]
-
-	[#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;]
-	[#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;][]
-	[foo][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;]
-	[foo\]\[bar][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;]
-  
-Term:
-
-* [#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ]
-	+ [#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ][]
-- [foo][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ]
-	+ [foo\]\[bar][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ]
-
-Enumerate:
-
-1. [#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;]
-2. [#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;][]
-3. [foo][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;]
-4. [foo\]\[bar][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;]
-
-Here is not cited([not cited][#Povic2012A&amp;A]).
-
-Here is a enumerate:
-
-1984. Type for "1984."
-
-Here is not:
-
-1984\. Type for "1984\."
-
-List of Markers:
-
-\   Backslash0
-\   Backslash1
-
-`   Backtick0
-`   Backtick1
-
-*   Asterisk0
-*   Asterisk1
-
-
-+   plus sign0
-+   plus sign1
-
--   minus sign0 (hyphen)
--   minus sign1 (hyphen)
-
-
-This is a line.\
-This is a new line.
-
-Cite for intro [note](#sec:intro)
-
-Cite for cite [note](#sec:cite)
-
-Cite for quote [](#sec:quote)
-
-
-    
-</Text>
-        </Document>
-        <Document ID="62">
-            <Title>Automatic column header numbering [subsubsec:autonumber]</Title>
-            <Text>The command &lt;&lt;{\tt\string\colnumbers}&gt;&gt; can be included to automatically number each column as the last row in the header. Per the AAS Journal table format standards, each column index numbers will be surrounded by parentheses.
-In a &lt;&lt;\latex\&gt;&gt; tabular environment the &lt;&lt;{\tt\string\colnumbers}&gt;&gt; should be invoked at the location where the author wants the numbers to appear, e.g. after the last line of specified table header rows.
-In deluxetable this command has to come before &lt;&lt;{\tt\string\startdata}&gt;&gt;.
-&lt;&lt;{\tt\string\colnumbers}&gt;&gt; will not increment for columns hidden by the &lt;&lt;``h''&gt;&gt; command, see [](#subsubsec:hide).
-[](#tab:table) uses this command to automatically generate column index numbers.
-
-Note that when using decimal alignment in a table the command &lt;&lt;{\tt\string\decimalcolnumbers}&gt;&gt; must be used instead of &lt;&lt;{\tt\string\colnumbers} and {\tt\string\decimals}&gt;&gt;.
-[](#tab:messier) illustrates this specific functionality.</Text>
-        </Document>
-        <Document ID="45">
-            <Title>Large table</Title>
-            <Text>Large Table:[large](#table:large)
-
-&lt;!--
-\begin{table*}
-\caption{Photometric Parameters}
-\begin{center}
-\begin{tabular}{c c c c c c c c c}
-  \hline
-  \hline
-  Target name     &amp; Aperture &amp; $m_Y$           &amp; $m_U$           &amp; $M_z$  &amp; $M_u$  &amp; $u-z$          &amp; $M_*$ &amp; B/T  \\ 
-      (1)         &amp;    (2)   &amp;  (3)            &amp;  (4)            &amp;   (5)  &amp;   (6)  &amp;  (7)           &amp;  (8)  &amp; (9)  \\ \hline
-SDSS J1108+0659   &amp; $18''$   &amp; 16.24$\pm 0.05$ &amp; 18.48$\pm 0.26$ &amp; -23.12 &amp; -21.37 &amp; 1.76$\pm 0.26$ &amp; 11.14 &amp; 0.55 \\
-SDSS J1131$-$0204 &amp; $12''$   &amp; 15.81$\pm 0.01$ &amp; 18.94$\pm 0.09$ &amp; -23.04 &amp; -20.39 &amp; 2.65$\pm 0.10$ &amp; 11.24 &amp; 0.12 \\
-SDSS J1146+5110   &amp; $18''$   &amp; 15.89$\pm 0.03$ &amp; 18.40$\pm 0.14$ &amp; -22.68 &amp; -20.65 &amp; 2.02$\pm 0.14$ &amp; 11.00 &amp; 0.41 \\
-SDSS J1332+0606   &amp; $12''$   &amp; 16.82$\pm 0.04$ &amp; 19.29$\pm 0.16$ &amp; -22.86 &amp; -20.88 &amp; 1.98$\pm 0.17$ &amp; 11.07 &amp; 0.69 \\ \hline
-\end{tabular}                                                         
-\end{center}
-\tablecomments{
-Col. 2: the aperture sizes that are large enough to enclose more than $95\%$ flux of the galaxies; 
-Col. 3 \&amp; 4: the apparent magnitudes in $Y$ and $U$ bands measured with the apertures correspondingly. 
-The uncertainties are estimated from 1 $\sigma$ variation of the sky background; 
-Col. 5 \&amp; 6: the SDSS $z$- and $u$-band absolute magnitudes of the targets, transformed from $m_Y$ and $m_U$ correspondingly, assuming a flat local spectra ($f_{\lambda} \sim const.$) around the relevant frequencies; 
-Col. 7: color calculated from the $u$ and $z$ magnitudes; 
-Col. 8: the stellar mass in solar unit of the targets estimated from the $z$- and $u$-band magnitudes (see the text for details, \S \ref{subsec:mass}). 
-Col. 9: the bulge-to-total mass ratios. 
-The bulge mass is obtained by adding up the two bulge components in \galfit\ decomposition results for each galaxy.
-}
-\label{table:large}
-\end{table*}%--&gt;</Text>
         </Document>
         <Document ID="54">
             <Title>Floats [sec:floats]</Title>
@@ -566,78 +138,51 @@ Authors might have to use &lt;&lt;{\tt\string\clearpage}&gt;&gt; to isolate a lo
 \end{deluxetable*}
 --&gt;</Text>
         </Document>
-        <Document ID="80">
-            <Title>DemoResults</Title>
-        </Document>
-        <Document ID="63">
-            <Title>Hiding columns [subsubsec:hide]</Title>
-            <Text>Entire columns can be &lt;&lt;\underline{h}idden&gt;&gt; from display simply by changing the specified column identifier to &lt;&lt;``h''&gt;&gt;.
-In the &lt;&lt;\latex\ &gt;&gt; tabular environment this column identifier conceals the entire column including the header columns.
-In &lt;&lt;\aastex's&gt;&gt; deluxetables the header row is specifically declared with the &lt;&lt;{\tt\string\tablehead} call and each header column is marked with {\tt\string\colhead} call.&gt;&gt;
-In order to make a specific header disappear with the ``h'' column identifier in deluxetable use &lt;&lt;{\tt\string\nocolhead}&gt;&gt; instead to suppress that particular column header.
-
-Authors can use this option in many different ways. Since column data can be easily suppressed authors can include extra information and hid it based on the comments of co-authors or referees.
-For wide tables that will have a machine readable version, authors could put all the information in the &lt;&lt;\latex\ &gt;&gt; table but use this option to hid as many columns as needed until it fits on a page.
-This concealed column table would serve as the example table for the full machine readable version.  
-Regardless of how columns are obscured, authors are responsible for removing any unneeded column data or alerting the editorial office about how to treat these columns during production for the final typeset article.
-
-Table [](#tab:messier) provides some basic information about the first ten Messier Objects and illustrates how many of these new features can be used together.
-It has automatic column numbering, decimal alignment of the distances, and one concealed column.  The Common name column is the third in the &lt;&lt;\latex\ &gt;&gt; deluxetable but does not appear when the article is compiled.
-This hidden column can be shown simply by changing the ``h'' in the column identifier preamble to another valid value.  This table also uses &lt;&lt;{\tt\string\tablenum}&gt;&gt; to renumber the table because a &lt;&lt;\latex\ &gt;&gt; tabular table was inserted before it.
-
-&lt;!--
-\begin{deluxetable*}{cchlDlc}
-\tablenum{4}
-\tablecaption{Fun facts about the first 10 messier objects\label{tab:messier}}
-\tablewidth{0pt}
-\tablehead{
-\colhead{Messier} &amp; \colhead{NGC/IC} &amp; \nocolhead{Common} &amp; \colhead{Object} &amp;
-\multicolumn2c{Distance} &amp; \colhead{} &amp; \colhead{V} \\
-\colhead{Number} &amp; \colhead{Number} &amp; \nocolhead{Name} &amp; \colhead{Type} &amp;
-\multicolumn2c{(kpc)} &amp; \colhead{Constellation} &amp; \colhead{(mag)}
+        <Document ID="47">
+            <Title>Long fig</Title>
+            <Text>&lt;!--
+\begin{figure*}[!htpb]
+\begin{center}
+\includegraphics[width=0.95\textwidth]{../_demoResources/figs/&lt;$Compilegroup&gt;/IR_galfit.pdf}
+\caption{
+Model fits of the \hst\ $Y$-band images of the four sources. 
+{\it Left column} is the $Y$-band image of each target. 
+The white dashed circles demonstrate the coverage of SDSS fibers ($3''$ in diameter). 
+The compass of each image is shown in the lower right corner. 
+{\it Middle column} is \galfit\ best fit of each target. 
+The scale bar is shown in the lower-right corner. 
+The FOVs of three panels in each row are the same. 
+The pixel brightness scale is logarithmic in the first two columns. 
+The residuals are show in {\it Right column}, where the pixel brightness scale is linear. 
+We simultaneously fit the close companions of J1108 and J1146.
 }
-\decimalcolnumbers
-\startdata
-M1 &amp; NGC 1952 &amp; Crab Nebula &amp; Supernova remnant &amp; 2 &amp; Taurus &amp; 8.4 \\
-M2 &amp; NGC 7089 &amp; Messier 2 &amp; Cluster, globular &amp; 11.5 &amp; Aquarius &amp; 6.3 \\
-M3 &amp; NGC 5272 &amp; Messier 3 &amp; Cluster, globular &amp; 10.4 &amp; Canes Venatici &amp;  6.2 \\
-M4 &amp; NGC 6121 &amp; Messier 4 &amp; Cluster, globular &amp; 2.2 &amp; Scorpius &amp; 5.9 \\
-M5 &amp; NGC 5904 &amp; Messier 5 &amp; Cluster, globular &amp; 24.5 &amp; Serpens &amp; 5.9 \\
-M6 &amp; NGC 6405 &amp; Butterfly Cluster &amp; Cluster, open &amp; 0.31 &amp; Scorpius &amp; 4.2 \\
-M7 &amp; NGC 6475 &amp; Ptolemy Cluster &amp; Cluster, open &amp; 0.3 &amp; Scorpius &amp; 3.3 \\
-M8 &amp; NGC 6523 &amp; Lagoon Nebula &amp; Nebula with cluster &amp; 1.25 &amp; Sagittarius &amp; 6.0 \\
-M9 &amp; NGC 6333 &amp; Messier 9 &amp; Cluster, globular &amp; 7.91 &amp; Ophiuchus &amp; 8.4 \\
-M10 &amp; NGC 6254 &amp; Messier 10 &amp; Cluster, globular &amp; 4.42 &amp; Ophiuchus &amp; 6.4 \\
-\enddata
-\tablecomments{This table ``hides'' the third column in the \latex\ when compiled.
-The Distance is also centered on the decimals.  Note that when using decimal
-alignment you need to include the {\tt\string\decimals} command before
-{\tt\string\startdata} and all of the values in that column have to have a
-space before the next ampersand.}
-\end{deluxetable*}
+\label{fig:galfit}
+\end{center}
+\end{figure*}
 --&gt;</Text>
         </Document>
-        <Document ID="37">
-            <Title>Test for quote [sec:quote]</Title>
-            <Text>Test for quote:
+        <Document ID="106">
+            <Title>test for rules</Title>
+            <Text>Test for rules:
 
-&gt; Level 1
-Lazy type in for level 1
+Some
 
-&gt; Level 1, must have a empty line for new line, 
-&gt; Level 1 (failed new line)
-&gt; &gt; Level 2
-Lazy type in for level 2, must have a empty type for lazy type
+* * *
+Thing
 
-&gt; &gt; Level 2
+***
+Between
 
-&gt; &gt; Level 2 (successful new line)
-&gt; &gt; &gt; Level 3
-Lazy type in for level 3,
-		Not lazy type in for level 3
-</Text>
+*****
+different 
+
+- - - 
+rules
+
+----------------------
+En...</Text>
         </Document>
-        <Document ID="46">
+        <Document ID="113">
             <Title>Test for figs</Title>
             <Text>&lt;!--
 %Use 
@@ -689,6 +234,17 @@ The compass and $3''$ scale bar are on the lower right corner of {\it left} and 
 --&gt;
 </Text>
         </Document>
+        <Document ID="62">
+            <Title>Automatic column header numbering [subsubsec:autonumber]</Title>
+            <Text>The command &lt;&lt;{\tt\string\colnumbers}&gt;&gt; can be included to automatically number each column as the last row in the header. Per the AAS Journal table format standards, each column index numbers will be surrounded by parentheses.
+In a &lt;&lt;\latex\&gt;&gt; tabular environment the &lt;&lt;{\tt\string\colnumbers}&gt;&gt; should be invoked at the location where the author wants the numbers to appear, e.g. after the last line of specified table header rows.
+In deluxetable this command has to come before &lt;&lt;{\tt\string\startdata}&gt;&gt;.
+&lt;&lt;{\tt\string\colnumbers}&gt;&gt; will not increment for columns hidden by the &lt;&lt;``h''&gt;&gt; command, see [](#subsubsec:hide).
+[](#tab:table) uses this command to automatically generate column index numbers.
+
+Note that when using decimal alignment in a table the command &lt;&lt;{\tt\string\decimalcolnumbers}&gt;&gt; must be used instead of &lt;&lt;{\tt\string\colnumbers} and {\tt\string\decimals}&gt;&gt;.
+[](#tab:messier) illustrates this specific functionality.</Text>
+        </Document>
         <Document ID="55">
             <Title>Tables [subsec:tables]</Title>
             <Text>Tables can be constructed with &lt;&lt;\latex&gt;&gt;'s standard table environment or the &lt;&lt;\aastex&gt;&gt;'s deluxetable environment.
@@ -725,6 +281,440 @@ The examples in this manuscript also show where the two process differ.
 
 
 </Text>
+        </Document>
+        <Document ID="70">
+            <Title>Appendix information</Title>
+            <Text>Appendices can be broken into separate sections just like in the main text.
+The only difference is that each appendix section is indexed by a letter (A, B, C, etc.) instead of a number.
+Likewise numbered equations have the section letter appended.  Here is an equation as an example.
+
+&lt;!--
+\begin{equation}
+I = \frac{1}{1 + d_{1}^{P (1 + d_{2} )}}
+\end{equation}
+--&gt;
+
+Appendix tables and figures should not be numbered like equations. Instead they should continue the sequence from the main article body.</Text>
+        </Document>
+        <Document ID="63">
+            <Title>Hiding columns [subsubsec:hide]</Title>
+            <Text>Entire columns can be &lt;&lt;\underline{h}idden&gt;&gt; from display simply by changing the specified column identifier to &lt;&lt;``h''&gt;&gt;.
+In the &lt;&lt;\latex\ &gt;&gt; tabular environment this column identifier conceals the entire column including the header columns.
+In &lt;&lt;\aastex's&gt;&gt; deluxetables the header row is specifically declared with the &lt;&lt;{\tt\string\tablehead} call and each header column is marked with {\tt\string\colhead} call.&gt;&gt;
+In order to make a specific header disappear with the ``h'' column identifier in deluxetable use &lt;&lt;{\tt\string\nocolhead}&gt;&gt; instead to suppress that particular column header.
+
+Authors can use this option in many different ways. Since column data can be easily suppressed authors can include extra information and hid it based on the comments of co-authors or referees.
+For wide tables that will have a machine readable version, authors could put all the information in the &lt;&lt;\latex\ &gt;&gt; table but use this option to hid as many columns as needed until it fits on a page.
+This concealed column table would serve as the example table for the full machine readable version.  
+Regardless of how columns are obscured, authors are responsible for removing any unneeded column data or alerting the editorial office about how to treat these columns during production for the final typeset article.
+
+Table [](#tab:messier) provides some basic information about the first ten Messier Objects and illustrates how many of these new features can be used together.
+It has automatic column numbering, decimal alignment of the distances, and one concealed column.  The Common name column is the third in the &lt;&lt;\latex\ &gt;&gt; deluxetable but does not appear when the article is compiled.
+This hidden column can be shown simply by changing the ``h'' in the column identifier preamble to another valid value.  This table also uses &lt;&lt;{\tt\string\tablenum}&gt;&gt; to renumber the table because a &lt;&lt;\latex\ &gt;&gt; tabular table was inserted before it.
+
+&lt;!--
+\begin{deluxetable*}{cchlDlc}
+\tablenum{4}
+\tablecaption{Fun facts about the first 10 messier objects\label{tab:messier}}
+\tablewidth{0pt}
+\tablehead{
+\colhead{Messier} &amp; \colhead{NGC/IC} &amp; \nocolhead{Common} &amp; \colhead{Object} &amp;
+\multicolumn2c{Distance} &amp; \colhead{} &amp; \colhead{V} \\
+\colhead{Number} &amp; \colhead{Number} &amp; \nocolhead{Name} &amp; \colhead{Type} &amp;
+\multicolumn2c{(kpc)} &amp; \colhead{Constellation} &amp; \colhead{(mag)}
+}
+\decimalcolnumbers
+\startdata
+M1 &amp; NGC 1952 &amp; Crab Nebula &amp; Supernova remnant &amp; 2 &amp; Taurus &amp; 8.4 \\
+M2 &amp; NGC 7089 &amp; Messier 2 &amp; Cluster, globular &amp; 11.5 &amp; Aquarius &amp; 6.3 \\
+M3 &amp; NGC 5272 &amp; Messier 3 &amp; Cluster, globular &amp; 10.4 &amp; Canes Venatici &amp;  6.2 \\
+M4 &amp; NGC 6121 &amp; Messier 4 &amp; Cluster, globular &amp; 2.2 &amp; Scorpius &amp; 5.9 \\
+M5 &amp; NGC 5904 &amp; Messier 5 &amp; Cluster, globular &amp; 24.5 &amp; Serpens &amp; 5.9 \\
+M6 &amp; NGC 6405 &amp; Butterfly Cluster &amp; Cluster, open &amp; 0.31 &amp; Scorpius &amp; 4.2 \\
+M7 &amp; NGC 6475 &amp; Ptolemy Cluster &amp; Cluster, open &amp; 0.3 &amp; Scorpius &amp; 3.3 \\
+M8 &amp; NGC 6523 &amp; Lagoon Nebula &amp; Nebula with cluster &amp; 1.25 &amp; Sagittarius &amp; 6.0 \\
+M9 &amp; NGC 6333 &amp; Messier 9 &amp; Cluster, globular &amp; 7.91 &amp; Ophiuchus &amp; 8.4 \\
+M10 &amp; NGC 6254 &amp; Messier 10 &amp; Cluster, globular &amp; 4.42 &amp; Ophiuchus &amp; 6.4 \\
+\enddata
+\tablecomments{This table ``hides'' the third column in the \latex\ when compiled.
+The Distance is also centered on the decimals.  Note that when using decimal
+alignment you need to include the {\tt\string\decimals} command before
+{\tt\string\startdata} and all of the values in that column have to have a
+space before the next ampersand.}
+\end{deluxetable*}
+--&gt;</Text>
+        </Document>
+        <Document ID="56">
+            <Title>Grid figures</Title>
+            <Text>Including more than two EPS/PDF files in a single figure call can be tricky easily format.
+To make the process easier for authors &lt;&lt;\aastex\ v6 offers {\tt\string\gridline}&gt;&gt; which allows any number of individual EPS/PDF file calls within a single figure.
+Each file cited in a &lt;&lt;{\tt\string\gridline}&gt;&gt; will be displayed in a row.
+By adding more &lt;&lt;{\tt\string\gridline}&gt;&gt; calls an author can easily construct a matrix X by Y individual files as a single general figure.
+
+For each &lt;&lt;{\tt\string\gridline}&gt;&gt; command a EPS/PDF file is called by one of four different commands.
+These are &lt;&lt;{\tt\string\fig}, {\tt\string\rightfig}, {\tt\string\leftfig}, and {\tt\string\boxedfig}&gt;&gt;.
+The first file call specifies no image position justification while the next two will right and left justify the image, respectively.
+The &lt;&lt;{\tt\string\boxedfig} is similar to {\tt\string\fig}&gt;&gt; except that a box is drawn around the figure file when displayed.
+Each of these commands takes three arguments.
+The first is the file name.  The second is the width that file should be displayed at.
+While any natural &lt;&lt;\latex\ &gt;&gt; unit is allowed, it is recommended that author use fractional units with the &lt;&lt;{\tt\string\textwidth}&gt;&gt;.
+The last argument is text for a subcaption.
+
+[](#fig:pyramid) shows an inverted pyramid of individual figure constructed with six individual EPS files using the &lt;&lt;{\tt\string\gridline}&gt;&gt; option.
+
+&lt;!--
+\begin{figure*}
+\gridline{\fig{../_demoResources/figs/&lt;$Compilegroup&gt;/V2491_Cyg.eps}{0.3\textwidth}{(a)}
+          \fig{../_demoResources/figs/&lt;$Compilegroup&gt;/CSS081007.eps}{0.3\textwidth}{(b)}
+          \fig{../_demoResources/figs/&lt;$Compilegroup&gt;/LMC_2009.eps}{0.3\textwidth}{(c)}
+          }
+\gridline{\fig{../_demoResources/figs/&lt;$Compilegroup&gt;/RS_Oph.eps}{0.3\textwidth}{(d)}
+          \fig{../_demoResources/figs/&lt;$Compilegroup&gt;/U_Sco.eps}{0.3\textwidth}{(e)}
+          }
+\gridline{\fig{../_demoResources/figs/&lt;$Compilegroup&gt;/KT_Eri.eps}{0.3\textwidth}{(f)}}
+\caption{Inverted pyramid figure of six individual files. The nova are (a) V2491 Cyg, (b) HV Cet, (c) LMC 2009, (d) RS Oph, (e) U Sco, and (f) KT Eri.\label{fig:pyramid}}
+\end{figure*}
+--&gt;</Text>
+        </Document>
+        <Document ID="49">
+            <Title>Meta-Data</Title>
+            <Text>latex input: ../_demoResources/configs/&lt;$Compilegroup&gt;/config-header
+latex input: ../_demoResources/configs/&lt;$Compilegroup&gt;/config-newCommands
+latex input: ../_demoResources/configs/&lt;$Compilegroup&gt;/cover
+Base Header Level: 1
+latex footer: ../_demoResources/configs/&lt;$Compilegroup&gt;/footer
+
+&lt;&lt;
+%  Comments:
+%  * Choose which bibliography file to include in the  ../configs/SimpleOneColumn/footer.tex
+%  Mind the path in all the included .tex file
+&gt;&gt;
+</Text>
+        </Document>
+        <Document ID="107">
+            <Title>test for Links</Title>
+            <Text>This is [an example](http://example.com/ "Title") inline link.
+
+[This link](http://example.net/) has no title attribute.
+
+Also we can add a foot note[^footnote]
+
+Or like [this][id]
+
+Or like [id][]
+
+I get 10 times more traffic from [Google][] than from
+[Yahoo][] or [MSN][].
+
+
+[^footnote]: http://example.net/
+
+[id]: http://example.com "Optional Title Here"
+
+[google]: http://google.com/        "Google"
+
+[yahoo]:  http://search.yahoo.com/  "Yahoo Search"
+
+[msn]:    http://search.msn.com/    "MSN Search"	</Text>
+        </Document>
+        <Document ID="64">
+            <Title>Splitting a table into multiple horizontal components</Title>
+            <Text>Since the AAS Journals are now all electronic with no print version there is no reason why tables can not be as wide as authors need them to be. 
+However, there are some artificial limitations based on the width of a print page.
+The old way around this limitation was to rotate into landscape mode and use the smallest available table font sizes, e.g. &lt;&lt;{\tt\string\tablewidth}&gt;&gt;, to get the table to fit.
+Unfortunately, this was not alway enough but now along with the hide column option outlined in [](#subsubsec:hide) there is a new way to break a table into two or three components so that it flows down a page by invoking a new table type, splittabular or splitdeluxetable.
+Within these tables a new &lt;&lt;``B''&gt;&gt; column separator is introduced.
+Much like the vertical bar option, &lt;&lt;``$\vert$''&gt;&gt;, that produces a vertical table lines, e.g. [](#tab:table), the new &lt;&lt;``B''&gt;&gt; separator indicates where to &lt;&lt;\underline{B}reak&gt;&gt; a table.
+Up to two &lt;&lt;``B''&gt;&gt;s may be included.
+
+[](#tab:deluxesplit) shows how to split a wide deluxetable into three parts with the &lt;&lt;{\tt\string\splitdeluxetable}&gt;&gt; command.
+The &lt;&lt;{\tt\string\colnumbers}&gt;&gt; option is on to show how the automatic column numbering carries through the second table component, see [](#subsubsec:autonumber).
+
+The last example, [](#tab:tablesplit), shows how to split the same table but with a regular &lt;&lt;\latex\ &gt;&gt; tabular call and into two parts.
+Decimal alignment is included in the third column and the ``Component'' column is hidden to illustrate the new features working together.
+
+&lt;!--
+\begin{splitdeluxetable*}{lccccBcccccBcccc}
+\tabletypesize{\scriptsize}
+\tablewidth{0pt} 
+\tablenum{5}
+\tablecaption{Measurements of Emission Lines: two breaks \label{tab:deluxesplit}}
+\tablehead{
+\colhead{Model} &amp; \colhead{Component}&amp; \colhead{Shift} &amp; \colhead{FWHM} &amp;
+\multicolumn{10}{c}{Flux} \\
+\colhead{} &amp; \colhead{} &amp; \colhead{($\rm
+km~s^{-1}$)}&amp; \colhead{($\rm km~s^{-1}$)} &amp; \multicolumn{10}{c}{($\rm
+10^{-17}~erg~s^{-1}~cm^{-2}$)} \\
+\cline{5-14}
+\colhead{} &amp; \colhead{} &amp;
+\colhead{} &amp; \colhead{} &amp; \colhead{Ly$\alpha$} &amp; \colhead{N\,{\footnotesize
+V}} &amp; \colhead{Si\,{\footnotesize IV}} &amp; \colhead{C\,{\footnotesize IV}} &amp;
+\colhead{Mg\,{\footnotesize II}} &amp; \colhead{H$\gamma$} &amp; \colhead{H$\beta$}
+&amp; \colhead{H$\alpha$} &amp; \colhead{He\,{\footnotesize I}} &amp;
+\colhead{Pa$\gamma$}
+} 
+\colnumbers
+\startdata 
+{       }&amp; BELs&amp; -97.13 &amp;    9117$\pm      38$&amp;    1033$\pm      33$&amp;$&lt; 35$&amp;$&lt;     166$&amp;     637$\pm      31$&amp;    1951$\pm      26$&amp;     991$\pm 30$&amp;    3502$\pm      42$&amp;   20285$\pm      80$&amp;    2025$\pm     116$&amp; 1289$\pm     107$\\ 
+{Model 1}&amp; IELs&amp; -4049.123 &amp; 1974$\pm      22$&amp;    2495$\pm      30$&amp;$&lt;     42$&amp;$&lt;     109$&amp;     995$\pm 186$&amp;      83$\pm      30$&amp;      75$\pm      23$&amp;     130$\pm      25$&amp; 357$\pm      94$&amp;     194$\pm      64$&amp; 36$\pm      23$\\
+{       }&amp; NELs&amp; \nodata &amp;     641$\pm       4$&amp;     449$\pm 23$&amp;$&lt;      6$&amp;$&lt;       9$&amp;       --            &amp;     275$\pm      18$&amp; 150$\pm      11$&amp;     313$\pm      12$&amp;     958$\pm      43$&amp;     318$\pm 34$&amp; 151$\pm       17$\\
+\hline
+{       }&amp; BELs&amp; -85 &amp;    8991$\pm      41$&amp; 988$\pm      29$&amp;$&lt;     24$&amp;$&lt;     173$&amp;     623$\pm      28$&amp;    1945$\pm 29$&amp;     989$\pm      27$&amp;    3498$\pm      37$&amp;   20288$\pm      73$&amp; 2047$\pm     143$&amp; 1376$\pm     167$\\
+{Model 2}&amp; IELs&amp; -51000 &amp;    2025$\pm      26$&amp; 2494$\pm      32$&amp;$&lt;     37$&amp;$&lt;     124$&amp;    1005$\pm     190$&amp;      72$\pm 28$&amp;      72$\pm      21$&amp;     113$\pm      18$&amp;     271$\pm      85$&amp; 205$\pm      72$&amp; 34$\pm      21$\\
+{       }&amp; NELs&amp; 52 &amp;     637$\pm      10$&amp;     477$\pm 17$&amp;$&lt;      4$&amp;$&lt;       8$&amp;       --            &amp;     278$\pm      17$&amp; 153$\pm      10$&amp;     317$\pm      15$&amp;     969$\pm      40$&amp;     325$\pm 37$&amp;
+     147$\pm       22$\\
+\enddata
+\tablecomments{This is an example of how to split a deluxetable. You can split any table with this command into two or three parts.  The location of the split is given by the author based on the placement of the ``B'' indicators in the column identifier preamble.  For more information please look at the new \aastex\ instructions.}
+\end{splitdeluxetable*}
+
+%\clearpage
+
+\setcounter{table}{5}
+\begin{table*}[h!]
+\renewcommand{\thetable}{\arabic{table}}
+\caption{Measurements of Emission Lines: one break\label{tab:tablesplit}}
+\begin{splittabular}{lhDccccBccccccc}
+%\multicolumn{5}{c}{Table 6} \\
+%\multicolumn{5}{c}{Measurements of Emission Lines} \\
+\hline 
+\hline 
+Model &amp; Component &amp; \multicolumn2c{Shift} &amp; FWHM &amp; 
+\multicolumn{10}{c}{Flux} \\
+ &amp; &amp; \multicolumn2c{($\rm km~s^{-1}$)} &amp; {($\rm km~s^{-1}$)} &amp; 
+\multicolumn{10}{c}{($\rm 10^{-17}~erg~s^{-1}~cm^{-2}$)} \\
+\cline{5-15}
+ &amp; &amp; &amp; &amp; &amp; {Ly$\alpha$} &amp; {N\,{\footnotesize V}} &amp; 
+{Si\,{\footnotesize IV}} &amp; {C\,{\footnotesize IV}} &amp;
+{Mg\,{\footnotesize II}} &amp; {H$\gamma$} &amp; {H$\beta$}
+&amp; {H$\alpha$} &amp; {He\,{\footnotesize I}} &amp; {Pa$\gamma$} \\
+%\hline
+\decimalcolnumbers
+ &amp; BELs&amp; -97.13 &amp;    9117$\pm      38$&amp;    1033$\pm      33$&amp;$&lt; 35$&amp;$&lt;     166$&amp;     637$\pm      31$&amp;    1951$\pm      26$&amp;     991$\pm 30$&amp;    3502$\pm      42$&amp;   20285$\pm      80$&amp;    2025$\pm     116$&amp; 1289$\pm     107$\\
+Model 1 &amp; IELs&amp; -4049.123 &amp; 1974$\pm      22$&amp;    2495$\pm      30$&amp;$&lt;     42$&amp;$&lt;     109$&amp;     995$\pm 186$&amp;      83$\pm      30$&amp;      75$\pm      23$&amp;     130$\pm      25$&amp; 357$\pm      94$&amp;     194$\pm      64$&amp; 36$\pm      23$\\
+ &amp; NELs&amp; . &amp;     641$\pm       4$&amp;     449$\pm 23$&amp;$&lt;      6$&amp;$&lt;       9$&amp;       --            &amp;     275$\pm      18$&amp; 150$\pm      11$&amp;     313$\pm      12$&amp;     958$\pm      43$&amp;     318$\pm 34$&amp; 151$\pm       17$\\
+\hline
+ &amp; BELs&amp; -85 &amp;    8991$\pm      41$&amp; 988$\pm      29$&amp;$&lt;     24$&amp;$&lt;     173$&amp;     623$\pm      28$&amp;    1945$\pm 29$&amp;     989$\pm      27$&amp;    3498$\pm      37$&amp;   20288$\pm      73$&amp; 2047$\pm     143$&amp; 1376$\pm     167$\\
+Model 2 &amp; IELs&amp; -51000 &amp;    2025$\pm      26$&amp; 2494$\pm      32$&amp;$&lt;     37$&amp;$&lt;     124$&amp;    1005$\pm     190$&amp;      72$\pm 28$&amp;      72$\pm      21$&amp;     113$\pm      18$&amp;     271$\pm      85$&amp; 205$\pm      72$&amp; 34$\pm      21$\\
+ &amp; NELs&amp; 52 &amp;     637$\pm      10$&amp;     477$\pm 17$&amp;$&lt;      4$&amp;$&lt;       8$&amp;       --            &amp;     278$\pm      17$&amp; 153$\pm      10$&amp;     317$\pm      15$&amp;     969$\pm      40$&amp;     325$\pm 37$&amp; 147$\pm       22$\\
+\hline
+\end{splittabular}
+\end{table*}
+--&gt;</Text>
+        </Document>
+        <Document ID="57">
+            <Title>Figure sets</Title>
+            <Text>A large collection of similar style figures should be grouped together as a figure set.  The derived PDF article will only shows an example figure while the enhanced content is available in the figure set in the electronic edition.  The advantage of a figure set gives the reader the ability to easily sort through the figure collection to find individual component figures.  All of the figure set components, along with their html framework, are also available for download in a .tar.gz package.
+
+Special &lt;&lt;\latex\ &gt;&gt; mark up is required to create a figure set.  Prior to &lt;&lt;\aastex\ &gt;&gt; v6 the underlying mark up commands had to be inserted by hand but is now included.  Note that when an article with figure set is compiled in &lt;&lt;\latex\ &gt;&gt; none of the component figures are shown and a floating Figure Set caption will appear in the resulting PDF.
+
+&lt;!--
+\figsetstart
+\figsetnum{4}
+\figsettitle{Swift X-ray light curves}
+
+\figsetgrpstart
+\figsetgrpnum{1.1}
+\figsetgrptitle{KT Eri}
+\figsetplot{../_demoResources/figs/&lt;$Compilegroup&gt;/KT_Eri.eps}
+\figsetgrpnote{The Swift/XRT X-ray light curve for the first year after outburst.}
+\figsetgrpend
+
+\figsetgrpstart
+\figsetgrpnum{1.2}
+\figsetgrptitle{RS Oph}
+\figsetplot{../_demoResources/figs/&lt;$Compilegroup&gt;/RS_Oph.eps}
+\figsetgrpnote{The Swift/XRT X-ray light curve for the first year after outburst.}
+\figsetgrpend
+
+\figsetgrpstart
+\figsetgrpnum{1.3}
+\figsetgrptitle{U Sco}
+\figsetplot{../_demoResources/figs/&lt;$Compilegroup&gt;/U_Sco.eps}
+\figsetgrpnote{The Swift/XRT X-ray light curve for the first year after outburst.}
+\figsetgrpend
+
+\figsetgrpstart
+\figsetgrpnum{1.4}
+\figsetgrptitle{V2491 Cyg}
+\figsetplot{../_demoResources/figs/&lt;$Compilegroup&gt;/V2491_Cyg.eps}
+\figsetgrpnote{The Swift/XRT X-ray light curve for the first year after outburst.}
+\figsetgrpend
+
+\figsetgrpstart
+\figsetgrpnum{1.5}
+\figsetgrptitle{Nova LMC 2009}
+\figsetplot{../_demoResources/figs/&lt;$Compilegroup&gt;/LMC_2009.eps}
+\figsetgrpnote{The Swift/XRT X-ray light curve for the first year after outburst.}
+\figsetgrpend
+
+\figsetgrpstart
+\figsetgrpnum{1.6}
+\figsetgrptitle{HV Cet}
+\figsetplot{../_demoResources/figs/&lt;$Compilegroup&gt;/CSS081007.eps}
+\figsetgrpnote{The Swift/XRT X-ray light curve for the first year after outburst.}
+\figsetgrpend
+
+\figsetgrpstart
+\figsetgrpnum{1.7}
+\figsetgrptitle{V2672 Oph}
+\figsetplot{../_demoResources/figs/&lt;$Compilegroup&gt;/V2672_Oph.eps}
+\figsetgrpnote{The Swift/XRT X-ray light curve for the first year after outburst.}
+\figsetgrpend
+
+\figsetgrpstart
+\figsetgrpnum{1.8}
+\figsetgrptitle{V407 Cyg}
+\figsetplot{../_demoResources/figs/&lt;$Compilegroup&gt;/V407_Cyg.eps}
+\figsetgrpnote{The Swift/XRT X-ray light curve for the first year after outburst.}
+\figsetgrpend
+
+\figsetend
+
+\begin{figure}
+\plotone{../_demoResources/figs/&lt;$Compilegroup&gt;/KT_Eri.eps}
+\caption{The Swift/XRT X-ray light curve for the first year after outburst of the suspected recurrent nova KT Eri. At a maximum count rate of 328 ct/s, KT Eri was the brightest nova in X-rays observed to date. All the component figures are available in the Figure Set. \label{fig:fig4}}
+\end{figure}
+--&gt;
+
+Authors are encouraged to use an online tool at [http://authortools.aas.org/FIGSETS/make-figset.html](http://authortools.aas.org/FIGSETS/make-figset.html) to generate their own specific figure set mark up to incorporate into their &lt;&lt;\latex\ &gt;&gt; articles.</Text>
+        </Document>
+        <Document ID="114">
+            <Title>Long fig</Title>
+            <Text>&lt;!--
+\begin{figure*}[!htpb]
+\begin{center}
+\includegraphics[width=0.95\textwidth]{../_demoResources/figs/&lt;$Compilegroup&gt;/IR_galfit.pdf}
+\caption{
+Model fits of the \hst\ $Y$-band images of the four sources. 
+{\it Left column} is the $Y$-band image of each target. 
+The white dashed circles demonstrate the coverage of SDSS fibers ($3''$ in diameter). 
+The compass of each image is shown in the lower right corner. 
+{\it Middle column} is \galfit\ best fit of each target. 
+The scale bar is shown in the lower-right corner. 
+The FOVs of three panels in each row are the same. 
+The pixel brightness scale is logarithmic in the first two columns. 
+The residuals are show in {\it Right column}, where the pixel brightness scale is linear. 
+We simultaneously fit the close companions of J1108 and J1146.
+}
+\label{fig:galfit}
+\end{center}
+\end{figure*}
+--&gt;</Text>
+        </Document>
+        <Document ID="108">
+            <Title>test for emphasis</Title>
+            <Text>*single asterisks*
+
+_single underscores_
+
+**double asterisks**
+
+__double underscores__
+
+\*this text is surrounded by literal asterisks\*</Text>
+        </Document>
+        <Document ID="65">
+            <Title>Decimal alignment</Title>
+            <Text>Aligning a column by the decimal point can be difficult with only center, left, and right justification options.
+It is possible to use phantom calls in the data, e.g. &lt;&lt;{\tt\string\phn}&gt;&gt;, to align columns by hand but this can be tedious in long or complex tables.
+To address this &lt;&lt;\aastex\ &gt;&gt; introduces the &lt;&lt;{\tt\string\decimals}&gt;&gt; command and a new column justification option, &lt;&lt;``D''&gt;&gt;, to align data in that column on the decimal.
+In deluxetable the &lt;&lt;{\tt\string\decimals}&gt;&gt; command is invoked before the &lt;&lt;{\tt\string\startdata}&gt;&gt; call but can be anywhere in &lt;&lt;\latex's&gt;&gt; tabular environment.  
+
+Two other important thing to note when using decimal alignment is that each decimal column *must end with a space before the ampersand*, e.g. &lt;&lt;``\&amp;\&amp;''&gt;&gt; is not allowed.
+Empty decimal columns are indicated with a decimal, e.g. &lt;&lt;``.''&gt;&gt;.
+Do not use deluxetable's &lt;&lt;{\tt\string\nodata}&gt;&gt; command.
+
+The &lt;&lt;``D''&gt;&gt; alignment token works by splitting the column into two parts on the decimal.
+While this is invisible to the user one must be aware of how it works so that the headers are accounted for correctly.
+All decimal column headers need to span two columns to get the alignment correct. This can be done with a multicolumn call, e.g &lt;&lt;{\tt\string\multicolumn2c\{\}} or {\tt\string\multicolumn\{2\}\{c\}\{\}}, or use the new {\tt\string\twocolhead\{\}} command in deluxetable.&gt;&gt;
+Since &lt;&lt;\latex\ &gt;&gt; is splitting these columns into two it is important to get the table width right so that they appear joined on the page.
+You may have to run the &lt;&lt;\latex\ &gt;&gt; compiler twice to get it right.
+[](#tab:decimal) illustrates how decimal alignment works in the tabular environment with a $\pm$ symbol embedded between the last two columns.
+
+&lt;!--
+%% Note that the \setcounter and \renewcommand are needed here because
+%% this example is using a mix of deluxetable and tabular.  Here the
+%% deluxetable counters are set with \tablenum but the situation is a bit
+%% more complex for tabular.  Use the first command to set the Table number
+%% to ONE LESS than it should be.  The next command will auto increment it
+%% to the desired number.
+\setcounter{table}{2}
+\begin{table}[h!]
+\renewcommand{\thetable}{\arabic{table}}
+\centering
+\caption{Decimal alignment made easy} \label{tab:decimal}
+\begin{tabular}{cD@{$\pm$}D}
+\tablewidth{0pt}
+\hline
+\hline
+Column &amp; \multicolumn2c{Value} &amp; \multicolumn2c{Uncertainty}\\
+\hline
+\decimals
+A &amp; 1234     &amp; 100.0     \\
+B &amp;  123.4   &amp;  10.1     \\
+C &amp;  12.34   &amp;   1.01    \\
+D &amp;   1.234  &amp;   0.101   \\
+E &amp;    .1234 &amp;   0.01001 \\
+F &amp;   1.0    &amp;    .      \\
+\hline
+\multicolumn{5}{c}{NOTE. - Two decimal aligned columns}
+\end{tabular}
+\end{table}
+--&gt;</Text>
+        </Document>
+        <Document ID="58">
+            <Title>Animations</Title>
+            <Text>Authors may include animations in their articles.
+A single still frame from  the animation should be included as a regular figure to serve as an example. 
+The associated figure caption should indicate to the reader exactly what the animation shows and that the animation is available online.
+
+&lt;!--
+\begin{figure}
+\plotone{../_demoResources/figs/&lt;$Compilegroup&gt;/video3.eps}
+\caption{Example image from the animation which is available in the electronic edition.}
+\end{figure}
+--&gt;</Text>
+        </Document>
+        <Document ID="115">
+            <Title>-----------------------------------</Title>
+            <Text>&lt;&lt;\newsinglepage&gt;&gt;</Text>
+        </Document>
+        <Document ID="80">
+            <Title>DemoResults</Title>
+        </Document>
+        <Document ID="66">
+            <Title>Column math mode</Title>
+            <Text>Both the &lt;&lt;\latex\ &gt;&gt; tabular and &lt;&lt;\aastex\ &gt;&gt; deluxetable require an argument to define the alignment and number of columns.  The most common values are &lt;&lt;``c'', ``l'' and ``r'' for \underline{c}enter, \underline{l}eft, and \underline{r}ight justification.&gt;&gt; 
+If these values are capitalized, e.g.
+&lt;&lt;``C'', ``L'', or ``R''&gt;&gt;, then that specific column will automatically be in math mode meaning that \$s are not required.
+Note that having embedded dollar signs in the table does not affect the output.
+The third and forth columns of Table [](#tab:mathmode) shows how this math mode works.</Text>
+        </Document>
+        <Document ID="59">
+            <Title>Interactive figures</Title>
+            <Text>Interactive figures give the reader the ability to manipulate the information contained in an image which can add clarity or help further the author's narrative.  These figures consist of two parts, the figure file in a specific format and a javascript and html frame work that provides the interactive control.  An example of an interactive figure is a 3D model.
+The underlying figure is a X3D file while x3dom.js is the javascript driver that displays it. An author created interface is added via a html wrapper. The first 3D model published by the AAS Journals using this technique was [#2014ApJ...793..127V;].
+Authors should consult the online tutorials for more information on how to construct their own interactive figures.
+
+As with animations authors should include a non-interactive regular figure to use as an example.  The example figure should also indicate to the reader that the enhanced figure is interactive and can be accessed online.</Text>
+        </Document>
+        <Document ID="109">
+            <Title>test for code</Title>
+            <Text>Use the `printf()` function.
+
+``There is a literal backtick (`) here.``
+
+A single backtick in a code span: `` ` ``
+
+A backtick-delimited string in a code span: `` `foo` ``
+
+Please don't use any `&lt;blink&gt;` tags.
+
+`&amp;#8212;` is the decimal-encoded equivalent of `&amp;mdash;`.</Text>
+        </Document>
+        <Document ID="116">
+            <Title>-----------------------------------</Title>
+            <Text>&lt;&lt;\newsinglepage&gt;&gt;</Text>
         </Document>
         <Document ID="81">
             <Title>simpleOneColumn</Title>
@@ -947,147 +937,109 @@ U-Y
 ￼￼￼￼￼￼￼￼￼￼￼￼￼Fig. 6.— Model fits of the HST Y -band images of the four sources. Left column is the Y -band image of each target. The white dashed circles demonstrate the coverage of SDSS fibers (3′′ in diameter). The compass of each image is shown in the lower right corner. Middle column is GALFIT best fit of each target. The scale bar is shown in the lower-right corner. The FOVs of three panels in each row are the same. The pixel brightness scale is logarithmic in the first two columns. The residuals are show in Right column, where the pixel brightness scale is linear. We simultaneously fit the close companions of J1108 and J1146.
 </Text>
         </Document>
-        <Document ID="64">
-            <Title>Splitting a table into multiple horizontal components</Title>
-            <Text>Since the AAS Journals are now all electronic with no print version there is no reason why tables can not be as wide as authors need them to be. 
-However, there are some artificial limitations based on the width of a print page.
-The old way around this limitation was to rotate into landscape mode and use the smallest available table font sizes, e.g. &lt;&lt;{\tt\string\tablewidth}&gt;&gt;, to get the table to fit.
-Unfortunately, this was not alway enough but now along with the hide column option outlined in [](#subsubsec:hide) there is a new way to break a table into two or three components so that it flows down a page by invoking a new table type, splittabular or splitdeluxetable.
-Within these tables a new &lt;&lt;``B''&gt;&gt; column separator is introduced.
-Much like the vertical bar option, &lt;&lt;``$\vert$''&gt;&gt;, that produces a vertical table lines, e.g. [](#tab:table), the new &lt;&lt;``B''&gt;&gt; separator indicates where to &lt;&lt;\underline{B}reak&gt;&gt; a table.
-Up to two &lt;&lt;``B''&gt;&gt;s may be included.
+        <Document ID="74">
+            <Title>Revision tracking and color highlighting [sec:highlight]</Title>
+            <Text>Authors sometimes use color to highlight changes to their manuscript in response to editor and referee comments.
+In &lt;&lt;\aastex\ &gt;&gt; new commands have been introduced to make this easier and formalize the process. 
 
-[](#tab:deluxesplit) shows how to split a wide deluxetable into three parts with the &lt;&lt;{\tt\string\splitdeluxetable}&gt;&gt; command.
-The &lt;&lt;{\tt\string\colnumbers}&gt;&gt; option is on to show how the automatic column numbering carries through the second table component, see [](#subsubsec:autonumber).
+The first method is through a new set of editing mark up commands that specifically identify what has been changed.
+&lt;!--These commands are {\tt\string\added\{&lt;text&gt;\}}, {\tt\string\deleted\{&lt;text&gt;\}}, and {\tt\string\replaced\{&lt;old text&gt;\}\{&lt;replaced text&gt;\}}.
+To activate these commands the {\tt\string trackchanges} option must be used in the {\tt\string\documentclass} call.
+When compiled this will produce the marked text in red.
+The {\tt\string\explain\{&lt;text&gt;\}} can be used to add text to provide information to the reader describing the change.
+Its output is purple italic font.
+To see how {\tt\string\added\{&lt;important added info&gt;\}}, {\tt\string\deleted\{&lt;this can be deleted text&gt;\}}, {\tt\string\replaced\{&lt;old data&gt;\}\{&lt;replaced data&gt;\}}, and \break {\tt\string\explain\{&lt;text explaining the change&gt;\}} commands will produce \added{important added information}\deleted{, deleted text, and } \replaced{old data}{and replaced data,} toggle between versions compiled with and without the {\tt\string trackchanges} option.\explain{text explaining the change}--&gt;
 
-The last example, [](#tab:tablesplit), shows how to split the same table but with a regular &lt;&lt;\latex\ &gt;&gt; tabular call and into two parts.
-Decimal alignment is included in the third column and the ``Component'' column is hidden to illustrate the new features working together.
+A summary list of all these tracking commands can be produced at the end of the article by adding the &lt;&lt;{\tt\string\listofchanges} just before the {\tt\string\end\{document\}} call&gt;&gt;.
+The page number for each change will be provided.
+If the &lt;&lt;{\tt\string linenumbers}&gt;&gt; option is also included in the documentcall call then not only will all the lines in the article be numbered for handy reference but the summary list will also include the line number for each change.
 
-&lt;!--
-\begin{splitdeluxetable*}{lccccBcccccBcccc}
-\tabletypesize{\scriptsize}
-\tablewidth{0pt} 
-\tablenum{5}
-\tablecaption{Measurements of Emission Lines: two breaks \label{tab:deluxesplit}}
-\tablehead{
-\colhead{Model} &amp; \colhead{Component}&amp; \colhead{Shift} &amp; \colhead{FWHM} &amp;
-\multicolumn{10}{c}{Flux} \\
-\colhead{} &amp; \colhead{} &amp; \colhead{($\rm
-km~s^{-1}$)}&amp; \colhead{($\rm km~s^{-1}$)} &amp; \multicolumn{10}{c}{($\rm
-10^{-17}~erg~s^{-1}~cm^{-2}$)} \\
-\cline{5-14}
-\colhead{} &amp; \colhead{} &amp;
-\colhead{} &amp; \colhead{} &amp; \colhead{Ly$\alpha$} &amp; \colhead{N\,{\footnotesize
-V}} &amp; \colhead{Si\,{\footnotesize IV}} &amp; \colhead{C\,{\footnotesize IV}} &amp;
-\colhead{Mg\,{\footnotesize II}} &amp; \colhead{H$\gamma$} &amp; \colhead{H$\beta$}
-&amp; \colhead{H$\alpha$} &amp; \colhead{He\,{\footnotesize I}} &amp;
-\colhead{Pa$\gamma$}
-} 
-\colnumbers
-\startdata 
-{       }&amp; BELs&amp; -97.13 &amp;    9117$\pm      38$&amp;    1033$\pm      33$&amp;$&lt; 35$&amp;$&lt;     166$&amp;     637$\pm      31$&amp;    1951$\pm      26$&amp;     991$\pm 30$&amp;    3502$\pm      42$&amp;   20285$\pm      80$&amp;    2025$\pm     116$&amp; 1289$\pm     107$\\ 
-{Model 1}&amp; IELs&amp; -4049.123 &amp; 1974$\pm      22$&amp;    2495$\pm      30$&amp;$&lt;     42$&amp;$&lt;     109$&amp;     995$\pm 186$&amp;      83$\pm      30$&amp;      75$\pm      23$&amp;     130$\pm      25$&amp; 357$\pm      94$&amp;     194$\pm      64$&amp; 36$\pm      23$\\
-{       }&amp; NELs&amp; \nodata &amp;     641$\pm       4$&amp;     449$\pm 23$&amp;$&lt;      6$&amp;$&lt;       9$&amp;       --            &amp;     275$\pm      18$&amp; 150$\pm      11$&amp;     313$\pm      12$&amp;     958$\pm      43$&amp;     318$\pm 34$&amp; 151$\pm       17$\\
-\hline
-{       }&amp; BELs&amp; -85 &amp;    8991$\pm      41$&amp; 988$\pm      29$&amp;$&lt;     24$&amp;$&lt;     173$&amp;     623$\pm      28$&amp;    1945$\pm 29$&amp;     989$\pm      27$&amp;    3498$\pm      37$&amp;   20288$\pm      73$&amp; 2047$\pm     143$&amp; 1376$\pm     167$\\
-{Model 2}&amp; IELs&amp; -51000 &amp;    2025$\pm      26$&amp; 2494$\pm      32$&amp;$&lt;     37$&amp;$&lt;     124$&amp;    1005$\pm     190$&amp;      72$\pm 28$&amp;      72$\pm      21$&amp;     113$\pm      18$&amp;     271$\pm      85$&amp; 205$\pm      72$&amp; 34$\pm      21$\\
-{       }&amp; NELs&amp; 52 &amp;     637$\pm      10$&amp;     477$\pm 17$&amp;$&lt;      4$&amp;$&lt;       8$&amp;       --            &amp;     278$\pm      17$&amp; 153$\pm      10$&amp;     317$\pm      15$&amp;     969$\pm      40$&amp;     325$\pm 37$&amp;
-     147$\pm       22$\\
-\enddata
-\tablecomments{This is an example of how to split a deluxetable. You can split any table with this command into two or three parts.  The location of the split is given by the author based on the placement of the ``B'' indicators in the column identifier preamble.  For more information please look at the new \aastex\ instructions.}
-\end{splitdeluxetable*}
-
-%\clearpage
-
-\setcounter{table}{5}
-\begin{table*}[h!]
-\renewcommand{\thetable}{\arabic{table}}
-\caption{Measurements of Emission Lines: one break\label{tab:tablesplit}}
-\begin{splittabular}{lhDccccBccccccc}
-%\multicolumn{5}{c}{Table 6} \\
-%\multicolumn{5}{c}{Measurements of Emission Lines} \\
-\hline 
-\hline 
-Model &amp; Component &amp; \multicolumn2c{Shift} &amp; FWHM &amp; 
-\multicolumn{10}{c}{Flux} \\
- &amp; &amp; \multicolumn2c{($\rm km~s^{-1}$)} &amp; {($\rm km~s^{-1}$)} &amp; 
-\multicolumn{10}{c}{($\rm 10^{-17}~erg~s^{-1}~cm^{-2}$)} \\
-\cline{5-15}
- &amp; &amp; &amp; &amp; &amp; {Ly$\alpha$} &amp; {N\,{\footnotesize V}} &amp; 
-{Si\,{\footnotesize IV}} &amp; {C\,{\footnotesize IV}} &amp;
-{Mg\,{\footnotesize II}} &amp; {H$\gamma$} &amp; {H$\beta$}
-&amp; {H$\alpha$} &amp; {He\,{\footnotesize I}} &amp; {Pa$\gamma$} \\
-%\hline
-\decimalcolnumbers
- &amp; BELs&amp; -97.13 &amp;    9117$\pm      38$&amp;    1033$\pm      33$&amp;$&lt; 35$&amp;$&lt;     166$&amp;     637$\pm      31$&amp;    1951$\pm      26$&amp;     991$\pm 30$&amp;    3502$\pm      42$&amp;   20285$\pm      80$&amp;    2025$\pm     116$&amp; 1289$\pm     107$\\
-Model 1 &amp; IELs&amp; -4049.123 &amp; 1974$\pm      22$&amp;    2495$\pm      30$&amp;$&lt;     42$&amp;$&lt;     109$&amp;     995$\pm 186$&amp;      83$\pm      30$&amp;      75$\pm      23$&amp;     130$\pm      25$&amp; 357$\pm      94$&amp;     194$\pm      64$&amp; 36$\pm      23$\\
- &amp; NELs&amp; . &amp;     641$\pm       4$&amp;     449$\pm 23$&amp;$&lt;      6$&amp;$&lt;       9$&amp;       --            &amp;     275$\pm      18$&amp; 150$\pm      11$&amp;     313$\pm      12$&amp;     958$\pm      43$&amp;     318$\pm 34$&amp; 151$\pm       17$\\
-\hline
- &amp; BELs&amp; -85 &amp;    8991$\pm      41$&amp; 988$\pm      29$&amp;$&lt;     24$&amp;$&lt;     173$&amp;     623$\pm      28$&amp;    1945$\pm 29$&amp;     989$\pm      27$&amp;    3498$\pm      37$&amp;   20288$\pm      73$&amp; 2047$\pm     143$&amp; 1376$\pm     167$\\
-Model 2 &amp; IELs&amp; -51000 &amp;    2025$\pm      26$&amp; 2494$\pm      32$&amp;$&lt;     37$&amp;$&lt;     124$&amp;    1005$\pm     190$&amp;      72$\pm 28$&amp;      72$\pm      21$&amp;     113$\pm      18$&amp;     271$\pm      85$&amp; 205$\pm      72$&amp; 34$\pm      21$\\
- &amp; NELs&amp; 52 &amp;     637$\pm      10$&amp;     477$\pm 17$&amp;$&lt;      4$&amp;$&lt;       8$&amp;       --            &amp;     278$\pm      17$&amp; 153$\pm      10$&amp;     317$\pm      15$&amp;     969$\pm      40$&amp;     325$\pm 37$&amp; 147$\pm       22$\\
-\hline
-\end{splittabular}
-\end{table*}
---&gt;</Text>
-        </Document>
-        <Document ID="47">
-            <Title>Long fig</Title>
-            <Text>&lt;!--
-\begin{figure*}[!htpb]
-\begin{center}
-\includegraphics[width=0.95\textwidth]{../_demoResources/figs/&lt;$Compilegroup&gt;/IR_galfit.pdf}
-\caption{
-Model fits of the \hst\ $Y$-band images of the four sources. 
-{\it Left column} is the $Y$-band image of each target. 
-The white dashed circles demonstrate the coverage of SDSS fibers ($3''$ in diameter). 
-The compass of each image is shown in the lower right corner. 
-{\it Middle column} is \galfit\ best fit of each target. 
-The scale bar is shown in the lower-right corner. 
-The FOVs of three panels in each row are the same. 
-The pixel brightness scale is logarithmic in the first two columns. 
-The residuals are show in {\it Right column}, where the pixel brightness scale is linear. 
-We simultaneously fit the close companions of J1108 and J1146.
-}
-\label{fig:galfit}
-\end{center}
-\end{figure*}
---&gt;</Text>
-        </Document>
-        <Document ID="38">
-            <Title>Other test [set:other]</Title>
-        </Document>
-        <Document ID="56">
-            <Title>Grid figures</Title>
-            <Text>Including more than two EPS/PDF files in a single figure call can be tricky easily format.
-To make the process easier for authors &lt;&lt;\aastex\ v6 offers {\tt\string\gridline}&gt;&gt; which allows any number of individual EPS/PDF file calls within a single figure.
-Each file cited in a &lt;&lt;{\tt\string\gridline}&gt;&gt; will be displayed in a row.
-By adding more &lt;&lt;{\tt\string\gridline}&gt;&gt; calls an author can easily construct a matrix X by Y individual files as a single general figure.
-
-For each &lt;&lt;{\tt\string\gridline}&gt;&gt; command a EPS/PDF file is called by one of four different commands.
-These are &lt;&lt;{\tt\string\fig}, {\tt\string\rightfig}, {\tt\string\leftfig}, and {\tt\string\boxedfig}&gt;&gt;.
-The first file call specifies no image position justification while the next two will right and left justify the image, respectively.
-The &lt;&lt;{\tt\string\boxedfig} is similar to {\tt\string\fig}&gt;&gt; except that a box is drawn around the figure file when displayed.
-Each of these commands takes three arguments.
-The first is the file name.  The second is the width that file should be displayed at.
-While any natural &lt;&lt;\latex\ &gt;&gt; unit is allowed, it is recommended that author use fractional units with the &lt;&lt;{\tt\string\textwidth}&gt;&gt;.
-The last argument is text for a subcaption.
-
-[](#fig:pyramid) shows an inverted pyramid of individual figure constructed with six individual EPS files using the &lt;&lt;{\tt\string\gridline}&gt;&gt; option.
+The second method does not have the ability to highlight the specific nature of the changes but does allow the author to document changes over multiple revisions.
+&lt;!--The commands are {\tt\string\edit1\{&lt;text&gt;\}}, {\tt\string\edit2\{&lt;text&gt;\}} and {\tt\string\edit3\{&lt;text&gt;\}} and they produce {\tt\string&lt;text&gt;} that is highlighted in bold red, italic blue and underlined purple, respectively.--&gt;
+Authors should use the first command to &lt;&lt;\edit1{indicated which text has been changed from the first revision.}&gt;&gt;
+The second command is to highlight &lt;&lt;\edit2{new or modified text from a second revision}&gt;&gt;.
+If a third revision is needed then the last command should be used &lt;&lt;{{\edit3{to show this changed text}&gt;&gt;.  
+Since over 90% of all manuscripts are accepted after the 3rd revision these commands make it easy to identify what text has been added and when.
+Once the article is accepted all the highlight color can be turned off simply by adding the &lt;&lt;{\tt\string\turnoffediting}&gt;&gt; command in the preamble.
+&lt;!--Likewise, the new commands {\tt\string\turnoffeditone}, {\tt\string\turnoffedittwo}, and {\tt\string\turnoffeditthree} can be used to only turn off the {\tt\string\edit1\{&lt;text&gt;\}}, {\tt\string\edit2\{&lt;text&gt;\}} and {\tt\string\edit3\{&lt;text&gt;\}}, respectively--&gt;.
 
 &lt;!--
-\begin{figure*}
-\gridline{\fig{../_demoResources/figs/&lt;$Compilegroup&gt;/V2491_Cyg.eps}{0.3\textwidth}{(a)}
-          \fig{../_demoResources/figs/&lt;$Compilegroup&gt;/CSS081007.eps}{0.3\textwidth}{(b)}
-          \fig{../_demoResources/figs/&lt;$Compilegroup&gt;/LMC_2009.eps}{0.3\textwidth}{(c)}
-          }
-\gridline{\fig{../_demoResources/figs/&lt;$Compilegroup&gt;/RS_Oph.eps}{0.3\textwidth}{(d)}
-          \fig{../_demoResources/figs/&lt;$Compilegroup&gt;/U_Sco.eps}{0.3\textwidth}{(e)}
-          }
-\gridline{\fig{../_demoResources/figs/&lt;$Compilegroup&gt;/KT_Eri.eps}{0.3\textwidth}{(f)}}
-\caption{Inverted pyramid figure of six individual files. The nova are (a) V2491 Cyg, (b) HV Cet, (c) LMC 2009, (d) RS Oph, (e) U Sco, and (f) KT Eri.\label{fig:pyramid}}
-\end{figure*}
+Similar to marking editing changes with the {\tt\string\edit} options there are also the {\tt\string\authorcomments1\{&lt;text&gt;\}}, {\tt\string\authorcomments2\{&lt;text&gt;\}} and {\tt\string\authorcomments3\{&lt;text&gt;\}} commands.
+These produce the same bold red, italic blue and underlined purple text but when the {\tt\string\turnoffediting} command is present the {\tt\string&lt;text&gt;} material does not appear in the manuscript.
+Authors can use these commands to mark up text that they are not sure should appear in the final manuscript or as a way to communicate comments between co-authors when writing the article.
 --&gt;</Text>
+        </Document>
+        <Document ID="67">
+            <Title>Displaying mathematics [sec:displaymath]</Title>
+            <Text>The most common mathematical symbols and formulas are in the amsmath package.
+&lt;&lt;\aastex\ &gt;&gt; requires this package so there is no need to specifically call for it in the document preamble.
+Most modern &lt;&lt;\latex\ &gt;&gt; distributions already contain this package.  If you do not have this package or the other required packages, revtex4-1, latexsym, graphicx, amssymb, longtable, and epsf, they can be obtained from [http://www.ctan.org](http://www.ctan.org)
+
+Mathematics can be displayed either within the text, e.g. $E = mc^2$, or separate from in an equation.  In order to be properly rendered, all inline math text has to be declared by surrounding the math by dollar signs (\$).
+
+A complex equation example with inline math as part of the explanation follows.
+
+&lt;!--
+\begin{equation}
+\bar v(p_2,\sigma_2)P_{-\tau}\hat a_1\hat a_2\cdots
+\hat a_nu(p_1,\sigma_1) ,
+\end{equation}
+--&gt;
+where $p$ and $\sigma$ label the initial $e^{\pm}$ four-momenta and helicities $(\sigma = \pm 1)$, $\hat a_i=a^\mu_i\gamma_\nu$ and $P_\tau=\frac{1}{2}(1+\tau\gamma_5)$ is a chirality projection operator $(\tau = \pm1)$.
+This produces a single line formula.
+&lt;&lt;\latex\ &gt;&gt; will auto-number this and any subsequent equations.
+If no number is desired then the &lt;&lt;{\tt\string equation} call should be replaced with {\tt\string displaymath}&gt;&gt;.
+
+&lt;&lt;\latex\ &gt;&gt; can also handle a a multi-line equation.
+Use &lt;&lt;{\tt\string eqnarray} for more than one line and end each line with a \textbackslash\textbackslash&gt;&gt;.
+Each line will be numbered unless the &lt;&lt;\textbackslash\textbackslash\ is preceded by a {\tt\string\nonumber}&gt;&gt; command.
+Alignment points can be added with ampersands (&amp;).
+There should be two ampersands per line.
+In the examples they are centered on the equal symbol.
+
+&lt;!--
+\begin{eqnarray}
+\gamma^\mu  &amp; = &amp;
+ \left(
+\begin{array}{cc}
+0 &amp; \sigma^\mu_+ \\
+\sigma^\mu_- &amp; 0
+\end{array}     \right) ,
+ \gamma^5= \left(
+\begin{array}{cc}
+-1 &amp;   0\\
+0 &amp;   1
+\end{array}     \right)  , \\
+\sigma^\mu_{\pm}  &amp; = &amp;   ({\bf 1} ,\pm \sigma) , 
+\end{eqnarray}
+
+\begin{eqnarray}
+\hat a &amp; = &amp; \left(
+\begin{array}{cc}
+0 &amp; (\hat a)_+\\
+(\hat a)_- &amp; 0
+\end{array}\right), \nonumber \\
+(\hat a)_\pm &amp; = &amp; a_\mu\sigma^\mu_\pm 
+\end{eqnarray}
+
+%% Putting eqnarrays or equations inside the mathletters environment groups
+%% the enclosed equations by letter. For instance, the eqnarray below, instead
+%% of being numbered, say, (4) and (5), would be numbered (4a) and (4b).
+%% LaTeX the paper and look at the output to see the results.
+--&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+</Text>
         </Document>
         <Document ID="82">
             <Title>AASTeX6.1</Title>
@@ -1592,207 +1544,8 @@ Vogt, F. P. A., Dopita, M. A., Kewley, L. J., et al. 2014, ApJ, 793, 127
 AASTEX sample article 17 REFERENCES
 </Text>
         </Document>
-        <Document ID="65">
-            <Title>Decimal alignment</Title>
-            <Text>Aligning a column by the decimal point can be difficult with only center, left, and right justification options.
-It is possible to use phantom calls in the data, e.g. &lt;&lt;{\tt\string\phn}&gt;&gt;, to align columns by hand but this can be tedious in long or complex tables.
-To address this &lt;&lt;\aastex\ &gt;&gt; introduces the &lt;&lt;{\tt\string\decimals}&gt;&gt; command and a new column justification option, &lt;&lt;``D''&gt;&gt;, to align data in that column on the decimal.
-In deluxetable the &lt;&lt;{\tt\string\decimals}&gt;&gt; command is invoked before the &lt;&lt;{\tt\string\startdata}&gt;&gt; call but can be anywhere in &lt;&lt;\latex's&gt;&gt; tabular environment.  
-
-Two other important thing to note when using decimal alignment is that each decimal column *must end with a space before the ampersand*, e.g. &lt;&lt;``\&amp;\&amp;''&gt;&gt; is not allowed.
-Empty decimal columns are indicated with a decimal, e.g. &lt;&lt;``.''&gt;&gt;.
-Do not use deluxetable's &lt;&lt;{\tt\string\nodata}&gt;&gt; command.
-
-The &lt;&lt;``D''&gt;&gt; alignment token works by splitting the column into two parts on the decimal.
-While this is invisible to the user one must be aware of how it works so that the headers are accounted for correctly.
-All decimal column headers need to span two columns to get the alignment correct. This can be done with a multicolumn call, e.g &lt;&lt;{\tt\string\multicolumn2c\{\}} or {\tt\string\multicolumn\{2\}\{c\}\{\}}, or use the new {\tt\string\twocolhead\{\}} command in deluxetable.&gt;&gt;
-Since &lt;&lt;\latex\ &gt;&gt; is splitting these columns into two it is important to get the table width right so that they appear joined on the page.
-You may have to run the &lt;&lt;\latex\ &gt;&gt; compiler twice to get it right.
-[](#tab:decimal) illustrates how decimal alignment works in the tabular environment with a $\pm$ symbol embedded between the last two columns.
-
-&lt;!--
-%% Note that the \setcounter and \renewcommand are needed here because
-%% this example is using a mix of deluxetable and tabular.  Here the
-%% deluxetable counters are set with \tablenum but the situation is a bit
-%% more complex for tabular.  Use the first command to set the Table number
-%% to ONE LESS than it should be.  The next command will auto increment it
-%% to the desired number.
-\setcounter{table}{2}
-\begin{table}[h!]
-\renewcommand{\thetable}{\arabic{table}}
-\centering
-\caption{Decimal alignment made easy} \label{tab:decimal}
-\begin{tabular}{cD@{$\pm$}D}
-\tablewidth{0pt}
-\hline
-\hline
-Column &amp; \multicolumn2c{Value} &amp; \multicolumn2c{Uncertainty}\\
-\hline
-\decimals
-A &amp; 1234     &amp; 100.0     \\
-B &amp;  123.4   &amp;  10.1     \\
-C &amp;  12.34   &amp;   1.01    \\
-D &amp;   1.234  &amp;   0.101   \\
-E &amp;    .1234 &amp;   0.01001 \\
-F &amp;   1.0    &amp;    .      \\
-\hline
-\multicolumn{5}{c}{NOTE. - Two decimal aligned columns}
-\end{tabular}
-\end{table}
---&gt;</Text>
-        </Document>
-        <Document ID="39">
-            <Title>test for rules</Title>
-            <Text>Test for rules:
-
-Some
-
-* * *
-Thing
-
-***
-Between
-
-*****
-different 
-
-- - - 
-rules
-
-----------------------
-En...</Text>
-        </Document>
-        <Document ID="74">
-            <Title>Revision tracking and color highlighting [sec:highlight]</Title>
-            <Text>Authors sometimes use color to highlight changes to their manuscript in response to editor and referee comments.
-In &lt;&lt;\aastex\ &gt;&gt; new commands have been introduced to make this easier and formalize the process. 
-
-The first method is through a new set of editing mark up commands that specifically identify what has been changed.
-&lt;!--These commands are {\tt\string\added\{&lt;text&gt;\}}, {\tt\string\deleted\{&lt;text&gt;\}}, and {\tt\string\replaced\{&lt;old text&gt;\}\{&lt;replaced text&gt;\}}.
-To activate these commands the {\tt\string trackchanges} option must be used in the {\tt\string\documentclass} call.
-When compiled this will produce the marked text in red.
-The {\tt\string\explain\{&lt;text&gt;\}} can be used to add text to provide information to the reader describing the change.
-Its output is purple italic font.
-To see how {\tt\string\added\{&lt;important added info&gt;\}}, {\tt\string\deleted\{&lt;this can be deleted text&gt;\}}, {\tt\string\replaced\{&lt;old data&gt;\}\{&lt;replaced data&gt;\}}, and \break {\tt\string\explain\{&lt;text explaining the change&gt;\}} commands will produce \added{important added information}\deleted{, deleted text, and } \replaced{old data}{and replaced data,} toggle between versions compiled with and without the {\tt\string trackchanges} option.\explain{text explaining the change}--&gt;
-
-A summary list of all these tracking commands can be produced at the end of the article by adding the &lt;&lt;{\tt\string\listofchanges} just before the {\tt\string\end\{document\}} call&gt;&gt;.
-The page number for each change will be provided.
-If the &lt;&lt;{\tt\string linenumbers}&gt;&gt; option is also included in the documentcall call then not only will all the lines in the article be numbered for handy reference but the summary list will also include the line number for each change.
-
-The second method does not have the ability to highlight the specific nature of the changes but does allow the author to document changes over multiple revisions.
-&lt;!--The commands are {\tt\string\edit1\{&lt;text&gt;\}}, {\tt\string\edit2\{&lt;text&gt;\}} and {\tt\string\edit3\{&lt;text&gt;\}} and they produce {\tt\string&lt;text&gt;} that is highlighted in bold red, italic blue and underlined purple, respectively.--&gt;
-Authors should use the first command to &lt;&lt;\edit1{indicated which text has been changed from the first revision.}&gt;&gt;
-The second command is to highlight &lt;&lt;\edit2{new or modified text from a second revision}&gt;&gt;.
-If a third revision is needed then the last command should be used &lt;&lt;{{\edit3{to show this changed text}&gt;&gt;.  
-Since over 90% of all manuscripts are accepted after the 3rd revision these commands make it easy to identify what text has been added and when.
-Once the article is accepted all the highlight color can be turned off simply by adding the &lt;&lt;{\tt\string\turnoffediting}&gt;&gt; command in the preamble.
-&lt;!--Likewise, the new commands {\tt\string\turnoffeditone}, {\tt\string\turnoffedittwo}, and {\tt\string\turnoffeditthree} can be used to only turn off the {\tt\string\edit1\{&lt;text&gt;\}}, {\tt\string\edit2\{&lt;text&gt;\}} and {\tt\string\edit3\{&lt;text&gt;\}}, respectively--&gt;.
-
-&lt;!--
-Similar to marking editing changes with the {\tt\string\edit} options there are also the {\tt\string\authorcomments1\{&lt;text&gt;\}}, {\tt\string\authorcomments2\{&lt;text&gt;\}} and {\tt\string\authorcomments3\{&lt;text&gt;\}} commands.
-These produce the same bold red, italic blue and underlined purple text but when the {\tt\string\turnoffediting} command is present the {\tt\string&lt;text&gt;} material does not appear in the manuscript.
-Authors can use these commands to mark up text that they are not sure should appear in the final manuscript or as a way to communicate comments between co-authors when writing the article.
---&gt;</Text>
-        </Document>
-        <Document ID="57">
-            <Title>Figure sets</Title>
-            <Text>A large collection of similar style figures should be grouped together as a figure set.  The derived PDF article will only shows an example figure while the enhanced content is available in the figure set in the electronic edition.  The advantage of a figure set gives the reader the ability to easily sort through the figure collection to find individual component figures.  All of the figure set components, along with their html framework, are also available for download in a .tar.gz package.
-
-Special &lt;&lt;\latex\ &gt;&gt; mark up is required to create a figure set.  Prior to &lt;&lt;\aastex\ &gt;&gt; v6 the underlying mark up commands had to be inserted by hand but is now included.  Note that when an article with figure set is compiled in &lt;&lt;\latex\ &gt;&gt; none of the component figures are shown and a floating Figure Set caption will appear in the resulting PDF.
-
-&lt;!--
-\figsetstart
-\figsetnum{4}
-\figsettitle{Swift X-ray light curves}
-
-\figsetgrpstart
-\figsetgrpnum{1.1}
-\figsetgrptitle{KT Eri}
-\figsetplot{../_demoResources/figs/&lt;$Compilegroup&gt;/KT_Eri.eps}
-\figsetgrpnote{The Swift/XRT X-ray light curve for the first year after outburst.}
-\figsetgrpend
-
-\figsetgrpstart
-\figsetgrpnum{1.2}
-\figsetgrptitle{RS Oph}
-\figsetplot{../_demoResources/figs/&lt;$Compilegroup&gt;/RS_Oph.eps}
-\figsetgrpnote{The Swift/XRT X-ray light curve for the first year after outburst.}
-\figsetgrpend
-
-\figsetgrpstart
-\figsetgrpnum{1.3}
-\figsetgrptitle{U Sco}
-\figsetplot{../_demoResources/figs/&lt;$Compilegroup&gt;/U_Sco.eps}
-\figsetgrpnote{The Swift/XRT X-ray light curve for the first year after outburst.}
-\figsetgrpend
-
-\figsetgrpstart
-\figsetgrpnum{1.4}
-\figsetgrptitle{V2491 Cyg}
-\figsetplot{../_demoResources/figs/&lt;$Compilegroup&gt;/V2491_Cyg.eps}
-\figsetgrpnote{The Swift/XRT X-ray light curve for the first year after outburst.}
-\figsetgrpend
-
-\figsetgrpstart
-\figsetgrpnum{1.5}
-\figsetgrptitle{Nova LMC 2009}
-\figsetplot{../_demoResources/figs/&lt;$Compilegroup&gt;/LMC_2009.eps}
-\figsetgrpnote{The Swift/XRT X-ray light curve for the first year after outburst.}
-\figsetgrpend
-
-\figsetgrpstart
-\figsetgrpnum{1.6}
-\figsetgrptitle{HV Cet}
-\figsetplot{../_demoResources/figs/&lt;$Compilegroup&gt;/CSS081007.eps}
-\figsetgrpnote{The Swift/XRT X-ray light curve for the first year after outburst.}
-\figsetgrpend
-
-\figsetgrpstart
-\figsetgrpnum{1.7}
-\figsetgrptitle{V2672 Oph}
-\figsetplot{../_demoResources/figs/&lt;$Compilegroup&gt;/V2672_Oph.eps}
-\figsetgrpnote{The Swift/XRT X-ray light curve for the first year after outburst.}
-\figsetgrpend
-
-\figsetgrpstart
-\figsetgrpnum{1.8}
-\figsetgrptitle{V407 Cyg}
-\figsetplot{../_demoResources/figs/&lt;$Compilegroup&gt;/V407_Cyg.eps}
-\figsetgrpnote{The Swift/XRT X-ray light curve for the first year after outburst.}
-\figsetgrpend
-
-\figsetend
-
-\begin{figure}
-\plotone{../_demoResources/figs/&lt;$Compilegroup&gt;/KT_Eri.eps}
-\caption{The Swift/XRT X-ray light curve for the first year after outburst of the suspected recurrent nova KT Eri. At a maximum count rate of 328 ct/s, KT Eri was the brightest nova in X-rays observed to date. All the component figures are available in the Figure Set. \label{fig:fig4}}
-\end{figure}
---&gt;
-
-Authors are encouraged to use an online tool at [http://authortools.aas.org/FIGSETS/make-figset.html](http://authortools.aas.org/FIGSETS/make-figset.html) to generate their own specific figure set mark up to incorporate into their &lt;&lt;\latex\ &gt;&gt; articles.</Text>
-        </Document>
-        <Document ID="66">
-            <Title>Column math mode</Title>
-            <Text>Both the &lt;&lt;\latex\ &gt;&gt; tabular and &lt;&lt;\aastex\ &gt;&gt; deluxetable require an argument to define the alignment and number of columns.  The most common values are &lt;&lt;``c'', ``l'' and ``r'' for \underline{c}enter, \underline{l}eft, and \underline{r}ight justification.&gt;&gt; 
-If these values are capitalized, e.g.
-&lt;&lt;``C'', ``L'', or ``R''&gt;&gt;, then that specific column will automatically be in math mode meaning that \$s are not required.
-Note that having embedded dollar signs in the table does not affect the output.
-The third and forth columns of Table [](#tab:mathmode) shows how this math mode works.</Text>
-        </Document>
-        <Document ID="49">
-            <Title>Meta-Data</Title>
-            <Text>latex input: ../_demoResources/configs/&lt;$Compilegroup&gt;/config-header
-latex input: ../_demoResources/configs/&lt;$Compilegroup&gt;/config-newCommands
-latex input: ../_demoResources/configs/&lt;$Compilegroup&gt;/cover
-Base Header Level: 1
-latex footer: ../_demoResources/configs/&lt;$Compilegroup&gt;/footer
-
-&lt;&lt;
-%  Comments:
-%  * Choose which bibliography file to include in the  ../configs/SimpleOneColumn/footer.tex
-%  Mind the path in all the included .tex file
-&gt;&gt;
-</Text>
+        <Document ID="4">
+            <Title>AASTeX6.1</Title>
         </Document>
         <Document ID="75">
             <Title>Software and third party data repository citations [sec:cite]</Title>
@@ -1811,147 +1564,6 @@ In the bibliography the format for data or code follows this format: \\
 Unfortunately, bibtex does not have specific bibtex entries for these types of references so the &lt;&lt;``@misc''&gt;&gt; type should be used.
 The Repository tutorial explains how to code the &lt;&lt;``@misc''&gt;&gt; type correctly.
 The most recent aasjournal.bst file, available with &lt;&lt;\aastex\ &gt;&gt; v6, will output bibtex &lt;&lt;``@misc''&gt;&gt; type properly.</Text>
-        </Document>
-        <Document ID="58">
-            <Title>Animations</Title>
-            <Text>Authors may include animations in their articles.
-A single still frame from  the animation should be included as a regular figure to serve as an example. 
-The associated figure caption should indicate to the reader exactly what the animation shows and that the animation is available online.
-
-&lt;!--
-\begin{figure}
-\plotone{../_demoResources/figs/&lt;$Compilegroup&gt;/video3.eps}
-\caption{Example image from the animation which is available in the electronic edition.}
-\end{figure}
---&gt;</Text>
-        </Document>
-        <Document ID="67">
-            <Title>Displaying mathematics [sec:displaymath]</Title>
-            <Text>The most common mathematical symbols and formulas are in the amsmath package.
-&lt;&lt;\aastex\ &gt;&gt; requires this package so there is no need to specifically call for it in the document preamble.
-Most modern &lt;&lt;\latex\ &gt;&gt; distributions already contain this package.  If you do not have this package or the other required packages, revtex4-1, latexsym, graphicx, amssymb, longtable, and epsf, they can be obtained from [http://www.ctan.org](http://www.ctan.org)
-
-Mathematics can be displayed either within the text, e.g. $E = mc^2$, or separate from in an equation.  In order to be properly rendered, all inline math text has to be declared by surrounding the math by dollar signs (\$).
-
-A complex equation example with inline math as part of the explanation follows.
-
-&lt;!--
-\begin{equation}
-\bar v(p_2,\sigma_2)P_{-\tau}\hat a_1\hat a_2\cdots
-\hat a_nu(p_1,\sigma_1) ,
-\end{equation}
---&gt;
-where $p$ and $\sigma$ label the initial $e^{\pm}$ four-momenta and helicities $(\sigma = \pm 1)$, $\hat a_i=a^\mu_i\gamma_\nu$ and $P_\tau=\frac{1}{2}(1+\tau\gamma_5)$ is a chirality projection operator $(\tau = \pm1)$.
-This produces a single line formula.
-&lt;&lt;\latex\ &gt;&gt; will auto-number this and any subsequent equations.
-If no number is desired then the &lt;&lt;{\tt\string equation} call should be replaced with {\tt\string displaymath}&gt;&gt;.
-
-&lt;&lt;\latex\ &gt;&gt; can also handle a a multi-line equation.
-Use &lt;&lt;{\tt\string eqnarray} for more than one line and end each line with a \textbackslash\textbackslash&gt;&gt;.
-Each line will be numbered unless the &lt;&lt;\textbackslash\textbackslash\ is preceded by a {\tt\string\nonumber}&gt;&gt; command.
-Alignment points can be added with ampersands (&amp;).
-There should be two ampersands per line.
-In the examples they are centered on the equal symbol.
-
-&lt;!--
-\begin{eqnarray}
-\gamma^\mu  &amp; = &amp;
- \left(
-\begin{array}{cc}
-0 &amp; \sigma^\mu_+ \\
-\sigma^\mu_- &amp; 0
-\end{array}     \right) ,
- \gamma^5= \left(
-\begin{array}{cc}
--1 &amp;   0\\
-0 &amp;   1
-\end{array}     \right)  , \\
-\sigma^\mu_{\pm}  &amp; = &amp;   ({\bf 1} ,\pm \sigma) , 
-\end{eqnarray}
-
-\begin{eqnarray}
-\hat a &amp; = &amp; \left(
-\begin{array}{cc}
-0 &amp; (\hat a)_+\\
-(\hat a)_- &amp; 0
-\end{array}\right), \nonumber \\
-(\hat a)_\pm &amp; = &amp; a_\mu\sigma^\mu_\pm 
-\end{eqnarray}
-
-%% Putting eqnarrays or equations inside the mathletters environment groups
-%% the enclosed equations by letter. For instance, the eqnarray below, instead
-%% of being numbered, say, (4) and (5), would be numbered (4a) and (4b).
-%% LaTeX the paper and look at the output to see the results.
---&gt;
-
-
-
-
-
-
-
-
-
-
-
-
-</Text>
-        </Document>
-        <Document ID="76">
-            <Title>acknowledgments [AsIs]</Title>
-            <Text>&lt;!--
-%% If you wish to include an acknowledgments section in your paper,
-%% separate it off from the body of the text using the \acknowledgments
-%% command.
-\acknowledgments
---&gt;
-
-We thank all the people that have made this AASTeX what it is today.
-This includes but not limited to Bob Hanisch, Chris Biemesderfer, Lee Brotzman, Pierre Landau, Arthur Ogawa, Maxim Markevitch, Alexey Vikhlinin and Amy Hendrickson.
-Also special thanks to David Hogg and Daniel Foreman-Mackey for the new "modern" style design. It is super cool!
-
-&lt;!--
-%% To help institutions obtain information on the effectiveness of their 
-%% telescopes the AAS Journals has created a group of keywords for telescope 
-%% facilities.
-%
-%% Following the acknowledgments section, use the following syntax and the
-%% \facility{} or \facilities{} macros to list the keywords of facilities used 
-%% in the research for the paper.  Each keyword is check against the master 
-%% list during copy editing.  Individual instruments can be provided in 
-%% parentheses, after the keyword, but they are not verified.
-
-\vspace{5mm}
-\facilities{HST(STIS), Swift(XRT and UVOT), AAVSO, CTIO:1.3m,
-CTIO:1.5m,CXO}
-
-%% Similar to \facility{}, there is the optional \software command to allow 
-%% authors a place to specify which programs were used during the creation of 
-%% the manusscript. Authors should list each code and include either a
-%% citation or url to the code inside ()s when available.
-
-\software{astropy \citep{2013A&amp;A...558A..33A},  
-          Cloudy \citep{2013RMxAA..49..137F}, 
-          SExtractor \citep{1996A&amp;AS..117..393B}
-          }
-
-%% Appendix material should be preceded with a single \appendix command.
-%% There should be a \section command for each appendix. Mark appendix
-%% subsections with the same markup you use in the main body of the paper.
-
-%% Each Appendix (indicated with \section) will be lettered A, B, C, etc.
-%% The equation counter will reset when it encounters the \appendix
-%% command and will number appendix equations (A1), (A2), etc. The
-%% Figure and Table counter will not reset.
---&gt;</Text>
-        </Document>
-        <Document ID="59">
-            <Title>Interactive figures</Title>
-            <Text>Interactive figures give the reader the ability to manipulate the information contained in an image which can add clarity or help further the author's narrative.  These figures consist of two parts, the figure file in a specific format and a javascript and html frame work that provides the interactive control.  An example of an interactive figure is a 3D model.
-The underlying figure is a X3D file while x3dom.js is the javascript driver that displays it. An author created interface is added via a html wrapper. The first 3D model published by the AAS Journals using this technique was [#2014ApJ...793..127V;].
-Authors should consult the online tutorials for more information on how to construct their own interactive figures.
-
-As with animations authors should include a non-interactive regular figure to use as an example.  The example figure should also indicate to the reader that the enhanced figure is interactive and can be accessed online.</Text>
         </Document>
         <Document ID="68">
             <Title>Rotating tables [sec:rotate]</Title>
@@ -2045,9 +1657,282 @@ V838 Her &amp; 5 (197) &amp; 2448340.5 (197) &amp; 2 (198) &amp; \nodata &amp; 0
 \end{longrotatetable}
 --&gt;</Text>
         </Document>
+        <Document ID="69">
+            <Title>Author publication charges [sec:pubcharge]</Title>
+            <Text>Finally some information about the AAS Journal's publication charges.
+In April 2011 the traditional way of calculating author charges based on the number of printed pages was changed.
+The reason for the change was due to a recognition of the growing number of article items that could not  be represented in print.
+Now author charges are determined by a number of digital ``quanta''.
+A single quantum is 350 words, one figure, one table, and one enhanced digital item.
+For the latter this includes machine readable tables, figure sets, animations, and interactive figures.  
+The current cost is \$27 per word quantum and \$30 for all other quantum type.</Text>
+        </Document>
+        <Document ID="76">
+            <Title>acknowledgments [AsIs]</Title>
+            <Text>&lt;!--
+%% If you wish to include an acknowledgments section in your paper,
+%% separate it off from the body of the text using the \acknowledgments
+%% command.
+\acknowledgments
+--&gt;
+
+We thank all the people that have made this AASTeX what it is today.
+This includes but not limited to Bob Hanisch, Chris Biemesderfer, Lee Brotzman, Pierre Landau, Arthur Ogawa, Maxim Markevitch, Alexey Vikhlinin and Amy Hendrickson.
+Also special thanks to David Hogg and Daniel Foreman-Mackey for the new "modern" style design. It is super cool!
+
+&lt;!--
+%% To help institutions obtain information on the effectiveness of their 
+%% telescopes the AAS Journals has created a group of keywords for telescope 
+%% facilities.
+%
+%% Following the acknowledgments section, use the following syntax and the
+%% \facility{} or \facilities{} macros to list the keywords of facilities used 
+%% in the research for the paper.  Each keyword is check against the master 
+%% list during copy editing.  Individual instruments can be provided in 
+%% parentheses, after the keyword, but they are not verified.
+
+\vspace{5mm}
+\facilities{HST(STIS), Swift(XRT and UVOT), AAVSO, CTIO:1.3m,
+CTIO:1.5m,CXO}
+
+%% Similar to \facility{}, there is the optional \software command to allow 
+%% authors a place to specify which programs were used during the creation of 
+%% the manusscript. Authors should list each code and include either a
+%% citation or url to the code inside ()s when available.
+
+\software{astropy \citep{2013A&amp;A...558A..33A},  
+          Cloudy \citep{2013RMxAA..49..137F}, 
+          SExtractor \citep{1996A&amp;AS..117..393B}
+          }
+
+%% Appendix material should be preceded with a single \appendix command.
+%% There should be a \section command for each appendix. Mark appendix
+%% subsections with the same markup you use in the main body of the paper.
+
+%% Each Appendix (indicated with \section) will be lettered A, B, C, etc.
+%% The equation counter will reset when it encounters the \appendix
+%% command and will number appendix equations (A1), (A2), etc. The
+%% Figure and Table counter will not reset.
+--&gt;</Text>
+        </Document>
+        <Document ID="90">
+            <Title>test for rules</Title>
+            <Text>Test for rules:
+
+Some
+
+* * *
+Thing
+
+***
+Between
+
+*****
+different 
+
+- - - 
+rules
+
+----------------------
+En...</Text>
+        </Document>
+        <Document ID="83">
+            <Title>zhihu</Title>
+        </Document>
+        <Document ID="84">
+            <Title>Meta-Data</Title>
+            <Text>latex input: ../_demoResources/configs/&lt;$Compilegroup&gt;/config-header
+latex input: ../_demoResources/configs/&lt;$Compilegroup&gt;/config-newCommands
+latex input: ../_demoResources/configs/&lt;$Compilegroup&gt;/cover
+Base Header Level: 1
+latex footer: ../_demoResources/configs/&lt;$Compilegroup&gt;/footer
+
+&lt;&lt;
+%  Comments:
+%  * Choose which bibliography file to include in the  ../configs/SimpleOneColumn/footer.tex
+%  Mind the path in all the included .tex file
+&gt;&gt;
+</Text>
+        </Document>
         <Document ID="77">
             <Title>Appendix</Title>
             <Text>&lt;&lt;\appendix&gt;&gt;</Text>
+        </Document>
+        <Document ID="91">
+            <Title>test for Links</Title>
+            <Text>This is [an example](http://example.com/ "Title") inline link.
+
+[This link](http://example.net/) has no title attribute.
+
+Also we can add a foot note[^footnote]
+
+Or like [this][id]
+
+Or like [id][]
+
+I get 10 times more traffic from [Google][] than from
+[Yahoo][] or [MSN][].
+
+
+[^footnote]: http://example.net/
+
+[id]: http://example.com "Optional Title Here"
+
+[google]: http://google.com/        "Google"
+
+[yahoo]:  http://search.yahoo.com/  "Yahoo Search"
+
+[msn]:    http://search.msn.com/    "MSN Search"	</Text>
+        </Document>
+        <Document ID="92">
+            <Title>test for emphasis</Title>
+            <Text>*single asterisks*
+
+_single underscores_
+
+**double asterisks**
+
+__double underscores__
+
+\*this text is surrounded by literal asterisks\*</Text>
+        </Document>
+        <Document ID="85">
+            <Title>Article(Readme inside)</Title>
+            <Text>&lt;&lt;%Make sure that 
+	%* You select the parent folder (“SimpleOneColumn” in this example) as the Compile Group
+	%* The “Treat compile group as entire draft” options is checked
+	%* the “Article” is included
+%￼
+% Make a folder that have the same name as your .tex file (if the folder does not exists, you need do this only once)
+% Because we want to make the root folder clean (as latex will generate lots of temp file when compile)
+%￼
+% Click Replace here, and finish export
+%￼
+&gt;&gt;
+</Text>
+        </Document>
+        <Document ID="86">
+            <Title>Introduction [sec:intro]</Title>
+            <Text>
+</Text>
+        </Document>
+        <Document ID="93">
+            <Title>test for code</Title>
+            <Text>Use the `printf()` function.
+
+``There is a literal backtick (`) here.``
+
+A single backtick in a code span: `` ` ``
+
+A backtick-delimited string in a code span: `` `foo` ``
+
+Please don't use any `&lt;blink&gt;` tags.
+
+`&amp;#8212;` is the decimal-encoded equivalent of `&amp;mdash;`.</Text>
+        </Document>
+        <Document ID="87">
+            <Title>Test for cite and enumerate and term [sec:cite]</Title>
+            <Text>Test for cite and enumerate &lt;&lt;%some comments&gt;&gt;
+
+&lt;&lt;% Some comments&gt;&gt;
+&lt;&lt;
+% Without ";", citep
+% With ";", citet
+&gt;&gt;
+Example:
+
+	[#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ]
+	[#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ][]
+	[foo][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ]
+	[foo\]\[bar][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ]
+
+	[#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;]
+	[#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;][]
+	[foo][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;]
+	[foo\]\[bar][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;]
+  
+Term:
+
+* [#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ]
+	+ [#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ][]
+- [foo][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ]
+	+ [foo\]\[bar][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ]
+
+Enumerate:
+
+1. [#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;]
+2. [#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;][]
+3. [foo][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;]
+4. [foo\]\[bar][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;]
+
+Here is not cited([not cited][#Povic2012A&amp;A]).
+
+Here is a enumerate:
+
+1984. Type for "1984."
+
+Here is not:
+
+1984\. Type for "1984\."
+
+List of Markers:
+
+\   Backslash0
+\   Backslash1
+
+`   Backtick0
+`   Backtick1
+
+*   Asterisk0
+*   Asterisk1
+
+
++   plus sign0
++   plus sign1
+
+-   minus sign0 (hyphen)
+-   minus sign1 (hyphen)
+
+
+This is a line.\
+This is a new line.
+
+Cite for intro [note](#sec:intro)
+
+Cite for cite [note](#sec:cite)
+
+Cite for quote [](#sec:quote)
+
+
+    
+</Text>
+        </Document>
+        <Document ID="94">
+            <Title>test for equation</Title>
+            <Text>Some equations: [eq:0](#eq:0)
+
+$${x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a} \label{eq:0}$$ &lt;&lt;%equation with no equation number&gt;&gt;
+
+\\[{x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a} \label{eq:5} \\] &lt;&lt;%equation with equation number&gt;&gt;
+
+Inline: \\({x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a}\\)  , blabla
+
+Inline: ${x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a}\label{eq:3}$  , blabla
+
+[eq:1](#eq:5) [eq3 inline](#eq:3)
+&lt;&lt;￼&gt;&gt; &lt;&lt;% This figure will not include in the final test&gt;&gt;
+&lt;&lt;% Any thing in the comment region will be inserted directly into the output .tex file&gt;&gt;
+&lt;!--
+\begin{equation}
+1=\Omega_0+\Omega_{\Lambda}+\Omega_k, \label{eq:1}
+\end{equation}
+And:
+\begin{eqnarray}
+&amp;\Omega_0=\frac{\rho_0}{\rho_{c0}}=\Omega_m+\Omega_r; \\
+&amp;\Omega_{\Lambda}=\frac{\rho_{\Lambda}}{\rho_{c0}}; \\
+&amp;\Omega_k=-\frac{kc^2}{a_0^2H_0^2}; \label{eq:2}
+\end{eqnarray}
+--&gt;</Text>
         </Document>
         <Document ID="20">
             <Title>Article(Readme inside)</Title>
@@ -2063,6 +1948,845 @@ V838 Her &amp; 5 (197) &amp; 2448340.5 (197) &amp; 2 (198) &amp; \nodata &amp; 0
 % Click Replace here, and finish export
 % ￼
 &gt;&gt;
+</Text>
+        </Document>
+        <Document ID="88">
+            <Title>Test for quote [sec:quote]</Title>
+            <Text>Test for quote:
+
+&gt; Level 1
+Lazy type in for level 1
+
+&gt; Level 1, must have a empty line for new line, 
+&gt; Level 1 (failed new line)
+&gt; &gt; Level 2
+Lazy type in for level 2, must have a empty type for lazy type
+
+&gt; &gt; Level 2
+
+&gt; &gt; Level 2 (successful new line)
+&gt; &gt; &gt; Level 3
+Lazy type in for level 3,
+		Not lazy type in for level 3
+</Text>
+        </Document>
+        <Document ID="95">
+            <Title>test for table</Title>
+            <Text>MultiMarkdown table [here](#table:multimarkdown): 
+&lt;&lt;\begin{minipage}{\linewidth}&gt;&gt;
+
+|             |  Grouping     |              |
+First Header  | Second Header | Third Header |
+ ------------ | :-----------: | -----------: |
+Content       |  *Long Cell*  |              |
+Content       |   **Cell**    |         Cell |
+
+New section   |     More      |         Data |
+And more      |    And more   |              |
+[Very very very very very very very very very long caption][table:multimarkdown]
+
+&lt;&lt;\end{minipage}&gt;&gt;</Text>
+        </Document>
+        <Document ID="96">
+            <Title>Large table</Title>
+            <Text>Large Table:[large](#table:large)
+
+&lt;!--
+\begin{minipage}{\linewidth}
+\begin{center}
+\begin{tabular}{c c c c c c c c c}
+  \hline
+  \hline
+  Target name     &amp; Aperture &amp; $m_Y$           &amp; $m_U$           &amp; $M_z$  &amp; $M_u$  &amp; $u-z$          &amp; $M_*$ &amp; B/T  \\ 
+      (1)         &amp;    (2)   &amp;  (3)            &amp;  (4)            &amp;   (5)  &amp;   (6)  &amp;  (7)           &amp;  (8)  &amp; (9)  \\ \hline
+SDSS J1108+0659   &amp; $18''$   &amp; 16.24$\pm 0.05$ &amp; 18.48$\pm 0.26$ &amp; -23.12 &amp; -21.37 &amp; 1.76$\pm 0.26$ &amp; 11.14 &amp; 0.55 \\
+SDSS J1131$-$0204 &amp; $12''$   &amp; 15.81$\pm 0.01$ &amp; 18.94$\pm 0.09$ &amp; -23.04 &amp; -20.39 &amp; 2.65$\pm 0.10$ &amp; 11.24 &amp; 0.12 \\
+SDSS J1146+5110   &amp; $18''$   &amp; 15.89$\pm 0.03$ &amp; 18.40$\pm 0.14$ &amp; -22.68 &amp; -20.65 &amp; 2.02$\pm 0.14$ &amp; 11.00 &amp; 0.41 \\
+SDSS J1332+0606   &amp; $12''$   &amp; 16.82$\pm 0.04$ &amp; 19.29$\pm 0.16$ &amp; -22.86 &amp; -20.88 &amp; 1.98$\pm 0.17$ &amp; 11.07 &amp; 0.69 \\ \hline
+\end{tabular}                                                         
+\end{center}
+\label{table:large}
+\end{minipage}
+--&gt;</Text>
+        </Document>
+        <Document ID="89">
+            <Title>Other test [set:other]</Title>
+        </Document>
+        <Document ID="22">
+            <Title>How to compile</Title>
+            <Text>Compile format:
+#
+Formatting:
+￼
+Replacements: (now you can use latex command in &lt;&lt;&gt;&gt; pair)
+￼
+Latex Options:
+￼
+
+Open the inspector(￼), there are several important configurations.
+1. ￼: This text will be include in the final .tex only if this is checked
+2. ￼: if checked, the text will NOT generate a '/section{}', '/subsection{}' or '/subsubsection{}' according to its level.
+
+1. text inside &lt;!-- --&gt; comment pair will be directly inserted into the output .tex file
+2. because we have set the "Replacements" configuration, now we can use &lt;&lt; &gt;&gt; pair as abbreviate of &lt;!-- --&gt;, but the inside text can not contains "&lt;" or "&gt;", e.g. &lt;&lt;\latex&gt;&gt; will result in "\latex" command.
+3. the "Meta-Data" text in each demo contains basic tex compile configurations, make sure the relative path of "latex input" is correct, the &lt;$Compilegroup&gt; will be replaced by the selected compile group
+(￼in this example it is AASTeX6.1)
+4. also make sure all the relative path inside the "latex input" files are correct
+5. you can first try to compile the SimpleOneColumn and AASTeX6.1 demo (read the "Article(Readme inside)" text to see more compile detail)
+	SimpleOneColumn show you some basic MultiMarkdown Syntax 
+	AASTeX6.1 is the full MultiMarkdown version of AASTeX6.1 template, you can find the origin template .tex file in _demoResources/configs/AASTeX6.1/sample61.tex
+	the compiled pdf are also attached here (simpleOneColumn, AASTeX6.1), you can compare your compiled result with them
+6. After successfully compile the two demo, now you can replicated one of these demos or convert your own tex template into MultiMarkdown version. In the Meta-Data text
+file of "latex input" will be compiled into "\intput{}" and inserted in front of the output .tex file 
+file of "latex footer" will be compiled into "\input{}" and append on the tail of the output .tex file
+"Base Header Level" should be 1
+</Text>
+        </Document>
+        <Document ID="100">
+            <Title>Meta-Data</Title>
+            <Text>latex input: ../_demoResources/configs/&lt;$Compilegroup&gt;/config-header
+latex input: ../_demoResources/configs/&lt;$Compilegroup&gt;/config-newCommands
+latex input: ../_demoResources/configs/&lt;$Compilegroup&gt;/cover
+Base Header Level: 1
+latex footer: ../_demoResources/configs/&lt;$Compilegroup&gt;/footer
+
+&lt;&lt;
+%  Comments:
+%  * Choose which bibliography file to include in the  ../configs/SimpleOneColumn/footer.tex
+%  Mind the path in all the included .tex file
+&gt;&gt;
+</Text>
+        </Document>
+        <Document ID="97">
+            <Title>Test for figs</Title>
+            <Text>&lt;!--
+%Use 
+%	![caption][label]
+%	And later
+%	[label]: $PATH width="0.30\textwidth" height="0.25\textheight"
+
+--&gt;
+
+Include some figure:
+
+Image one (image with given size, 200x400): [image fixed](#image:small)
+
+![Fig with give size, 200x400][image:fixed]
+
+Image two (image direct): [image direct, no way to ref it](#image:direct)
+
+![Direct figure title](../_demoResources/figs/&lt;$Compilegroup&gt;/comp_dr7.pdf "Optional title attribute")
+
+Image three (image: normal): [](#image:normal)
+
+![Here we have our long long blablaFigblablaFigblablaFigblabla FigtitleblablaFigblablaF igblablaFigblablaFigti tleblablaFigblablaFig, &lt;&lt;\small A demonstration of our near- to far-IR SEDs of PG quasars, produced by \cite{Kormendy&amp;Richstone1995ARA&amp;A}.&gt;&gt;, I try to ref [intro](#sec:intro)][image:normal]
+
+Image Four (image:small):[](#image:small)
+
+![0.3 \\textwidth and 0.25 \\textheight, compare the size with [](#image:normal)][image:small]
+
+[image:normal]: ../_demoResources/figs/&lt;$Compilegroup&gt;/comp_dr7.pdf  
+
+[image:fixed]: ../_demoResources/figs/&lt;$Compilegroup&gt;/comp_dr7.pdf width=300px height=200px
+
+[image:small]: ../_demoResources/figs/&lt;$Compilegroup&gt;/comp_dr7.pdf width="0.30\textwidth" height="0.25\textheight"
+
+Good include: [cmp](#fig:cmp)
+
+&lt;!--
+\begin{figure*}
+\begin{center}
+\includegraphics[width=0.95\textwidth]{../_demoResources/figs/&lt;$Compilegroup&gt;/color_map.pdf}
+\caption{
+Images observed through U- and Y-band filters are shown in {\it left} and {\it middle} columns. 
+The color maps are in the {\it right column}. 
+The FOV and orientation of the images in each row are the same.
+The compass and $3''$ scale bar are on the lower right corner of {\it left} and {\it middle} panels in each row.
+}
+\label{fig:cmp}
+\end{center}
+\end{figure*}
+--&gt;
+</Text>
+        </Document>
+        <Document ID="23">
+            <Title>Recommended preference about Scrivener</Title>
+            <Text>Formatting
+#
+Corrections
+￼
+Backup
+￼
+</Text>
+        </Document>
+        <Document ID="98">
+            <Title>Long fig</Title>
+            <Text>&lt;!--
+\begin{figure*}[!htpb]
+\begin{center}
+\includegraphics[width=0.95\textwidth]{../_demoResources/figs/&lt;$Compilegroup&gt;/IR_galfit.pdf}
+\caption{
+Model fits of the \hst\ $Y$-band images of the four sources. 
+{\it Left column} is the $Y$-band image of each target. 
+The white dashed circles demonstrate the coverage of SDSS fibers ($3''$ in diameter). 
+The compass of each image is shown in the lower right corner. 
+{\it Middle column} is \galfit\ best fit of each target. 
+The scale bar is shown in the lower-right corner. 
+The FOVs of three panels in each row are the same. 
+The pixel brightness scale is logarithmic in the first two columns. 
+The residuals are show in {\it Right column}, where the pixel brightness scale is linear. 
+We simultaneously fit the close companions of J1108 and J1146.
+}
+\label{fig:galfit}
+\end{center}
+\end{figure*}
+--&gt;</Text>
+        </Document>
+        <Document ID="101">
+            <Title>Article(Readme inside)</Title>
+            <Text>&lt;&lt;%Make sure that 
+	%* You select the parent folder (“SimpleOneColumn” in this example) as the Compile Group
+	%* The “Treat compile group as entire draft” options is checked
+	%* the “Article” is included
+%#
+% Make a folder that have the same name as your .tex file (if the folder does not exists, you need do this only once)
+% Because we want to make the root folder clean (as latex will generate lots of temp file when compile)
+%￼
+% Click Replace here, and finish export
+%￼
+&gt;&gt;
+
+&lt;&lt;
+% use \newsinglepage to generate another page
+&gt;&gt;
+</Text>
+        </Document>
+        <Document ID="99">
+            <Title>zhihu</Title>
+        </Document>
+        <Document ID="25">
+            <Title>Readme</Title>
+        </Document>
+        <Document ID="40">
+            <Title>test for Links</Title>
+            <Text>This is [an example](http://example.com/ "Title") inline link.
+
+[This link](http://example.net/) has no title attribute.
+
+Also we can add a foot note[^footnote]
+
+Or like [this][id]
+
+Or like [id][]
+
+I get 10 times more traffic from [Google][] than from
+[Yahoo][] or [MSN][].
+
+
+[^footnote]: http://example.net/
+
+[id]: http://example.com "Optional Title Here"
+
+[google]: http://google.com/        "Google"
+
+[yahoo]:  http://search.yahoo.com/  "Yahoo Search"
+
+[msn]:    http://search.msn.com/    "MSN Search"	</Text>
+        </Document>
+        <Document ID="33">
+            <Title>SimpleOneColumn</Title>
+        </Document>
+        <Document ID="102">
+            <Title>Introduction [sec:intro]</Title>
+            <Text>
+</Text>
+        </Document>
+        <Document ID="41">
+            <Title>test for emphasis</Title>
+            <Text>*single asterisks*
+
+_single underscores_
+
+**double asterisks**
+
+__double underscores__
+
+\*this text is surrounded by literal asterisks\*</Text>
+        </Document>
+        <Document ID="34">
+            <Title>Article(Readme inside)</Title>
+            <Text>&lt;&lt;%Make sure that 
+	%* You select the parent folder (“SimpleOneColumn” in this example) as the Compile Group
+	%* The “Treat compile group as entire draft” options is checked
+	%* the “Article” is included
+%#
+% Make a folder that have the same name as your .tex file (if the folder does not exists, you need do this only once)
+% Because we want to make the root folder clean (as latex will generate lots of temp file when compile)
+%￼
+% Click Replace here, and finish export
+%￼
+&gt;&gt;
+</Text>
+        </Document>
+        <Document ID="103">
+            <Title>Test for cite and enumerate and term [sec:cite]</Title>
+            <Text>Test for cite and enumerate &lt;&lt;%some comments&gt;&gt;
+
+&lt;&lt;% Some comments&gt;&gt;
+&lt;&lt;
+% Without ";", citep
+% With ";", citet
+&gt;&gt;
+Example:
+
+	[#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ]
+	[#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ][]
+	[foo][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ]
+	[foo\]\[bar][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ]
+
+	[#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;]
+	[#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;][]
+	[foo][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;]
+	[foo\]\[bar][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;]
+  
+Term:
+
+* [#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ]
+	+ [#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ][]
+- [foo][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ]
+	+ [foo\]\[bar][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ]
+
+Enumerate:
+
+1. [#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;]
+2. [#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;][]
+3. [foo][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;]
+4. [foo\]\[bar][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;]
+
+Here is not cited([not cited][#Povic2012A&amp;A]).
+
+Here is a enumerate:
+
+1984. Type for "1984."
+
+Here is not:
+
+1984\. Type for "1984\."
+
+List of Markers:
+
+\   Backslash0
+\   Backslash1
+
+`   Backtick0
+`   Backtick1
+
+*   Asterisk0
+*   Asterisk1
+
+
++   plus sign0
++   plus sign1
+
+-   minus sign0 (hyphen)
+-   minus sign1 (hyphen)
+
+
+This is a line.\
+This is a new line.
+
+Cite for intro [note](#sec:intro)
+
+Cite for cite [note](#sec:cite)
+
+Cite for quote [](#sec:quote)
+
+
+    
+</Text>
+        </Document>
+        <Document ID="42">
+            <Title>test for code</Title>
+            <Text>Use the `printf()` function.
+
+``There is a literal backtick (`) here.``
+
+A single backtick in a code span: `` ` ``
+
+A backtick-delimited string in a code span: `` `foo` ``
+
+Please don't use any `&lt;blink&gt;` tags.
+
+`&amp;#8212;` is the decimal-encoded equivalent of `&amp;mdash;`.</Text>
+        </Document>
+        <Document ID="35">
+            <Title>Introduction [sec:intro]</Title>
+        </Document>
+        <Document ID="110">
+            <Title>test for equation</Title>
+            <Text>Some equations: [eq:0](#eq:0)
+
+$${x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a} \label{eq:0}$$ &lt;&lt;%equation with no equation number&gt;&gt;
+
+\\[{x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a} \label{eq:5} \\] &lt;&lt;%equation with equation number&gt;&gt;
+
+Inline: \\({x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a}\\)  , blabla
+
+Inline: ${x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a}\label{eq:3}$  , blabla
+
+[eq:1](#eq:5) [eq3 inline](#eq:3)
+&lt;&lt;￼&gt;&gt; &lt;&lt;% This figure will not include in the final test&gt;&gt;
+&lt;&lt;% Any thing in the comment region will be inserted directly into the output .tex file&gt;&gt;
+&lt;!--
+\begin{equation}
+1=\Omega_0+\Omega_{\Lambda}+\Omega_k, \label{eq:1}
+\end{equation}
+And:
+\begin{eqnarray}
+&amp;\Omega_0=\frac{\rho_0}{\rho_{c0}}=\Omega_m+\Omega_r; \\
+&amp;\Omega_{\Lambda}=\frac{\rho_{\Lambda}}{\rho_{c0}}; \\
+&amp;\Omega_k=-\frac{kc^2}{a_0^2H_0^2}; \label{eq:2}
+\end{eqnarray}
+--&gt;</Text>
+        </Document>
+        <Document ID="50">
+            <Title>Introduction [sec:intro]</Title>
+            <Text>&lt;&lt;\latex\ &gt;&gt;[^latex] is a document markup language that is particularly well suited for the publication of mathematical and scientific articles [#lamport94].
+&lt;&lt;\latex\ &gt;&gt; was written in 1985 by Leslie Lamport who based it on the &lt;&lt;\TeX\ &gt;&gt; typesetting language which itself was created by Donald E. Knuth in 1978.
+In 1988 a suite of &lt;&lt;\latex\ &gt;&gt; macros were developed to investigate electronic submission and publication of AAS Journal articles [#1989BAAS...21..780H].
+Shortly afterwards, Chris Biemesdefer merged these macros and more into a &lt;&lt;\latex\ &gt;&gt; 2.08 style file called &lt;&lt;\aastex\ &gt;&gt;.  These early &lt;&lt;\aastex\ &gt;&gt; versions introduced many common commands and practices that authors take for granted today.
+Substantial revisions were made by Lee Brotzman and Pierre Landau when the package was updated to v4.0.  AASTeX v5.0, written in 1995 by Arthur Ogawa, upgraded to &lt;&lt;\latex\ &gt;&gt; 2e which uses the document class in lieu of a style file.  Other improvements to version 5 included hypertext support, landscape deluxetables and improved figure support to facilitate electronic submission.
+&lt;&lt;\aastex\ &gt;&gt; v5.2 was released in 2005 and introduced additional graphics support plus new mark up to identifier astronomical objects, datasets and facilities.
+
+In 1996 Maxim Markevitch modified the AAS preprint style file, aaspp4.sty, to closely emulate the very tight, two column style of a typeset Astrophysical Journal article. The result was emulateapj.sty. 
+A year later Alexey Vikhlinin took over development and maintenance. In 2001 he converted emulateapj into a class file in &lt;&lt;\latex\ &gt;&gt; 2e and in 2003 Vikhlinin completely rewrote emulateapj based on the APS Journal's RevTEX class.
+
+During this time emulateapj gained growing acceptance in the astronomical community as it filled an author need to obtain an approximate number of manuscript pages prior to submission for cost and length estimates. The tighter typeset also had the added advantage of saving paper when printing out hard copies.
+
+Even though author publication charges are no longer based on print pages [^printpages] the emulateapj class file has proven to be extremely popular with AAS Journal authors. An informal analysis of submitted &lt;&lt;\latex\ &gt;&gt; manuscripts in 2015 revealed that $\sim$ 65% either called emulateapj or have a commented emulateapj classfile call indicating it was used at some stage of the manuscript construction. Clearly authors want to have access to a tightly typeset version of the article when corresponding with co-authors and for preprint submissions.
+
+When planning the next &lt;&lt;\aastex\ &gt;&gt; release the popularity of emulateapj played an important roll in the decision to drop the old base code and adopt and modify emulateapj for &lt;&lt;\aastex\ &gt;&gt; v6.+ instead.  The change brings &lt;&lt;\aastex\ &gt;&gt; inline with what the majority of authors are already using while still delivering new and improved features. &lt;&lt;\aastex\ &gt;&gt; v6.0 and v6.1 were written by Amy Hendrickson and released in January and October 2016, respectively. Some of the new features in v6.0 included:
+
+1. improved citations for third party data repositories and software,
+2. easier construction of matrix figures consisting of multiple 
+encapsulated postscript (EPS) or portable document format (PDF) files,
+3. figure set mark up for large collections of similar figures,
+4. color mark up to easily enable/disable revised text highlighting,
+5. improved url support, and
+6. numerous table options such as the ability to hide columns, column decimal alignment, automatic column math mode and numbering, plus splitting of wide tables.
+
+The new features in v6.1 are:
+
+1. ORCID support for preprints,
+2. improved author, affiliation and collaboration mark up,
+3. reintroduced the old AASTeX v5.2 &lt;&lt;{\tt\string\received}, {\tt\string\revised}, {\tt\string\accepted}, and {\tt\string\published} commands plus added the new {\tt\string\submitjournal}&gt;&gt; command to document which AAS Journal the manuscript was submitted to, plus
+4. new typeset style options.
+
+The rest of this article provides information and examples on how to create your own AAS Journal manuscript with v6.1. 
+Special emphasis is placed on how to use the full potential of &lt;&lt;\aastex\ &gt;&gt; v6+.
+The next section describes the different manuscript styles available and how they differ from past releases.
+[](#sec:floats) describes how tables and figures are placed in a &lt;&lt;\latex\ &gt;&gt; document. 
+Specific examples of tables, [](#subsec:tables), and figures, [](#subsec:figures), are also provided.
+[](#sec:displaymath) discusses how to display math and incorporate equations in a manuscript while [](#sec:highlight) discuss how to use the new revision mark up.
+The last section, [](#sec:cite), shows how recognize software and external data as first class references in the manuscript bibliography.
+An appendix is included to show how to construct one and provide some information on how article charges are calculated. Additional information is available both embedded in the comments of this &lt;&lt;\latex\ &gt;&gt; file and in the online documentation at [http://journals.aas.org/authors/aastex.html](http://journals.aas.org/authors/aastex.html).
+
+
+[^latex]: http://www.latex-project.org/
+[^printpages]: see Section [](#sec:pubcharge) in the Appendix for more details about how current article costs are calculated.</Text>
+        </Document>
+        <Document ID="43">
+            <Title>test for equation</Title>
+            <Text>Some equations: [eq:0](#eq:0)
+
+$${x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a} \label{eq:0}$$ &lt;&lt;%equation with no equation number&gt;&gt;
+
+\\[{x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a} \label{eq:5} \\] &lt;&lt;%equation with equation number&gt;&gt;
+
+Inline: \\({x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a}\\)  , blabla
+
+Inline: ${x}_{1,2} = \frac{-b\pm \sqrt{{b}^2}-4ac}{2a}\label{eq:3}$  , blabla
+
+[eq:1](#eq:5) [eq3 inline](#eq:3)
+&lt;&lt;#&gt;&gt; &lt;&lt;% This figure will not include in the final test&gt;&gt;
+&lt;&lt;% Any thing in the comment region will be inserted directly into the output .tex file&gt;&gt;
+&lt;!--
+\begin{equation}
+1=\Omega_0+\Omega_{\Lambda}+\Omega_k, \label{eq:1}
+\end{equation}
+And:
+\begin{eqnarray}
+&amp;\Omega_0=\frac{\rho_0}{\rho_{c0}}=\Omega_m+\Omega_r; \\
+&amp;\Omega_{\Lambda}=\frac{\rho_{\Lambda}}{\rho_{c0}}; \\
+&amp;\Omega_k=-\frac{kc^2}{a_0^2H_0^2}; \label{eq:2}
+\end{eqnarray}
+--&gt;</Text>
+        </Document>
+        <Document ID="36">
+            <Title>Test for cite and enumerate and term [sec:cite]</Title>
+            <Text>Test for cite and enumerate &lt;&lt;%some comments&gt;&gt;
+
+&lt;&lt;% Some comments&gt;&gt;
+&lt;&lt;
+% Without ";", citep
+% With ";", citet
+&gt;&gt;
+Example:
+
+	[#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ]
+	[#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ][]
+	[foo][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ]
+	[foo\]\[bar][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ]
+
+	[#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;]
+	[#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;][]
+	[foo][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;]
+	[foo\]\[bar][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;]
+  
+Term:
+
+* [#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ]
+	+ [#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ][]
+- [foo][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ]
+	+ [foo\]\[bar][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ]
+
+Enumerate:
+
+1. [#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;]
+2. [#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;][]
+3. [foo][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;]
+4. [foo\]\[bar][#Kormendy&amp;Ho2013ARA&amp;A, Koss2012ApJ;]
+
+Here is not cited([not cited][#Povic2012A&amp;A]).
+
+Here is a enumerate:
+
+1984. Type for "1984."
+
+Here is not:
+
+1984\. Type for "1984\."
+
+List of Markers:
+
+\   Backslash0
+\   Backslash1
+
+`   Backtick0
+`   Backtick1
+
+*   Asterisk0
+*   Asterisk1
+
+
++   plus sign0
++   plus sign1
+
+-   minus sign0 (hyphen)
+-   minus sign1 (hyphen)
+
+
+This is a line.\
+This is a new line.
+
+Cite for intro [note](#sec:intro)
+
+Cite for cite [note](#sec:cite)
+
+Cite for quote [](#sec:quote)
+
+
+    
+</Text>
+        </Document>
+        <Document ID="104">
+            <Title>Test for quote [sec:quote]</Title>
+            <Text>Test for quote:
+
+&gt; Level 1
+Lazy type in for level 1
+
+&gt; Level 1, must have a empty line for new line, 
+&gt; Level 1 (failed new line)
+&gt; &gt; Level 2
+Lazy type in for level 2, must have a empty type for lazy type
+
+&gt; &gt; Level 2
+
+&gt; &gt; Level 2 (successful new line)
+&gt; &gt; &gt; Level 3
+Lazy type in for level 3,
+		Not lazy type in for level 3
+
+</Text>
+        </Document>
+        <Document ID="111">
+            <Title>test for table</Title>
+            <Text>MultiMarkdown table [here](#table:multimarkdown): 
+
+|             |  Grouping     |              |
+First Header  | Second Header | Third Header |
+ ------------ | :-----------: | -----------: |
+Content       |  *Long Cell*  |              |
+Content       |   **Cell**    |         Cell |
+
+New section   |     More      |         Data |
+And more      |    And more   |              |
+[Very very very very very very very very very long caption][table:multimarkdown]</Text>
+        </Document>
+        <Document ID="51">
+            <Title>Abstract and keywords</Title>
+            <Text>&lt;!--
+
+\begin{abstract} 
+
+This example manuscript is intended to serve as a tutorial and template for authors to use when writing their own AAS Journal articles. The manuscript includes a history of \aastex\  and documents the new features in the previous version, 6.0, as well as the new features in version 6.1. This manuscript includes many figure and table examples to illustrate these new features.  Information on features not explicitly mentioned in the article can be viewed in the manuscript comments or more extensive online documentation. Authors are welcome replace the text, tables, figures, and bibliography with their own and submit the resulting manuscript to the AAS Journals peer review system.  The first lesson in the tutorial is to remind
+authors that the AAS Journals, the Astrophysical Journal (ApJ), the Astrophysical Journal Letters (ApJL), and Astronomical Journal (AJ), all have a 250 word limit for the abstract.  If you exceed this length the Editorial office will ask you to shorten it.
+
+\end{abstract}
+
+
+%% Keywords should appear after the \end{abstract} command. 
+%% See the online documentation for the full list of available subject
+%% keywords and the rules for their use.
+
+
+\keywords{editorials, notices miscellaneous --- catalogs --- surveys}
+
+
+%% From the front matter, we move on to the body of the paper.
+%% Sections are demarcated by \section and \subsection, respectively.
+%% Observe the use of the LaTeX \label
+%% command after the \subsection to give a symbolic KEY to the
+%% subsection for cross-referencing in a \ref command.
+%% You can use LaTeX's \ref and \label commands to keep track of
+%% cross-references to sections, equations, tables, and figures.
+%% That way, if you change the order of any elements, LaTeX will
+%% automatically renumber them.
+
+%% We recommend that authors also use the natbib \citep
+%% and \citet commands to identify citations.  The citations are
+%% tied to the reference list via symbolic KEYs. The KEY corresponds
+%% to the KEY in the \bibitem in the reference list below. 
+--&gt;</Text>
+        </Document>
+        <Document ID="44">
+            <Title>test for table</Title>
+            <Text>MultiMarkdown table [here](#table:multimarkdown): 
+
+|             |  Grouping     |              |
+First Header  | Second Header | Third Header |
+ ------------ | :-----------: | -----------: |
+Content       |  *Long Cell*  |              |
+Content       |   **Cell**    |         Cell |
+
+New section   |     More      |         Data |
+And more      |    And more   |              |
+[Very very very very very very very very very long caption][table:multimarkdown]</Text>
+        </Document>
+        <Document ID="37">
+            <Title>Test for quote [sec:quote]</Title>
+            <Text>Test for quote:
+
+&gt; Level 1
+Lazy type in for level 1
+
+&gt; Level 1, must have a empty line for new line, 
+&gt; Level 1 (failed new line)
+&gt; &gt; Level 2
+Lazy type in for level 2, must have a empty type for lazy type
+
+&gt; &gt; Level 2
+
+&gt; &gt; Level 2 (successful new line)
+&gt; &gt; &gt; Level 3
+Lazy type in for level 3,
+		Not lazy type in for level 3
+</Text>
+        </Document>
+        <Document ID="52">
+            <Title>Meta-Data</Title>
+            <Text>latex input: ../_demoResources/configs/&lt;$Compilegroup&gt;/config-newCommands
+latex input: ../_demoResources/configs/&lt;$Compilegroup&gt;/config-header
+Base Header Level: 1
+latex footer: ../_demoResources/configs/&lt;$Compilegroup&gt;/footer
+
+&lt;&lt;
+%  Comments:
+%  * Choose which bibliography file to include in the  ../configs/SimpleOneColumn/footer.tex
+%  Mind the path in all the included .tex file
+&gt;&gt;
+</Text>
+        </Document>
+        <Document ID="45">
+            <Title>Large table</Title>
+            <Text>Large Table:[large](#table:large)
+
+&lt;!--
+\begin{table*}
+\caption{Photometric Parameters}
+\begin{center}
+\begin{tabular}{c c c c c c c c c}
+  \hline
+  \hline
+  Target name     &amp; Aperture &amp; $m_Y$           &amp; $m_U$           &amp; $M_z$  &amp; $M_u$  &amp; $u-z$          &amp; $M_*$ &amp; B/T  \\ 
+      (1)         &amp;    (2)   &amp;  (3)            &amp;  (4)            &amp;   (5)  &amp;   (6)  &amp;  (7)           &amp;  (8)  &amp; (9)  \\ \hline
+SDSS J1108+0659   &amp; $18''$   &amp; 16.24$\pm 0.05$ &amp; 18.48$\pm 0.26$ &amp; -23.12 &amp; -21.37 &amp; 1.76$\pm 0.26$ &amp; 11.14 &amp; 0.55 \\
+SDSS J1131$-$0204 &amp; $12''$   &amp; 15.81$\pm 0.01$ &amp; 18.94$\pm 0.09$ &amp; -23.04 &amp; -20.39 &amp; 2.65$\pm 0.10$ &amp; 11.24 &amp; 0.12 \\
+SDSS J1146+5110   &amp; $18''$   &amp; 15.89$\pm 0.03$ &amp; 18.40$\pm 0.14$ &amp; -22.68 &amp; -20.65 &amp; 2.02$\pm 0.14$ &amp; 11.00 &amp; 0.41 \\
+SDSS J1332+0606   &amp; $12''$   &amp; 16.82$\pm 0.04$ &amp; 19.29$\pm 0.16$ &amp; -22.86 &amp; -20.88 &amp; 1.98$\pm 0.17$ &amp; 11.07 &amp; 0.69 \\ \hline
+\end{tabular}                                                         
+\end{center}
+\tablecomments{
+Col. 2: the aperture sizes that are large enough to enclose more than $95\%$ flux of the galaxies; 
+Col. 3 \&amp; 4: the apparent magnitudes in $Y$ and $U$ bands measured with the apertures correspondingly. 
+The uncertainties are estimated from 1 $\sigma$ variation of the sky background; 
+Col. 5 \&amp; 6: the SDSS $z$- and $u$-band absolute magnitudes of the targets, transformed from $m_Y$ and $m_U$ correspondingly, assuming a flat local spectra ($f_{\lambda} \sim const.$) around the relevant frequencies; 
+Col. 7: color calculated from the $u$ and $z$ magnitudes; 
+Col. 8: the stellar mass in solar unit of the targets estimated from the $z$- and $u$-band magnitudes (see the text for details, \S \ref{subsec:mass}). 
+Col. 9: the bulge-to-total mass ratios. 
+The bulge mass is obtained by adding up the two bulge components in \galfit\ decomposition results for each galaxy.
+}
+\label{table:large}
+\end{table*}%--&gt;</Text>
+        </Document>
+        <Document ID="38">
+            <Title>Other test [set:other]</Title>
+        </Document>
+        <Document ID="112">
+            <Title>Large table</Title>
+            <Text>Large Table:[large](#table:large)
+
+&lt;!--
+\begin{table*}
+\caption{Photometric Parameters}
+\begin{center}
+\begin{tabular}{c c c c c c c c c}
+  \hline
+  \hline
+  Target name     &amp; Aperture &amp; $m_Y$           &amp; $m_U$           &amp; $M_z$  &amp; $M_u$  &amp; $u-z$          &amp; $M_*$ &amp; B/T  \\ 
+      (1)         &amp;    (2)   &amp;  (3)            &amp;  (4)            &amp;   (5)  &amp;   (6)  &amp;  (7)           &amp;  (8)  &amp; (9)  \\ \hline
+SDSS J1108+0659   &amp; $18''$   &amp; 16.24$\pm 0.05$ &amp; 18.48$\pm 0.26$ &amp; -23.12 &amp; -21.37 &amp; 1.76$\pm 0.26$ &amp; 11.14 &amp; 0.55 \\
+SDSS J1131$-$0204 &amp; $12''$   &amp; 15.81$\pm 0.01$ &amp; 18.94$\pm 0.09$ &amp; -23.04 &amp; -20.39 &amp; 2.65$\pm 0.10$ &amp; 11.24 &amp; 0.12 \\
+SDSS J1146+5110   &amp; $18''$   &amp; 15.89$\pm 0.03$ &amp; 18.40$\pm 0.14$ &amp; -22.68 &amp; -20.65 &amp; 2.02$\pm 0.14$ &amp; 11.00 &amp; 0.41 \\
+SDSS J1332+0606   &amp; $12''$   &amp; 16.82$\pm 0.04$ &amp; 19.29$\pm 0.16$ &amp; -22.86 &amp; -20.88 &amp; 1.98$\pm 0.17$ &amp; 11.07 &amp; 0.69 \\ \hline
+\end{tabular}
+Col. 2: the aperture sizes that are large enough to enclose more than $95\%$ flux of the galaxies; 
+Col. 3 \&amp; 4: the apparent magnitudes in $Y$ and $U$ bands measured with the apertures correspondingly. 
+The uncertainties are estimated from 1 $\sigma$ variation of the sky background; 
+Col. 5 \&amp; 6: the SDSS $z$- and $u$-band absolute magnitudes of the targets, transformed from $m_Y$ and $m_U$ correspondingly, assuming a flat local spectra ($f_{\lambda} \sim const.$) around the relevant frequencies; 
+Col. 7: color calculated from the $u$ and $z$ magnitudes; 
+Col. 8: the stellar mass in solar unit of the targets estimated from the $z$- and $u$-band magnitudes (see the text for details, \S \ref{subsec:mass}). 
+Col. 9: the bulge-to-total mass ratios. 
+The bulge mass is obtained by adding up the two bulge components in \galfit\ decomposition results for each galaxy.                                                         
+\end{center}
+
+\label{table:large}
+\end{table*}%--&gt;
+</Text>
+        </Document>
+        <Document ID="105">
+            <Title>Other test [set:other]</Title>
+        </Document>
+        <Document ID="60">
+            <Title>General figures [subsec:general]</Title>
+            <Text>&lt;&lt;\aastex\ has a {\tt\string\plotone}&gt;&gt; command to display a figure consisting of one EPS/PDF file.
+[](#fig:general) is an example which uses the data from [](#tab:table).
+For a general figure consisting of two EPS/PDF files the &lt;&lt;{\tt\string\plottwo}&gt;&gt; command can be used to position the two image files side by side.
+[](#fig:f2) shows the Swift/XRT X-ray light curves of two recurrent novae.
+The data from [](#fig:f2) through [](#fig:fig4) are taken from Table 2 of [#2011ApJS..197...31S;]. 
+
+&lt;!--
+\begin{figure}
+\plottwo{../_demoResources/figs/&lt;$Compilegroup&gt;/RS_Oph.eps}{../_demoResources/figs/&lt;$Compilegroup&gt;/U_Sco.eps}
+\caption{Swift/XRT X-ray light curves of RS Oph and U Sco which represent the two canonical recurrent types, a long period system with a red giant secondary and a short period system with a dwarf/sub-dwarf secondary, respectively.\label{fig:f2}}
+\end{figure}
+--&gt;
+
+Both &lt;&lt;{\tt\string\plotone} and {\tt\string\plottwo} take a {\tt\string\caption} and an optional {\tt\string\figurenum}&gt;&gt; command to specify the figure number[^footnote].
+Each is based on the &lt;&lt;{\tt\string graphicx} package command, {\tt\string\includegraphics}&gt;&gt;.
+Authors are welcome to use &lt;&lt;{\tt\string\includegraphics}&gt;&gt; along with its optional arguments that control the height, width, scale, and position angle of a file within the figure.
+More information on the full usage of &lt;&lt;{\tt\string\includegraphics} can be found at \break &gt;&gt;
+&lt;&lt;\url{https://en.wikibooks.org/wiki/LaTeX/Importing_Graphics#Including_graphics}&gt;&gt;.
+
+[^footnote]: It is better to not use &lt;&lt;{\tt\string\figurenum}&gt;&gt; and let LaTeX auto-increment all the figures.If you do use this command you need to mark all of them accordingly.</Text>
+        </Document>
+        <Document ID="53">
+            <Title>Manuscript styles [sec:style]</Title>
+            <Text>The default style in &lt;&lt;\aastex\ &gt;&gt; v6.1 is a tight single column style, e.g. 10 point font, single spaced.  
+The single column style is very useful for article with wide equations. It is also the easiest to style to work with since figures and tables, see Section [](#sec:floats), will span the entire page, reducing the need for address float sizing.
+
+To invoke a two column style similar to the what is produced in
+the published PDF copy use &lt;&lt;\\&gt;&gt;
+
+&lt;&lt;\noindent {\tt\string\documentclass[twocolumn]\{aastex61\}}. \\&gt;&gt;
+
+&lt;&lt;\noindent&gt;&gt; Note that in the two column style figures and tables will only span one column unless specifically ordered across both with the ``*'' flag, e.g. &lt;&lt;\\&gt;&gt;
+
+&lt;&lt;
+\noindent{\tt\string\begin\{figure*\}} ... {\tt\string\end\{figure*\}}, \\
+\noindent{\tt\string\begin\{table*\}} ... {\tt\string\end\{table*\}}, and \\
+\noindent{\tt\string\begin\{deluxetable*\}} ... {\tt\string\end\{deluxetable*\}}. \\
+&gt;&gt;
+
+&lt;&lt;\noindent&gt;&gt; This option is ignored in the onecolumn style.
+
+Some other style options are outlined in the commented sections of this article. Any combination of style options can be used.
+
+Two style options that are needed to fully use the new revision tracking feature, see [](#sec:highlight), are &lt;&lt;{\tt\string linenumbers}&gt;&gt; which uses the lineno style file to number each article line in the left margin and &lt;&lt;{\tt\string trackchanges}&gt;&gt; which controls the revision and commenting highlight output.
+
+There is also a new &lt;&lt;{\tt\string modern}&gt;&gt; option that uses a Daniel Foreman-Mackey and David Hogg design to produce stylish, single column output that has wider left and right margins. It is designed to have fewer words per line to improve reader retention. It also looks better on devices with smaller displays such as smart phones.</Text>
+        </Document>
+        <Document ID="46">
+            <Title>Test for figs</Title>
+            <Text>&lt;!--
+%Use 
+%	![caption][label]
+%	And later
+%	[label]: $PATH width="0.30\textwidth" height="0.25\textheight"
+
+--&gt;
+
+Include some figure:
+
+Image one (image with given size, 200x400): [image fixed](#image:small)
+
+![Fig with give size, 200x400][image:fixed]
+
+Image two (image direct): [image direct, no way to ref it](#image:direct)
+
+![Direct figure title](../_demoResources/figs/&lt;$Compilegroup&gt;/comp_dr7.pdf "Optional title attribute")
+
+Image three (image: normal): [](#image:normal)
+
+![Here we have our long long blablaFigblablaFigblablaFigblabla FigtitleblablaFigblablaF igblablaFigblablaFigti tleblablaFigblablaFig, &lt;&lt;\small A demonstration of our near- to far-IR SEDs of PG quasars, produced by \cite{Kormendy&amp;Richstone1995ARA&amp;A}.&gt;&gt;, I try to ref [intro](#sec:intro)][image:normal]
+
+Image Four (image:small):[](#image:small)
+
+![0.3 \\textwidth and 0.25 \\textheight, compare the size with [](#image:normal)][image:small]
+
+[image:normal]: ../_demoResources/figs/&lt;$Compilegroup&gt;/comp_dr7.pdf  
+
+[image:fixed]: ../_demoResources/figs/&lt;$Compilegroup&gt;/comp_dr7.pdf width=300px height=200px
+
+[image:small]: ../_demoResources/figs/&lt;$Compilegroup&gt;/comp_dr7.pdf width="0.30\textwidth" height="0.25\textheight"
+
+Good include: [cmp](#fig:cmp)
+
+&lt;!--
+\begin{figure*}
+\begin{center}
+\includegraphics[width=0.95\textwidth]{../_demoResources/figs/&lt;$Compilegroup&gt;/color_map.pdf}
+\caption{
+Images observed through U- and Y-band filters are shown in {\it left} and {\it middle} columns. 
+The color maps are in the {\it right column}. 
+The FOV and orientation of the images in each row are the same.
+The compass and $3''$ scale bar are on the lower right corner of {\it left} and {\it middle} panels in each row.
+}
+\label{fig:cmp}
+\end{center}
+\end{figure*}
+--&gt;
 </Text>
         </Document>
     </Documents>

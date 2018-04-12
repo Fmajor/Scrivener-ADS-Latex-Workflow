@@ -57,6 +57,24 @@
 \renewcommand\subsectionautorefname{\S}
 \renewcommand\sectionautorefname{\S}
 
+
+%\renewcommand{\thesection}{}
+%\renewcommand{\thesubsection}{}
+%\renewcommand{\thesubsection}{{section}.{subsection}}
+\makeatletter
+\def\@seccntformat#1{\csname #1ignore\expandafter\endcsname\csname \endcsname\quad}
+\let\sectionignore\@gobbletwo
+\let\latex@numberline\numberline
+\def\numberline#1{\if\relax#1\relax\else\latex@numberline{#1}\fi}
+\makeatother
+
+\makeatletter
+\def\@subseccntformat#1{\csname #1ignore\expandafter\endcsname\csname \endcsname\quad}
+\let\subsectionignore\@gobbletwo
+\let\latex@numberline\numberline
+\def\numberline#1{\if\relax#1\relax\else\latex@numberline{#1}\fi}
+\makeatother
+
 \newcommand{\newsinglepage}{\end{singlepage}\begin{singlepage}}
 
 
