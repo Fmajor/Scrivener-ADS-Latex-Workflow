@@ -183,6 +183,9 @@ Extract colorful text from Highlights
 
 Issues
 ------
+* I do not get right "latex input" and content within <!-- --> in the final latex
+    check the version of your multimarkdown: mmd --version
+    we need version 4 (https://github.com/fletcher/MultiMarkdown-4) instead of version 6 (the latest one)
 
 I do not test this demo on other computer, if you meet any problem or have any suggession, please raise a Issue_
 
