@@ -181,11 +181,24 @@ Extract colorful text from Highlights
 
 .. _AASTeX: http://journals.aas.org/authors/aastex.html#_download
 
-Issues
-------
-* I do not get right "latex input" and content within <!-- --> in the final latex
-    check the version of your multimarkdown: mmd --version
-    we need version 4 (https://github.com/fletcher/MultiMarkdown-4) instead of version 6 (the latest one)
+Known Issues
+============
+
+Multimarkdown 6 and multimarkdown 4
+-----------------------------------
+After some version of Scrivener, they change multimarkdown 4 to multimarkdown 6
+
+I use these Replacements in the compile config
+
+``<<([^<]*?)>>`` => ``<!--$1-->`` and ``\|\|([^\|]*?)\|\|`` ==> ``<!--$1-->``
+
+that's because multimarkdown version 4 will compile raw code in html comments ``<!-- * -->`` into raw code in latex,
+but multimarkdown 6 change this action and break all ``<< code >>`` pair in my demo
+
+We need multimarkdown 4 (https://github.com/fletcher/MultiMarkdown-4). Clone and compile it, replace the bin (remember to backup the old bin)
+
+``/Applications/Scrivener.app/Contents/Resources/MultiMarkdown/bin/multimarkdown``
+
 
 I do not test this demo on other computer, if you meet any problem or have any suggession, please raise a Issue_
 
